@@ -176,6 +176,7 @@ onmessage = function(e) {
   data = {};
   data.score=0;
   data.grid=e.data.grid;
+  data.source=e.data.source;
   width = e.data.width;
   height = e.data.height;
 

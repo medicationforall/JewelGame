@@ -15,6 +15,13 @@ function Board(width,height,seed){
       this.updateGridPostCombo(e.data.grid);
       this.dropBoard(e.data.grid);
     }
+
+    if(e.data.source==='swap'){
+      if(e.data.score===0){
+        this.swapTokens('checkCombos');
+      }
+      this.unselectTokens();
+    }
     //$('.content').text(e.data);
     //console.log('Message received from worker',e);
   }.bind(this);
@@ -38,7 +45,7 @@ function Board(width,height,seed){
     this.buildBoardSpaces();
 
     //$.when(sleep(2000)).then($.proxy(function() {
-      this.checkCombos();
+      this.checkCombos('initial');
     //},this));
   };
 
@@ -76,12 +83,14 @@ function Board(width,height,seed){
   /**
    *
    */
-  this.checkCombos=function(){
+  this.checkCombos=function(source){
+    console.log('checking combos',source);
     var gridData = this.createGridData();
     var data={};
     data.grid = gridData;
     data.width = width;
     data.height = height;
+    data.source = source;
 
     comboWorker.postMessage(data);
   };
@@ -140,7 +149,7 @@ function Board(width,height,seed){
     }
 
     if(fillCount>0){
-      this.checkCombos();
+      this.checkCombos('fillboard');
     }
   };
 
@@ -196,10 +205,85 @@ function Board(width,height,seed){
    *
    */
   this.node.on('click','.space',$.proxy(function(board,event){
-    console.log('clicked space',arguments);
+    //console.log('clicked space',arguments);
     var space = $(this).data('node');
     space.selectToken();
+
+    var selectedSpaces = board.node.find('.space.selected');
+    if(selectedSpaces.length>1){
+      //console.log('selected two cells');
+      board.moveTokens(selectedSpaces);
+    }
   },null,this));
+
+
+  /**
+   *
+   */
+  this.moveTokens=function(spaces){
+    var sp1 = $(spaces[0]).data('node');
+    var sp2 = $(spaces[1]).data('node');
+
+    if(this.isTouching(sp1,sp2)){
+      this.swapTokens('moveTokens');
+    }
+
+    this.increaseMoves();
+    //console.log('move tokens',sp1,sp2);
+  };
+
+
+  /**
+   *
+   */
+  this.increaseMoves=function(){
+    var eMoves = parseInt($('.moves .value').text());
+    var newMoves = eMoves+1;
+    $('.moves .value').text(newMoves);
+  };
+
+
+  /**
+   *
+   */
+  this.isTouching=function(sp1,sp2){
+      return true;
+  };
+
+
+  /**
+   *
+   */
+  this.swapTokens=function(source){
+    var selectedSpaces = this.node.find('.space.selected');
+    if(selectedSpaces.length>1){
+      var sp1 = $(selectedSpaces[0]).data('node');
+      var sp2 = $(selectedSpaces[1]).data('node');
+
+      data1 = sp1.getData();
+      data2 = sp2.getData();
+
+      sp1.setData(data2);
+      sp2.setData(data1);
+
+      if(source=='moveTokens'){
+        this.checkCombos('swap');
+      }
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.unselectTokens=function(){
+    var selectedSpaces = this.node.find('.space.selected');
+
+    for(var i=0,space;(space=selectedSpaces[i]);i++){
+      node = $(space).data('node');
+      node.unselectToken();
+    }
+  };
 
   //main
   this._constructor();

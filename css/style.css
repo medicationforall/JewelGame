@@ -14,7 +14,7 @@ h1{
   vertical-align:middle;
 }
 
-.score{
+.score,.moves{
   display:inline-block;
   font-weight:bold;
   margin-left:20px;

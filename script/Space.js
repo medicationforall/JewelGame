@@ -68,10 +68,20 @@ function Space(color,shape){
    *
    */
   this.selectToken=function(){
-    console.log('select token');
+    //console.log('select token');
     if(this.node.hasClass('selected')===false){
       this.node.addClass('selected');
     } else{
+      this.node.removeClass('selected');
+    }
+  };
+
+  /**
+   *
+   */
+  this.unselectToken=function(){
+    //console.log('select token');
+    if(this.node.hasClass('selected')){
       this.node.removeClass('selected');
     }
   };

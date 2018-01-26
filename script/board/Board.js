@@ -7,6 +7,13 @@ function Board(width,height,seed){
 
   var shapes=['square','circle','triangle','pentagon','rabet'];
   var colors=['red','blue','green','orange','purple'];
+  var comboWorker = new Worker('/script/board/checkComboWorker.js');
+
+  comboWorker.onmessage = function(e) {
+    this.updateGridPostCombo(e.data.grid);
+    //$('.content').text(e.data);
+    console.log('Message received from worker',e);
+  }.bind(this);
 
   /**
    *
@@ -14,41 +21,32 @@ function Board(width,height,seed){
   this._constructor=function(){
     this.buildBoardSpaces();
 
-    $.when(sleep(1000)).then($.proxy(function() {
+    $.when(sleep(2000)).then($.proxy(function() {
+      this.checkCombos2();
+    },this));
+
+
+    /*$.when(sleep(1000)).then($.proxy(function() {
       var counter = 0;
-        while(this.checkCombos()){
+        while(this.checkCombos2()){
           this.fillBoard();
 
           console.log('ran checkCombos',counter);
           counter++;
         }
-    },this));
-
-    /*var counter = 0;
-    while(this.checkCombos() && counter<5){
-      this.fillBoard();
-      counter++;
-    }*/
-
-    //setTimeout(this.checkCombos, 0 );
-    //var counter = 0;
-    //while(this.checkCombos()){
-    //  this.fillBoard();
-      //counter++;
-    //}
+    },this));*/
   };
 
+  /**
+   *
+   */
   function sleep(ms) {
     return new Promise(function(resolve, reject) {
       setTimeout(resolve, ms, 'foo');
     });
   }
 
- /*this.asyncCombos=funcion(){
-   return new Promise(function(){
-     return setTimeout(this.checkCombos, ms);
-   });
- };*/
+
 
 
   /**
@@ -74,7 +72,7 @@ function Board(width,height,seed){
   /**
    *
    */
-  this.checkCombos=function(){
+  /*this.checkCombos=function(){
     //console.log('check combos');
     var children = this.node.children();
     var grid = this.createGrid(children);
@@ -84,13 +82,27 @@ function Board(width,height,seed){
     }
 
     return false;
+  };*/
+
+  /**
+   *
+   */
+  this.checkCombos2=function(){
+    var children = this.node.children();
+    var gridData = this.createGridData(children);
+    var data={};
+    data.grid = gridData;
+    data.width = width;
+    data.height = height;
+
+    comboWorker.postMessage(data);
   };
 
 
   /**
    *
    */
-  this.checkComboRows=function(grid){
+  /*this.checkComboRows=function(grid){
     //console.log('checkComboRows');
     for(var i=0;i<grid.length;i++){
       if(this.checkArrayCombo(grid[i])){
@@ -99,13 +111,13 @@ function Board(width,height,seed){
     }
 
     return false;
-  };
+  };*/
 
 
   /**
    *
    */
-  this.checkComboColumns=function(grid){
+  /*this.checkComboColumns=function(grid){
     //console.log('checkComboColumns');
     var colCount = width;
 
@@ -122,17 +134,20 @@ function Board(width,height,seed){
     }
 
     return false;
-  };
+  };*/
 
-  this.checkArrayCombo=function(ar){
+  /**
+   *
+   */
+  /*this.checkArrayCombo=function(ar){
     return this.checkArrayComboColor(ar) || this.checkArrayComboShape(ar);
-  };
+  };*/
 
 
   /**
    *
    */
-  this.checkArrayComboColor=function(ar){
+  /*this.checkArrayComboColor=function(ar){
     var color = '';
     var match=[];
 
@@ -170,13 +185,13 @@ function Board(width,height,seed){
     }
 
     return false;
-  };
+  };*/
 
 
   /**
    *
    */
-  this.checkArrayComboShape=function(ar){
+  /*this.checkArrayComboShape=function(ar){
     var shape = '';
     var match=[];
 
@@ -215,13 +230,13 @@ function Board(width,height,seed){
     }
 
     return false;
-  };
+  };*/
 
 
   /**
    *
    */
-  this.scoreCombo=function(match){
+  /*this.scoreCombo=function(match){
     var addScore = 1+(match.length%3);
     console.log('increase score by',addScore);
 
@@ -230,13 +245,13 @@ function Board(width,height,seed){
         node.empty();
         node.node.addClass('empty');
     }
-  };
+  };*/
 
 
   /**
    *
    */
-  this.createGrid=function(bs){
+  /*this.createGrid=function(bs){
     var count = width * height;
     var grid = [];
     var row = [];
@@ -252,6 +267,46 @@ function Board(width,height,seed){
     //console.log(grid);
 
     return grid;
+  };*/
+
+
+  /**
+   *
+   */
+  this.createGridData=function(bs){
+    var count = width * height;
+    var grid = [];
+    var row = [];
+    for(var i=0,space;(space=bs[i]);i++){
+      if(space.tagName==='DIV'){
+        var node = $(space).data('node');
+        row.push(node.getData());
+      }else if(space.tagName==='BR'){
+        grid.push(row);
+        row=[];
+      }
+    }
+
+    //console.log(grid);
+
+    return grid;
+  };
+
+  /**
+   *
+   */
+  this.updateGridPostCombo=function(gridData){
+    var bs = this.node.children();
+    var gridCount=0;
+    var tmpGridData = [].concat.apply([], gridData);
+
+    for(var i=0,space;(space=bs[i]);i++){
+      if(space.tagName==='DIV'){
+        var node = $(space).data('node');
+        node.setData(tmpGridData[gridCount]);
+        gridCount++;
+      }
+    }
   };
 
 

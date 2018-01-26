@@ -109,7 +109,7 @@ function Board(width,height,seed){
    *
    */
   this.dropBoard=function(grid){
-    console.log('drop board');
+    //console.log('drop board');
 
     var data={};
     data.grid = grid;
@@ -123,13 +123,13 @@ function Board(width,height,seed){
    *
    */
   this.fillBoard=function(){
-    console.log('fill board');
+    //console.log('fill board');
     var children = this.node.find('.space .token:hidden');
     var fillCount = 0;
 
     for(var i=0,token;(token=children[i]);i++){
       var space = $(token).parent().data('node');
-      console.log('fill',space);
+      //console.log('fill',space);
       var data = {};
       data.color = this._getRandomColor();
       data.shape = this._getRandomShape();
@@ -191,6 +191,15 @@ function Board(width,height,seed){
     var newScore = eScore+score;
     $('.score .value').text(newScore);
   };
+
+  /**
+   *
+   */
+  this.node.on('click','.space',$.proxy(function(board,event){
+    console.log('clicked space',arguments);
+    var space = $(this).data('node');
+    space.selectToken();
+  },null,this));
 
   //main
   this._constructor();

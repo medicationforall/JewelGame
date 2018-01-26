@@ -3,7 +3,8 @@ function Space(color,shape){
   this.shape = shape;
   this.template = '<div class="space">'+
   '<span class="token '+shape+' '+color+'" data-color="'+color+'" data-shape="'+shape+'"></span>'+
-  '<span class="shadow '+shape+' '+color+'"></span>'+
+  '<span class="outline '+shape+'"></span>'+
+  '<span class="shadow '+shape+'"></span>'+
   '</div>';
 
   this.node=$(this.template);
@@ -20,11 +21,11 @@ function Space(color,shape){
    *
    */
   this.empty=function(){
-    this.node.find('.token,.shadow').css('display','none');
+    this.node.find('.token,.shadow,.outline').css('display','none');
     this.color = undefined;
     this.shape = undefined;
 
-    console.log('empty space',this.node.data('node'));
+    //console.log('empty space',this.node.data('node'));
   };
 
   /**
@@ -53,13 +54,25 @@ function Space(color,shape){
 
       this.node.find('.token').attr('data-color',this.color);
       this.node.find('.token').attr('data-shape',this.shape);
-      this.node.find('.shadow').attr('data-shape',this.shape);
 
       this.node.find('.token').removeClass('red blue green purple orange').addClass(this.color);
-      this.node.find('.token,.shadow').removeClass('square circle triangle pentagon rabet').addClass(this.shape);
-      this.node.find('.token,.shadow').css('display','');
+      this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabet').addClass(this.shape);
+      this.node.find('.token,.shadow,.outline').css('display','');
     }else{
       this.empty();
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.selectToken=function(){
+    console.log('select token');
+    if(this.node.hasClass('selected')===false){
+      this.node.addClass('selected');
+    } else{
+      this.node.removeClass('selected');
     }
   };
 }

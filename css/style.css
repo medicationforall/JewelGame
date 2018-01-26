@@ -10,6 +10,15 @@ body{
 h1{
   margin:0px;
   padding:0px;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.score{
+  display:inline-block;
+  font-weight:bold;
+  margin-left:20px;
+  font-size:14pt;
 }
 .game{
   height:calc(100% - 39px);

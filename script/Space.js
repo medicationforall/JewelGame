@@ -20,9 +20,11 @@ function Space(color,shape){
    *
    */
   this.empty=function(){
-    this.node.empty();
+    this.node.find('.token,.shadow').css('display','none');
     this.color = undefined;
     this.shape = undefined;
+
+    console.log('empty space',this.node.data('node'));
   };
 
   /**
@@ -47,14 +49,15 @@ function Space(color,shape){
       this.color = data.color;
       this.shape = data.shape;
 
-      this.node.replaceWith(this.template);
+      //this.node.replaceWith(this.template);
 
       this.node.find('.token').attr('data-color',this.color);
       this.node.find('.token').attr('data-shape',this.shape);
       this.node.find('.shadow').attr('data-shape',this.shape);
 
       this.node.find('.token').removeClass('red blue green purple orange').addClass(this.color);
-      this.node.find('.token').removeClass('square cirlcle triangle pentagon rabet').addClass(this.shape);
+      this.node.find('.token,.shadow').removeClass('square circle triangle pentagon rabet').addClass(this.shape);
+      this.node.find('.token,.shadow').css('display','');
     }else{
       this.empty();
     }

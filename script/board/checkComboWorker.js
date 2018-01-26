@@ -71,7 +71,7 @@ var checkArrayComboColor=function(ar,type){
 
     if(space===undefined || (space.empty && space[type]) ){
       if(match.length>2){
-        console.log('match hit shape');
+        //console.log('match hit shape');
         this.scoreCombo(match,type,'colorHit');
         return true;
       }
@@ -80,7 +80,7 @@ var checkArrayComboColor=function(ar,type){
       match=[];
     } else if(color!=space.color){
       if(match.length>2){
-        console.log('match hit color');
+        //console.log('match hit color');
         this.scoreCombo(match,type,'colorHit');
         return true;
       }
@@ -95,7 +95,7 @@ var checkArrayComboColor=function(ar,type){
 
   //final check
   if(match.length>2){
-    console.log('match hit color');
+    //console.log('match hit color');
     this.scoreCombo(match,type,'colorHit');
     return true;
   }
@@ -114,7 +114,7 @@ var checkArrayComboShape=function(ar,type){
   for(var i=0,space;(space=ar[i]);i++){
     if(space===undefined || (space.empty && space[type])){
       if(match.length>2){
-        console.log('match hit');
+        //console.log('match hit');
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -124,7 +124,7 @@ var checkArrayComboShape=function(ar,type){
     } else if(shape!=space.shape){
 
       if(match.length>2){
-        console.log('match hit shape');
+        //console.log('match hit shape');
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -139,7 +139,7 @@ var checkArrayComboShape=function(ar,type){
 
   //final check
   if(match.length>2){
-    console.log('match hit shape');
+    //console.log('match hit shape');
     this.scoreCombo(match,type,'shapeHit');
     return true;
   }
@@ -153,7 +153,7 @@ var checkArrayComboShape=function(ar,type){
  */
 this.scoreCombo=function(match,rc,sc){
   var addScore = match.length-2;
-  console.log('increase score by',addScore);
+  //console.log('increase score by',addScore);
   data.score+=addScore;
 
   for(var i=0,space;(space=match[i]);i++){
@@ -171,7 +171,7 @@ this.scoreCombo=function(match,rc,sc){
  *
  */
 onmessage = function(e) {
-  console.log('Message received from main script',e);
+  //console.log('Message received from main script',e);
 
   data = {};
   data.score=0;
@@ -181,7 +181,7 @@ onmessage = function(e) {
 
   var counter=0;
   while(checkCombos(data.grid) && counter<200 ){
-    console.log('still checking for combos',counter);
+    //console.log('still checking for combos',counter);
     counter++;
   }
 

@@ -1,2 +1,2 @@
-# ClipPathAnimationDemo
+# JewelGame
 Jewel Game Demo

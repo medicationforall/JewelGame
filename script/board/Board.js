@@ -7,8 +7,11 @@ function Board(width,height,seed){
 
   var shapes=['square','circle','triangle','pentagon','rabet'];
   var colors=['red','blue','green','orange','purple'];
+ 
+  var relativePath = window.location.pathname.replace('index.html','');
+  console.log('relative path',relativePath);
 
-  var comboWorker = new Worker('/script/board/checkComboWorker.js');
+  var comboWorker = new Worker(relativePath+'script/board/checkComboWorker.js');
   comboWorker.onmessage = function(e) {
     if(e.data.score>0){
       this.updateScore(e.data.score);
@@ -27,7 +30,7 @@ function Board(width,height,seed){
   }.bind(this);
 
 
-  var dropWorker = new Worker('/script/board/dropComboWorker.js');
+  var dropWorker = new Worker(relativePath+'script/board/dropComboWorker.js');
   dropWorker.onmessage = function(e) {
     if(e.data.dropCount>0){
       this.updateGridPostCombo(e.data.grid);

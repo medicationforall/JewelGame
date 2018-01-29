@@ -42,24 +42,71 @@ function Space(color,shape){
     }
   };
 
+
   /**
    *
    */
   this.setData=function(data){
     if(data!==undefined && data.empty!==true){
-      this.color = data.color;
-      this.shape = data.shape;
-
-      //this.node.replaceWith(this.template);
-
-      this.node.find('.token').attr('data-color',this.color);
-      this.node.find('.token').attr('data-shape',this.shape);
-
-      this.node.find('.token').removeClass('red blue green purple orange').addClass(this.color);
-      this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabet').addClass(this.shape);
+      var animations = [];
       this.node.find('.token,.shadow,.outline').css('display','');
+      animations.push(this.setColor(data.color));
+      animations.push(this.setShape(data.shape));
+      return animations;
     }else{
       this.empty();
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.setColor=function(color){
+    if(color !== this.color){
+      this.color = color;
+      this.node.find('.token').attr('data-color',this.color);
+      this.node.find('.token').removeClass('red blue green purple orange');
+      return this.node.find('.token').transitionCss(this.color);
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.setShape=function(shape){
+    if(shape !== this.shape){
+      var animation = this.animateShapeChange(shape);
+      this.node.find('.token').attr('data-shape',shape);
+      this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabbet');
+
+      if(shape==='circle'){
+        this.shape = shape;
+        animation = this.node.find('.token,.shadow,.outline').transitionCss(this.shape);
+      }else if(this.shape){
+        this.shape = shape;
+        animation = this.node.find('.token,.shadow,.outline').transitionCss(this.shape);
+      }else{
+        this.shape = shape;
+        this.node.find('.token,.shadow,.outline').addClass(this.shape);
+      }
+      return animation;
+    }
+  };
+
+  /**
+   *
+   */
+  this.animateShapeChange=function(shape){
+    var fromShapes = ['square','rabbet','triangle','pentagon'];
+    var token =this.node.find('.token,.shadow,.outline');
+
+    for(var i=0,fromShape;(fromShape=fromShapes[i]);i++){
+      if(fromShape !== shape && shape !== 'circle' && token.hasClass(fromShape)){
+        var animationClass = fromShape+'-to-'+shape;
+        return token.animateCss(animationClass);
+      }
     }
   };
 
@@ -75,6 +122,7 @@ function Space(color,shape){
       this.node.removeClass('selected');
     }
   };
+
 
   /**
    *

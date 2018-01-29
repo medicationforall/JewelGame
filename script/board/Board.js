@@ -5,11 +5,11 @@ function Board(width,height,seed){
   this.seed=seed;
   this.rng=new Rng(this.seed);
 
-  var shapes=['square','circle','triangle','pentagon','rabet'];
+  var shapes=['square','circle','triangle','pentagon','rabbet'];
   var colors=['red','blue','green','orange','purple'];
- 
+
   var relativePath = window.location.pathname.replace('index.html','');
-  console.log('relative path',relativePath);
+  //console.log('relative path',relativePath);
 
   var comboWorker = new Worker(relativePath+'script/board/checkComboWorker.js');
   comboWorker.onmessage = function(e) {
@@ -25,8 +25,6 @@ function Board(width,height,seed){
       }
       this.unselectTokens();
     }
-    //$('.content').text(e.data);
-    //console.log('Message received from worker',e);
   }.bind(this);
 
 
@@ -36,8 +34,6 @@ function Board(width,height,seed){
       this.updateGridPostCombo(e.data.grid);
     }
     this.fillBoard();
-    //$('.content').text(e.data);
-    //console.log('Message received from worker',e);
   }.bind(this);
 
 
@@ -87,7 +83,7 @@ function Board(width,height,seed){
    *
    */
   this.checkCombos=function(source){
-    console.log('checking combos',source);
+    //console.log('checking combos',source);
     var gridData = this.createGridData();
     var data={};
     data.grid = gridData;
@@ -121,8 +117,6 @@ function Board(width,height,seed){
    *
    */
   this.dropBoard=function(grid){
-    //console.log('drop board');
-
     var data={};
     data.grid = grid;
     data.width = width;
@@ -135,13 +129,11 @@ function Board(width,height,seed){
    *
    */
   this.fillBoard=function(){
-    //console.log('fill board');
     var children = this.node.find('.space .token:hidden');
     var fillCount = 0;
 
     for(var i=0,token;(token=children[i]);i++){
       var space = $(token).parent().data('node');
-      //console.log('fill',space);
       var data = {};
       data.color = this._getRandomColor();
       data.shape = this._getRandomShape();
@@ -174,7 +166,6 @@ function Board(width,height,seed){
         row=[];
       }
     }
-    //console.log(grid);
     return grid;
   };
 
@@ -208,13 +199,11 @@ function Board(width,height,seed){
    *
    */
   this.node.on('click','.space',$.proxy(function(board,event){
-    //console.log('clicked space',arguments);
     var space = $(this).data('node');
     space.selectToken();
 
     var selectedSpaces = board.node.find('.space.selected');
     if(selectedSpaces.length>1){
-      //console.log('selected two cells');
       board.moveTokens(selectedSpaces);
     }
   },null,this));
@@ -232,7 +221,6 @@ function Board(width,height,seed){
     }
 
     this.increaseMoves();
-    //console.log('move tokens',sp1,sp2);
   };
 
 
@@ -266,12 +254,23 @@ function Board(width,height,seed){
       data1 = sp1.getData();
       data2 = sp2.getData();
 
-      sp1.setData(data2);
-      sp2.setData(data1);
+      var animation1 = sp1.setData(data2);
+      var animation2 = sp2.setData(data1);
+      var animations = animation1.concat(animation2);
 
-      if(source=='moveTokens'){
-        this.checkCombos('swap');
+      waitForAnimations = [];
+
+      for(var i=0;(i<animations.length);i++){
+        if(animations[i]){
+          waitForAnimations.push(animations[i]);
+        }
       }
+
+      $.when.apply(this,waitForAnimations).done($.proxy(function(){
+        if(source=='moveTokens'){
+          this.checkCombos('swap');
+        }
+      },this));
     }
   };
 

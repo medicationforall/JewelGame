@@ -3,15 +3,11 @@ body{
   color:#fff;
 }
 
-
 .shadow{
   bottom:6px;
   right:6px;
 }
 
-.triangle ~ .highlight{
-  margin-left:40px;
-}
 
 /*Red*/
 .red ~ .highlight{
@@ -53,17 +49,17 @@ body{
   background:#6f66cc;
 }
 
-/*Purple*/
+/*Purple hover*/
 .space:hover .purple ~ .highlight{
-  background:#daeaf2;
+  background:#e9f3f7;
 }
 
 .space:hover .purple{
-  background:#8cb2ff;
+  background:#abccff;
 }
 
 .space:hover .purple ~ .shadow{
-  background:#6f66cc;
+  background:#8e84e0;
 }
 
 /*Green*/
@@ -79,6 +75,19 @@ body{
   background:#15788c;
 }
 
+/*Green hover*/
+.space:hover .green ~ .highlight{
+  background:#fff5e0;
+}
+
+.space:hover .green{
+  background:#1ce09f;
+}
+
+.space:hover .green ~ .shadow{
+  background:#1e97ab;
+}
+
 /*Orange*/
 .orange ~ .highlight{
   background:#ffc34d;
@@ -92,6 +101,19 @@ body{
   background:#a64b4b;
 }
 
+/*Orange hover*/
+.space:hover .orange ~ .highlight{
+  background:#ffd967;
+}
+
+.space:hover .orange{
+  background:#f89b71;
+}
+
+.space:hover .orange ~ .shadow{
+  background:#c26565;
+}
+
 /*Blue*/
 .blue ~ .highlight{
   background:#80ffea;
@@ -102,5 +124,18 @@ body{
 }
 
 .blue ~ .shadow{
+  background:#266eff;
+}
+
+/*Blue hover*/
+.space:hover .blue ~ .highlight{
+  background:#9ffff3;
+}
+
+.space:hover .blue{
+  background:#00e6ff;
+}
+
+.space:hover .blue ~ .shadow{
   background:#266eff;
 }

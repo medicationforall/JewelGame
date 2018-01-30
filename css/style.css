@@ -56,6 +56,10 @@ h1{
   /*border-radius:50%;*/
 }
 
+.triangle ~ .highlight{
+  margin-left:40px;
+}
+
 .token{
   margin:10px;
   width:80px;

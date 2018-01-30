@@ -5,8 +5,8 @@ function Board(seed,level,properties){
   this.seed= seed;
   this.rng=new Rng(this.seed);
 
-  var shapes=['square','circle','triangle','pentagon','rabbet'];
-  var colors=['red','blue','green','orange','purple'];
+  this.shapes=['square','circle','triangle','pentagon','rabbet'];
+  this.colors=['red','blue','green','orange','purple'];
 
   var relativePath = window.location.pathname.replace('index.html','');
   //console.log('relative path',relativePath);
@@ -60,11 +60,33 @@ function Board(seed,level,properties){
   this._constructor=function(){
     this.setLevel(level);
     this.setEndCondition(properties.endCondition);
+    this.setColors(properties.colors);
+    this.setShapes(properties.shapes);
     this.buildBoardSpaces();
 
     //$.when(sleep(2000)).then($.proxy(function() {
       this.checkCombos('initial');
     //},this));
+  };
+
+
+  /**
+   *
+   */
+  this.setColors=function(colors){
+    if(colors){
+        this.colors = colors;
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.setShapes=function(shapes){
+    if(shapes){
+        this.shapes = shapes;
+    }
   };
 
 
@@ -205,7 +227,7 @@ function Board(seed,level,properties){
    *
    */
   this._getRandomColor=function(){
-    return colors[this.rng.getRandom(this.seed+level+'-color',0,colors.length-1)];
+    return this.colors[this.rng.getRandom(this.seed+level+'-color',0,this.colors.length-1)];
   };
 
 
@@ -213,7 +235,7 @@ function Board(seed,level,properties){
    *
    */
   this._getRandomShape=function(){
-    return shapes[this.rng.getRandom(this.seed+level+'-shape',0,shapes.length-1)];
+    return this.shapes[this.rng.getRandom(this.seed+level+'-shape',0,this.shapes.length-1)];
   };
 
 

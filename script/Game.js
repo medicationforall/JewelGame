@@ -5,7 +5,7 @@ function Game(){
   var level = 0;
   var levels = [
     {"width":10,"height":9,"endCondition":{'remainingJewels':300}},
-    {"width":5,"height":5,"endCondition":{'remainingMoves':10}},
+    {"width":5,"height":5,"endCondition":{'remainingMoves':10},'colors':['red','green','blue','orange'],'shapes':['square','circle','triange','pentagon']},
     {"width":6,"height":6,"endCondition":{'maxScore':20}},
     {"width":9,"height":9,"endCondition":{'unknown':20}},
   ];

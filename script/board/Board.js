@@ -1,8 +1,8 @@
-function Board(properties){
+function Board(seed,level,properties){
   this.template='<div class="board"></div>';
   this.node= $(this.template);
   this.node.data('node',this);
-  this.seed= properties.seed;
+  this.seed= seed;
   this.rng=new Rng(this.seed);
 
   var shapes=['square','circle','triangle','pentagon','rabbet'];
@@ -58,7 +58,7 @@ function Board(properties){
    *
    */
   this._constructor=function(){
-    this.setLevel(properties.level);
+    this.setLevel(level);
     this.setEndCondition(properties.endCondition);
     this.buildBoardSpaces();
 
@@ -205,7 +205,7 @@ function Board(properties){
    *
    */
   this._getRandomColor=function(){
-    return colors[this.rng.getRandom(this.seed+properties.level+'-color',0,colors.length-1)];
+    return colors[this.rng.getRandom(this.seed+level+'-color',0,colors.length-1)];
   };
 
 
@@ -213,7 +213,7 @@ function Board(properties){
    *
    */
   this._getRandomShape=function(){
-    return shapes[this.rng.getRandom(this.seed+properties.level+'-shape',0,shapes.length-1)];
+    return shapes[this.rng.getRandom(this.seed+level+'-shape',0,shapes.length-1)];
   };
 
 

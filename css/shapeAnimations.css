@@ -1,3 +1,102 @@
+@keyframes vanishOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(1.5, 1.5);
+    filter: blur(2px);
+  }
+}
+
+
+
+@keyframes drop1{
+  0% {
+    top:-100px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop2{
+  0% {
+    top:-200px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop3{
+  0% {
+    top:-300px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop4{
+  0% {
+    top:-400px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop5{
+  0% {
+    top:-500px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop6{
+  0% {
+    top:-600px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop7{
+  0% {
+    top:-700px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop8{
+  0% {
+    top:-800px
+  }
+  100% {
+    top:0px;
+  }
+}
+
+@keyframes drop9{
+  0% {
+    top:-900px
+  }
+  100% {
+    top:0px;
+  }
+}
+
 /*Square*/
 @keyframes square-to-triangle{
   0% {
@@ -57,58 +156,97 @@
   }
 }
 
-
 /*Square*/
 .square-to-triangle{
-  animation: square-to-triangle linear 0.5s;
+  animation: square-to-triangle linear 0.5S;
 }
 
 .square-to-pentagon{
-  animation: square-to-pentagon linear 0.5s;
+  animation: square-to-pentagon linear 0.5S;
 }
 
 .square-to-rabbet{
-  animation: square-to-rabbet linear 0.5s;
+  animation: square-to-rabbet linear 0.5S;
 }
 
 
 /*Triangle*/
 .triangle-to-square{
-  animation: square-to-triangle linear reverse 0.5s;
+  animation: square-to-triangle linear reverse 0.5S;
 }
 
 .triangle-to-pentagon{
-  animation: triangle-to-pentagon linear 0.5s;
+  animation: triangle-to-pentagon linear 0.5S;
 }
 
 .triangle-to-rabbet{
-  animation: triangle-to-rabbet linear 0.5s;
+  animation: triangle-to-rabbet linear 0.5S;
 }
 
 
 /*Pentagon*/
 .pentagon-to-square{
-  animation: square-to-pentagon linear reverse 0.5s;
+  animation: square-to-pentagon linear reverse 0.5S;
 }
 
 .pentagon-to-triangle{
-  animation: triangle-to-pentagon linear reverse 0.5s;
+  animation: triangle-to-pentagon linear reverse 0.5S;
 }
 
 .pentagon-to-rabbet{
-  animation: pentagon-to-rabbet linear 0.5s;
+  animation: pentagon-to-rabbet linear 0.5S;
 }
 
 
 /*rabbet*/
 .rabbet-to-square{
-  animation: square-to-rabbet linear reverse 0.5s;
+  animation: square-to-rabbet linear reverse 0.5S;
 }
 
 .rabbet-to-triangle{
-  animation: triangle-to-rabbet linear reverse 0.5s;
+  animation: triangle-to-rabbet linear reverse 0.5S;
 }
 
 .rabbet-to-pentagon{
-  animation: pentagon-to-rabbet linear reverse 0.5s;
+  animation: pentagon-to-rabbet linear reverse 0.5S;
+}
+
+.drop9{
+  animation: drop9 0.5S;
+}
+
+.drop8{
+  animation: drop8 0.5S;
+}
+
+.drop7{
+  animation: drop7 0.5S;
+}
+
+.drop6{
+  animation: drop6 0.5S;
+}
+
+.drop5{
+  animation: drop5 0.5S;
+}
+
+.drop4{
+  animation: drop4 0.5S;
+}
+
+.drop3{
+  animation: drop3 0.5S;
+}
+
+.drop2{
+  animation: drop2 0.5S;
+}
+
+.drop1{
+  animation: drop1 0.5S;
+}
+
+.vanishOut{
+  animation: vanishOut 0.2S;
 }

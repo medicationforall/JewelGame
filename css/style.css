@@ -14,7 +14,7 @@ h1{
   vertical-align:middle;
 }
 
-.score,.moves{
+.level,.score,.moves,.endCondition{
   display:inline-block;
   font-weight:bold;
   margin-left:20px;
@@ -50,7 +50,9 @@ h1{
   height:80px;
   background:#000;
   display:inline-block;
-  transition:border-radius 0.5s,background-color 0.5s;
+  transition:border-radius 0.25s,background-color 0.25s,opacity 0.25s;
+  position:absolute;
+  opacity:1;
 }
 
 .shadow{
@@ -62,6 +64,7 @@ h1{
   bottom:8px;
   right:8px;
   z-index:-1;
+  opacity:1;
 }
 
 .outline{

@@ -74,6 +74,7 @@ onmessage = function(e) {
   data = {};
   data.grid=e.data.grid;
   data.dropCount=0;
+  data.source = e.data.source;
   width = e.data.width;
   height = e.data.height;
 

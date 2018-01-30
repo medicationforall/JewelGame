@@ -20,12 +20,10 @@ function Space(color,shape){
   /**
    *
    */
-  this.empty=function(){
-    this.node.find('.token,.shadow,.outline').css('display','none');
+  this.empty=function(data){
     this.color = undefined;
     this.shape = undefined;
-
-    //console.log('empty space',this.node.data('node'));
+    this.node.find('.token,.shadow,.outline').addClass('remove').css('display','none');
   };
 
   /**
@@ -47,15 +45,35 @@ function Space(color,shape){
    *
    */
   this.setData=function(data){
+    var animations = [];
     if(data!==undefined && data.empty!==true){
-      var animations = [];
+
+      this.node.find('.token').removeClass('remove');
       this.node.find('.token,.shadow,.outline').css('display','');
-      animations.push(this.setColor(data.color));
-      animations.push(this.setShape(data.shape));
-      return animations;
+      var colorAnimation = this.setColor(data.color);
+      var shapeAnimation = this.setShape(data.shape);
+
+      if(colorAnimation){
+        animations.push(colorAnimation);
+      }
+
+      if(shapeAnimation){
+        animations.push(shapeAnimation);
+      }
+
+      if(data.drop && data.drop > 0){
+        animations = [];
+        animations.push(this.setDrop(data.drop));
+      }
     }else{
-      this.empty();
+      animations.push(this.empty(data));
     }
+    return animations;
+  };
+
+  this.setDrop=function(drop){
+    var token = this.node.find('.token,.shadow,.outline');
+    return token.animateCss('drop'+drop);
   };
 
 

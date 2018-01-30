@@ -1,21 +1,16 @@
 $.fn.extend({
     animateCss: function (animationName) {
-        var animationDeferred = $.Deferred();
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-            $(this).removeClass('animated ' + animationName);
-            animationDeferred.resolve();
-        });
-        return animationDeferred;
+      var animationEnd = 'animationend';
+      $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+        $(this).removeClass('animated ' + animationName);
+      });
     },
 
     transitionCss: function (className) {
-        var animationDeferred = $.Deferred();
-        var animationEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
-        $(this).addClass(className).one(animationEnd, function() {
-            animationDeferred.resolve();
-        });
-        return animationDeferred;
+      var animationEnd = 'transitionend';
+      $(this).addClass(className).one(animationEnd, function() {
+        //animationDeferred.resolve($(this),'color');
+      });
     }
 });
 

@@ -1,0 +1,106 @@
+body{
+  background:#341f34;
+  color:#fff;
+}
+
+
+.shadow{
+  bottom:6px;
+  right:6px;
+}
+
+.triangle ~ .highlight{
+  margin-left:40px;
+}
+
+/*Red*/
+.red ~ .highlight{
+  background:#ffbca6;
+}
+
+.red{
+  background:#ff5983;
+}
+
+.red ~ .shadow{
+  background:#a63a82;
+}
+
+/*Red hover*/
+.space:hover .red ~ .highlight{
+  background:#ffd4c2;
+}
+
+.space:hover .red{
+  background:#ff75a2;
+}
+
+.space:hover .red ~ .shadow{
+  background:#c250a1;
+}
+
+
+/*Purple*/
+.purple ~ .highlight{
+  background:#daeaf2;
+}
+
+.purple{
+  background:#8cb2ff;
+}
+
+.purple ~ .shadow{
+  background:#6f66cc;
+}
+
+/*Purple*/
+.space:hover .purple ~ .highlight{
+  background:#daeaf2;
+}
+
+.space:hover .purple{
+  background:#8cb2ff;
+}
+
+.space:hover .purple ~ .shadow{
+  background:#6f66cc;
+}
+
+/*Green*/
+.green ~ .highlight{
+  background:#ffeecc;
+}
+
+.green{
+  background:#14cc80;
+}
+
+.green ~ .shadow{
+  background:#15788c;
+}
+
+/*Orange*/
+.orange ~ .highlight{
+  background:#ffc34d;
+}
+
+.orange{
+  background:#f37c55;
+}
+
+.orange ~ .shadow{
+  background:#a64b4b;
+}
+
+/*Blue*/
+.blue ~ .highlight{
+  background:#80ffea;
+}
+
+.blue{
+  background:#00d5ff;
+}
+
+.blue ~ .shadow{
+  background:#266eff;
+}

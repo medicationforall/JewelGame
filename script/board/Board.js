@@ -23,10 +23,12 @@ function Board(properties){
         this.dropBoard(e.data.grid,e.data.source);
       },this));
     }else{
-      console.log('can interact true');
+      //console.log('can interact true');
       this.canInteract=true;
 
       if(this.endGame===true){
+          dropWorker.terminate();
+          comboWorker.terminate();
           $('.game').trigger('end-game');
       }
     }
@@ -101,7 +103,7 @@ function Board(properties){
    */
   this.checkCombos=function(source){
     //console.log('checking combos',source);
-    console.log('can interact false');
+    //console.log('can interact false');
     this.canInteract=false;
     var gridData = this.createGridData();
     var data={};
@@ -122,21 +124,13 @@ function Board(properties){
     var gridCount=0;
     var tmpGridData = [].concat.apply([], gridData);
 
-    var animations = [];
-
     for(var i=0,space;(space=bs[i]);i++){
       if(space.tagName==='DIV'){
         var node = $(space).data('node');
-        var tmpanimations = node.setData(tmpGridData[gridCount]);
-
-        if(tmpanimations.length>0){
-          animations = animations.concat(tmpanimations);
-        }
+        node.setData(tmpGridData[gridCount]);
         gridCount++;
       }
     }
-
-    return animations;
   };
 
 
@@ -331,15 +325,14 @@ function Board(properties){
       data1 = sp1.getData();
       data2 = sp2.getData();
 
-      var animation1 = sp1.setData(data2);
-      var animation2 = sp2.setData(data1);
-      var animations = animation1.concat(animation2);
+      sp1.setData(data2);
+      sp2.setData(data1);
 
-      $.when.apply(this,animations).done($.proxy(function(){
-        if(source=='moveTokens'){
+      if(source=='moveTokens'){
+        $.when(sleep(sleepTime+200)).then($.proxy(function() {
           this.checkCombos('swap');
-        }
-      },this));
+        },this));
+      }
     }
   };
 

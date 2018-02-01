@@ -1,6 +1,6 @@
 /**
  * Random number generator based on passed in seeds.
- * @see ../lib/seedrandom
+ * @see lib/seedrandom
  * Written by James Adams Copyright 2016
  * @todo change how the rng's are stored so that they aren't registered directly against the rng object.
  * @todo move to MJS?
@@ -39,4 +39,3 @@ Rng.prototype.createSeed=function(seed){
 };
 
 
-//Object.setPrototypeOf(Rng.prototype, Core.prototype);

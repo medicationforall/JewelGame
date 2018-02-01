@@ -5,8 +5,8 @@ function Board(seed,level,properties){
   this.seed= seed;
   this.rng=new Rng(this.seed);
 
-  this.shapes=['square','circle','triangle','pentagon','rabbet'];
-  this.colors=['red','blue','green','orange','purple'];
+  this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
+  this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
 
   var relativePath = window.location.pathname.replace('index.html','');
   //console.log('relative path',relativePath);
@@ -110,7 +110,7 @@ function Board(seed,level,properties){
       var color="red";
       var shape="square";
 
-      var space = new Space(this._getRandomColor(),this._getRandomShape());
+      var space = new Space(this._getRandomColor(),this._getRandomShape(),i);
       this.node.append(space.node);
 
       if((i+1)%properties.width===0){
@@ -305,6 +305,8 @@ function Board(seed,level,properties){
 
     if(this.isTouching(sp1,sp2)){
       this.swapTokens('moveTokens');
+    }else{
+      this.unselectTokens();
     }
 
     this.increaseMoves();
@@ -331,7 +333,22 @@ function Board(seed,level,properties){
    *
    */
   this.isTouching=function(sp1,sp2){
+    var i1 = sp1.getIndex();
+    var i2 = sp2.getIndex();
+
+    var xAxisCheck = i1-i2;
+    var topCheck = i1 - properties.width;
+    var bottomCheck = i1 + properties.width;
+
+    if(xAxisCheck === -1 || xAxisCheck === 1){
       return true;
+    }else if(topCheck === i2){
+      return true;
+    }else if(bottomCheck === i2){
+      return true;
+    }
+
+    return false;
   };
 
 

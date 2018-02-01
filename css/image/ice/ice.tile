@@ -1,0 +1,61 @@
+Tilemancer 0.2.1
+
+Color 0 0 0
+PaletteSave1 
+PaletteSave2 
+FileSave1 \Users\u958Adams\Desktop
+FileSave2 ice.tile
+Indexed 0
+Size 40
+Camera 0 0
+Node {
+Name simple_color.lua
+Position 434.764 94.1586
+Parameter 79 0 255 0
+Parameter 219 0 255 0
+Parameter 255 0 255 0
+Parameter 1 1 100 0
+Connection 0 3 0
+}
+Node {
+Name perlin_noise.lua
+Position 126.313 275.114
+Parameter 2 -1 -1 0
+Parameter 2 2 -1 0
+Parameter 3 1 -1 0
+Parameter 200 100 -1 0
+Parameter 80 0 100 0
+Parameter 60 0 -1 0
+}
+Node {
+Name blend.lua
+Position 248.211 68.5277
+Parameter 3 0 5 0
+Parameter 100 0 100 0
+Connection 0 4 0
+Connection 1 1 0
+}
+Node {
+Name lighting.lua
+Position 358.862 82.1562
+Parameter -68 -1 -1 0
+Parameter 10 0 100 0
+Connection 0 2 0
+}
+Node {
+Name cells.lua
+Position 146.186 57.3961
+Parameter 2 -1 -1 0
+Parameter 2 2 -1 0
+Parameter 25 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name brightness.lua
+Position 550.1 88.7039
+Parameter 2 0 2 0
+Parameter 83 0 100 0
+Parameter 0 0 255 0
+Parameter 255 0 255 0
+Connection 0 0 0
+}

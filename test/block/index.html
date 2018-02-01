@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Jewel Game</title>
+
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../css/plum.css">
+<link rel="stylesheet" type="text/css" href="../../css/shapeAnimations.css">
+<link rel="stylesheet" type="text/css" href="../../css/dropAnimations.css">
+
+<script src="../../script/lib/jquery-3.2.1.min.js" ></script>
+<script src="../../script/lib/seedrandom.min.js" ></script>
+<!--<script src="../../script/main.js"></script>-->
+<script src="../../script/Game.js"></script>
+<script src="../../script/board/Board.js"></script>
+<script src="../../script/Space.js"></script>
+<script src="../../script/Rng.js"></script>
+
+<!-- Win Conditions-->
+<script src="../../script/win/RemainingJewels.js"></script>
+<script src="../../script/win/RemainingMoves.js"></script>
+<script src="../../script/win/MaxScore.js"></script>
+</head>
+
+<body>
+<h1>Jewel Game - block test</h1>
+<div class="game">
+<div class="board">
+
+  <div class="space">
+    <span class="token square red" data-color="red" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+
+  <div class="space">
+    <span class="token circle green" data-color="green" data-shape="circle"></span>
+    <span class="highlight"></span>
+    <span class="outline circle"></span>
+    <span class="shadow circle"></span>
+  </div>
+
+  <div class="space">
+    <span class="token triangle blue" data-color="blue" data-shape="triangle"></span>
+    <span class="highlight"></span>
+    <span class="outline triangle"></span>
+    <span class="shadow triangle"></span>
+  </div>
+
+  <div class="space">
+    <span class="token pentagon purple" data-color="purple" data-shape="pentagon"></span>
+    <span class="highlight"></span>
+    <span class="outline pentagon"></span>
+    <span class="shadow pentagon"></span>
+  </div>
+
+  <div class="space">
+    <span class="token rabbet orange" data-color="orange" data-shape="rabbet"></span>
+    <span class="highlight"></span>
+    <span class="outline rabbet"></span>
+    <span class="shadow rabbet"></span>
+  </div>
+
+  <!-- new shapes-->
+  <div class="space">
+    <span class="token star yellow" data-color="yellow" data-shape="star"></span>
+    <span class="highlight"></span>
+    <span class="outline star"></span>
+    <span class="shadow star"></span>
+  </div>
+
+  <!-- new colors -->
+  <div class="space">
+    <span class="token square rainbow" data-color="rainbow" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+
+   <div class="space">
+    <span class="token square stone" data-color="stone" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+
+  <div class="space">
+    <span class="token square ice" data-color="ice" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+
+  <div class="space">
+    <span class="token square fire" data-color="fire" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+</div>
+</div>
+</body>
+
+</html>

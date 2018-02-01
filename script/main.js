@@ -9,7 +9,6 @@ $.fn.extend({
     transitionCss: function (className) {
       var animationEnd = 'transitionend';
       $(this).addClass(className).one(animationEnd, function() {
-        //animationDeferred.resolve($(this),'color');
       });
     }
 });

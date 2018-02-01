@@ -127,6 +127,7 @@ body{
   background:#266eff;
 }
 
+
 /*Blue hover*/
 .space:hover .blue ~ .highlight{
   background:#9ffff3;
@@ -138,4 +139,61 @@ body{
 
 .space:hover .blue ~ .shadow{
   background:#266eff;
+}
+
+/*Yellow*/
+.yellow ~ .highlight{
+  background:#ffeecc;
+}
+
+.yellow{
+  background:#ffc34d;
+}
+
+.yellow ~ .shadow{
+  background:#f37c55;
+}
+
+/*Rainbow*/
+/*.rainbow ~ .highlight{
+  margin-top: 20px;
+  margin-left: 25px;
+}*/
+
+.rainbow{
+  background: #ff5983;
+  background: linear-gradient(135deg, #ff5983 5%,#f37c55 26%,#ffc34d 50%,#1ce09f 73%,#00d5ff 88%,#abccff 100%);
+}
+
+.rainbow ~ .shadow{
+  background:#4d1f4d;
+}
+
+/*Stone*/
+/*.stone ~ .highlight{
+  opacity:0.2;
+  margin-left: 28px;
+}*/
+
+.stone{
+  background: #c0c0c0;
+  background-image: url('image/stone/stone2.png');
+}
+
+.stone ~ .shadow{
+  background:#222;
+}
+
+/*Ice*/
+.ice{
+  background:#9999ff url('image/ice/ice2.png') 0px 0px;
+}
+
+.ice ~ .shadow{
+  background:#283b73;
+}
+
+/*Fire*/
+.fire{
+  background:#9999ff url('image/fire/fire3.png') 0px 0px;
 }

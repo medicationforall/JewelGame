@@ -1,4 +1,4 @@
-function Space(color,shape){
+function Space(color,shape,index){
   this.color = color;
   this.shape = shape;
   this.template = '<div class="space">'+
@@ -8,15 +8,10 @@ function Space(color,shape){
   '<span class="shadow '+shape+'"></span>'+
   '</div>';
 
+  this.index = index;
   this.node=$(this.template);
   this.node.data('node',this);
 
-  /**
-   *
-   */
-  /*this.setColor=function(color){
-    this.color = color;
-  };*/
 
   /**
    *
@@ -26,6 +21,7 @@ function Space(color,shape){
     this.shape = undefined;
     this.node.find('.highlight,.token,.shadow,.outline').addClass('remove').css('display','none');
   };
+
 
   /**
    *
@@ -77,7 +73,7 @@ function Space(color,shape){
     if(color !== this.color){
       this.color = color;
       this.node.find('.token').attr('data-color',this.color);
-      this.node.find('.token').removeClass('red blue green purple orange');
+      this.node.find('.token').removeClass('red blue green purple orange yellow stone ice fire rainbow');
       this.node.find('.token').transitionCss(this.color);
     }
   };
@@ -90,7 +86,7 @@ function Space(color,shape){
     if(shape !== this.shape){
       this.animateShapeChange(shape);
       this.node.find('.token').attr('data-shape',shape);
-      this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabbet');
+      this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabbet star');
 
       if(shape==='circle'){
         this.shape = shape;
@@ -105,11 +101,12 @@ function Space(color,shape){
     }
   };
 
+
   /**
    *
    */
   this.animateShapeChange=function(shape){
-    var fromShapes = ['square','rabbet','triangle','pentagon'];
+    var fromShapes = ['square','rabbet','triangle','pentagon','star'];
     var token =this.node.find('.token,.shadow,.outline');
 
     for(var i=0,fromShape;(fromShape=fromShapes[i]);i++){
@@ -143,4 +140,12 @@ function Space(color,shape){
       this.node.removeClass('selected');
     }
   };
+
+
+  /**
+   *
+   */
+  this.getIndex=function(){
+    return this.index;
+  }
 }

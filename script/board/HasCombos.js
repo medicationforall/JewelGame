@@ -1,10 +1,10 @@
-function HasComWorkers(){
+function HasCombos(properties){
   relativePath = window.location.pathname.replace('index.html','');
-  
+
   var comboWorker = new Worker(relativePath+'script/board/checkComboWorker.js');
   var dropWorker = new Worker(relativePath+'script/board/dropComboWorker.js');
-  
-  
+
+
   /**
    *
    */
@@ -14,7 +14,7 @@ function HasComWorkers(){
         this.updateScore(e.data.score);
       }
       this.updateGridPostCombo(e.data.grid);
-      $.when(sleep(sleepTime)).then($.proxy(function() {
+      $.when(this.sleep(this.sleepTime)).then($.proxy(function() {
         this.dropBoard(e.data.grid,e.data.source);
       },this));
     }else{
@@ -34,8 +34,8 @@ function HasComWorkers(){
       this.unselectTokens();
     }
   }.bind(this);
-  
-  
+
+
   /**
    *
    */
@@ -44,12 +44,12 @@ function HasComWorkers(){
       this.updateGridPostCombo(e.data.grid);
     }
 
-    $.when(sleep(sleepTime)).then($.proxy(function() {
+    $.when(this.sleep(this.sleepTime)).then($.proxy(function() {
     this.fillBoard(e.data.source);
     },this));
   }.bind(this);
-  
-  
+
+
   /**
    *
    */
@@ -64,8 +64,8 @@ function HasComWorkers(){
 
     comboWorker.postMessage(data);
   };
-  
-  
+
+
   /**
    *
    */
@@ -82,8 +82,8 @@ function HasComWorkers(){
       }
     }
   };
-  
-  
+
+
   /**
    *
    */
@@ -122,14 +122,14 @@ function HasComWorkers(){
       this.checkCombos(source!='initial'?'fillboard':source);
     }
   };
-  
-  
+
+
   /**
    *
    */
   this.createdJewel=function(){};
-  
-  
+
+
   /**
    *
    */
@@ -149,8 +149,8 @@ function HasComWorkers(){
     }
     return grid;
   };
-  
-  
+
+
   /**
    *
    */
@@ -160,8 +160,8 @@ function HasComWorkers(){
     $('.score .value').text(newScore);
     this.maximizeScore(score);
   };
-  
-  
+
+
   /**
    *
    */

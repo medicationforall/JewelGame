@@ -15,5 +15,7 @@ $.fn.extend({
 
 $(document).ready(function(){
     //console.log('main loaded');
+    var screenControl = new ScreenControl();
     var game = new Game();
+    var levelSelect = new LevelSelect();
 });

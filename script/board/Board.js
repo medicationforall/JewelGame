@@ -1,21 +1,21 @@
 function Board(seed,level,properties){
-  this.HasCombos(this);
-  this.HasMoveTokens(this);
-  
   var template='<div class="board"></div>';
   this.node= $(template);
   this.node.data('node',this);
-  
+
   this.seed= seed;
   this.rng=new Rng(this.seed);
 
   this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
   this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
 
-  
-  var sleepTime = 250;
-  
-  
+  this.sleepTime = 250;
+
+
+  HasCombos.call(this,properties);
+  HasMoveTokens.call(this,properties);
+
+
   /**
    *
    */
@@ -24,20 +24,20 @@ function Board(seed,level,properties){
     this.setEndCondition(properties.endCondition);
     this.setColors(properties.colors);
     this.setShapes(properties.shapes);
-    
+
     this.buildBoardSpaces();
     this.checkCombos('initial');
   };
-  
-  
+
+
   /**
    *
    */
   this.setLevel=function(level){
     $('.level .value').text(level);
   };
-  
-  
+
+
   /**
    *
    */
@@ -72,8 +72,8 @@ function Board(seed,level,properties){
         this.shapes = shapes;
     }
   };
-  
-  
+
+
   /**
    *
    */
@@ -97,11 +97,11 @@ function Board(seed,level,properties){
   /**
    *
    */
-  function sleep(ms) {
+  this.sleep=function(ms) {
     return new Promise(function(resolve, reject) {
       setTimeout(resolve, ms, 'foo');
     });
-  }
+  };
 
 
   /**

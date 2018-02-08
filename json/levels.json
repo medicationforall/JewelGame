@@ -1,0 +1,32 @@
+{
+	"levels": [{
+			"width": 10,
+			"height": 9,
+			"endCondition": {
+				"remainingJewels": 300
+			},
+			"colors": ["red", "green", "blue", "orange","purple"],
+			"shapes": ["square", "circle", "triange", "pentagon","rabbet"]
+		}, {
+			"width": 5,
+			"height": 5,
+			"endCondition": {
+				"remainingMoves": 10
+			},
+			"colors": ["red", "green", "blue", "orange","purple"],
+			"shapes": ["square", "circle", "triange", "pentagon","rabbet"]
+		}, {
+			"width": 6,
+			"height": 6,
+			"endCondition": {
+				"maxScore": 20
+			}
+		}, {
+			"width": 9,
+			"height": 9,
+			"endCondition": {
+				"unknown": 20
+			}
+		}
+	]
+}

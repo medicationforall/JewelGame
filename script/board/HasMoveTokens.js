@@ -1,4 +1,4 @@
-function HasMoveTokens(){
+function HasMoveTokens(properties){
   /**
    *
    */
@@ -43,8 +43,8 @@ function HasMoveTokens(){
     $('.moves .value').text(newMoves);
     this.playedMove();
   };
-  
-  
+
+
   /**
    *
    */
@@ -90,7 +90,7 @@ function HasMoveTokens(){
       sp2.setData(data1);
 
       if(source=='moveTokens'){
-        $.when(sleep(sleepTime+200)).then($.proxy(function() {
+        $.when(this.sleep(this.sleepTime+200)).then($.proxy(function() {
           this.checkCombos('swap');
         },this));
       }

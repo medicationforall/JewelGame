@@ -28,6 +28,7 @@ function HasMoveTokens(properties){
       this.swapTokens('moveTokens');
     }else{
       this.unselectTokens();
+      success = false;
     }
 
     this.increaseMoves();

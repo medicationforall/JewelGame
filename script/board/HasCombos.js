@@ -44,7 +44,7 @@ function HasCombos(properties){
       this.updateGridPostCombo(e.data.grid);
     }
 
-    $.when(this.sleep(this.sleepTime)).then($.proxy(function() {
+    $.when(this.sleep(this.sleepTime+600)).then($.proxy(function() {
     this.fillBoard(e.data.source);
     },this));
   }.bind(this);
@@ -106,11 +106,7 @@ function HasCombos(properties){
 
     for(var i=0,token;(token=children[i]);i++){
       var space = $(token).parent().data('node');
-      var data = {};
-      data.color = this._getRandomColor();
-      data.shape = this._getRandomShape();
-      data.drop = 5;
-
+      var data = this.fillBoardSpaceData();
       space.setData(data);
       fillCount++;
       if(source!=='initial'){
@@ -119,8 +115,29 @@ function HasCombos(properties){
     }
 
     if(fillCount>0){
-      this.checkCombos(source!='initial'?'fillboard':source);
+      $.when(this.sleep(this.sleepTime+600)).then($.proxy(function() {
+        this.checkCombos(source!='initial'?'fillboard':source);
+      },this));
     }
+  };
+
+
+  /**
+   *
+   */
+  this.fillBoardSpaceData=function(){
+    var data = {};
+    if(properties.startBlocks && this.startBlockIndex < properties.startBlocks.length){
+      data.color = properties.startBlocks[this.startBlockIndex].color;
+      data.shape = properties.startBlocks[this.startBlockIndex].shape;
+      this.startBlockIndex++;
+    }else{
+      data.color = this._getRandomColor();
+      data.shape = this._getRandomShape();
+    }
+    data.drop = 5;
+
+    return data;
   };
 
 
@@ -159,6 +176,8 @@ function HasCombos(properties){
     var newScore = eScore+score;
     $('.score .value').text(newScore);
     this.maximizeScore(score);
+
+    this.showTip({"score":newScore});
   };
 
 

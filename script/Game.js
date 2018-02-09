@@ -51,7 +51,7 @@ function Game(){
     $('.level .value').text(0);
     $('.moves .value').text(0);
     $('.endCondition').empty();
-    this.board=new Board(seed,lv+1,levelSet.levels[lv]);
+    this.board=new Board(seed,lv,levelSet.levels[lv]);
     this.node.append(this.board.node);
   };
 

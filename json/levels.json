@@ -1,27 +1,99 @@
 {
 	"levels": [{
-			"width": 10,
-			"height": 9,
+			"name": "Tutorial",
+			"width": 3,
+			"height": 3,
 			"endCondition": {
-				"remainingJewels": 300
+				"maxScore": 13
 			},
-			"colors": ["red", "green", "blue", "orange","purple"],
-			"shapes": ["square", "circle", "triange", "pentagon","rabbet"]
-		}, {
+			"colors": ["red", "green", "blue", "orange", "purple"],
+			"shapes": ["square", "circle", "pentagon", "rabbet"],
+			"startBlocks": [
+				{"color": "red","shape": "square"},
+				{"color": "purple","shape": "star"},
+				{"color": "blue","shape": "circle"},
+
+				{"color": "purple","shape": "circle"},
+				{"color": "red","shape": "pentagon"},
+				{"color": "purple","shape": "pentagon"},
+
+				{"color": "blue","shape": "rabbet"},
+				{"color": "orange","shape": "square"},
+				{"color": "red","shape": "circle"},
+
+				{"color": "purple","shape": "rabbet"},
+				{"color": "blue","shape": "rabbet"},
+				{"color": "blue","shape": "square"},
+
+				{"color": "purple","shape": "circle"},
+				{"color": "purple","shape": "pentagon"},
+				{"color": "green","shape": "rabbet"},
+
+				{"color": "blue","shape": "rabbet"},
+				{"color": "red","shape": "circle"},
+				{"color": "purple","shape": "rabbet"},
+
+				{"color": "blue","shape": "star"},
+				{"color": "purple","shape": "rabbet"},
+				{"color": "blue","shape": "square"},
+
+				{"color": "purple","shape": "rabbet"},
+				{"color": "blue","shape": "rabbet"},
+				{"color": "blue","shape": "square"},
+
+				{"color": "purple","shape": "rabbet"},
+				{"color": "blue","shape": "rabbet"},
+				{"color": "blue","shape": "square"},
+
+				{"color": "purple","shape": "rabbet"},
+				{"color": "blue","shape": "circle"},
+				{"color": "purple","shape": "square"}
+			],
+			"tips":[
+				{"score":0,"message":"Click on the star and the pentagon below."},
+				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical."},
+				{"score":2,"message":"You can match on color or shape for now just match on color."},
+				{"score":4,"message":"Swap the star and the purple rabbet to remove the column."},
+				{"score":6,"message":"Swap the red circle with another shape to make a matching set."},
+				{"score":7,"message":"All matching sets will be removed after a swap."},
+				{"score":12,"message":"If newly created jewels are a set, they will get removed as well. <br />Get a score of 13 to end the level."}
+			]
+		},{
+			"name": "4x4",
+			"width": 4,
+			"height": 4,
+			"endCondition": {
+				"remainingMoves": 10
+			},
+			"colors": ["red", "green", "blue", "orange", "purple"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
+		},{
+			"name": "5x5",
 			"width": 5,
 			"height": 5,
 			"endCondition": {
 				"remainingMoves": 10
 			},
-			"colors": ["red", "green", "blue", "orange","purple"],
-			"shapes": ["square", "circle", "triange", "pentagon","rabbet"]
+			"colors": ["red", "green", "blue", "orange", "purple"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
 		}, {
+			"name": "6x6",
 			"width": 6,
 			"height": 6,
 			"endCondition": {
 				"maxScore": 20
 			}
 		}, {
+			"name": "10x9",
+			"width": 10,
+			"height": 9,
+			"endCondition": {
+				"remainingJewels": 300
+			},
+			"colors": ["red", "green", "blue", "orange", "purple"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
+		}, {
+			"name": "Infinite",
 			"width": 9,
 			"height": 9,
 			"endCondition": {

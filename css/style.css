@@ -7,6 +7,19 @@ html,body{
 body{
   font-family:arial;
 }
+
+a{
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+.header, .header a{
+  color:#fff;
+}
+
 h1{
   margin:0px;
   padding:0px;
@@ -39,7 +52,7 @@ h1{
 
 .board{
   height:100%;
-  border:1px solid black;
+  /*border:1px solid black;*/
 }
 
 
@@ -167,4 +180,44 @@ h1{
 
 .star{
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 2% 35%, 39% 35%);
+}
+
+.levelSelect{
+  padding-top:60px;
+  /*text-align:center;*/
+  font-size:16pt;
+}
+
+.levelSelect .levelSelection{
+  display:inline-block;
+  margin-left:10px;
+  padding:5px;
+  background:#b7b70e;
+  border-radius:5px;
+  min-width:150px;
+  min-height:30px;
+  padding-top:15px;
+  transition:background-color 0.5s;
+}
+
+.levelSelect .levelSelection:hover{
+  background:#fff;
+}
+
+.tip{
+  background:#fff;
+  color:#000;
+  min-height:60px;
+  width:250px;
+  padding:10px;
+  padding-bottom:42px;
+  border-radius:5px;
+  display:none
+  font-size:14pt;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 76%, 10% 100%, 11% 76%, 0% 75%);
+  transition:opacity 1s;
+}
+
+.tip.display{
+  display:inline-block;
 }

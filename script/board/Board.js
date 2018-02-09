@@ -5,6 +5,8 @@ function Board(seed,level,properties){
 
   this.seed= seed;
   this.rng=new Rng(this.seed);
+  this.startBlockIndex = 0;
+  this.tipIndex=0;
 
   this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
   this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
@@ -26,6 +28,7 @@ function Board(seed,level,properties){
     this.setShapes(properties.shapes);
 
     this.buildBoardSpaces();
+    this.showTip({"score":0});
     this.checkCombos('initial');
   };
 
@@ -84,12 +87,50 @@ function Board(seed,level,properties){
       var color="red";
       var shape="square";
 
-      var space = new Space(this._getRandomColor(),this._getRandomShape(),i);
+      var space = this.buildBoardSpace(i);
+      //var space = new Space(this._getRandomColor(),this._getRandomShape(),i);
       this.node.append(space.node);
 
       if((i+1)%properties.width===0){
         this.node.append('<br />');
       }
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.buildBoardSpace=function(index){
+    var space = null;
+    if(properties.startBlocks && properties.startBlocks[index]){
+      var data = properties.startBlocks[index];
+      space = new Space(data.color,data.shape,index);
+      this.startBlockIndex++;
+    }else{
+      space = new Space(this._getRandomColor(),this._getRandomShape(),index);
+    }
+    return space;
+  };
+
+/**
+ *
+ */
+  this.showTip=function(prop){
+    if(properties.tips){
+        if(properties.tips[this.tipIndex]){
+          var message = properties.tips[this.tipIndex].message;
+          var score = properties.tips[this.tipIndex].score;
+
+          if(prop && prop.score === score){
+            $('.tip').addClass('display').html(message).animateCss('vanishIn');
+            this.tipIndex++;
+          }else{
+            $('.tip').removeClass('display');
+          }
+        }else{
+          $('.tip').removeClass('display');
+        }
     }
   };
 
@@ -108,7 +149,7 @@ function Board(seed,level,properties){
    *
    */
   this._getRandomColor=function(){
-    return this.colors[this.rng.getRandom(this.seed+level+'-color',0,this.colors.length-1)];
+    return this.colors[this.rng.getRandom(this.seed+properties.name+'-color',0,this.colors.length-1)];
   };
 
 
@@ -116,7 +157,7 @@ function Board(seed,level,properties){
    *
    */
   this._getRandomShape=function(){
-    return this.shapes[this.rng.getRandom(this.seed+level+'-shape',0,this.shapes.length-1)];
+    return this.shapes[this.rng.getRandom(this.seed+properties.name+'-shape',0,this.shapes.length-1)];
   };
 
 

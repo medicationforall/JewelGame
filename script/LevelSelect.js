@@ -19,9 +19,11 @@ function LevelSelect(){
    *
    */
   this.addLevel=function(index,level){
-    var template = '<div class="level" data-level="'+index+'">'+
-    '<span class="number">'+(index+1)+'</span>'+
+    var template = '<div class="levelSelection" data-level="'+index+'">'+
+    '<a href="" class="selectLevel" data-level="'+index+'">'+
+    'Lv <span class="number">'+(index+1)+'</span>: '+
     '<span class="name">'+level.name+'</span>'+
+    '</a>'+
     '</div>';
     this.node.append(template);
   };
@@ -30,10 +32,11 @@ function LevelSelect(){
   /**
    * @todo check if level passed.
    */
-  this.node.on('click','level',$.proxy(function(levelSelect,event){
+  this.node.on('click','.selectLevel',$.proxy(function(levelSelect,event){
+    event.preventDefault();
     console.log('clicked level');
-    var levelNumber = paerseInt($(this).data('level'));
+    var levelNumber = parseInt($(this).data('level'));
     $('.game').data('node').startLevel(levelNumber);
-    $('.screenControl').data('node').displayScreen('.game');
-  },null,this))
+    $('.screenControl').data('node').displayScreen('game');
+  },null,this));
 }

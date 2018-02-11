@@ -23,7 +23,7 @@ function HasCombos(properties){
       if(this.endGame===true){
           dropWorker.terminate();
           comboWorker.terminate();
-          $('.game').trigger('end-game');
+          $('.game').trigger('end-game',this.getEndGameData());
       }
     }
 

@@ -15,7 +15,10 @@ $.fn.extend({
 
 $(document).ready(function(){
     //console.log('main loaded');
+    var header = new Header();
+    var hamburgerMenu = new HamburgerMenu();
     var screenControl = new ScreenControl();
-    var game = new Game();
-    var levelSelect = new LevelSelect();
+    screenControl.add(Game);
+    screenControl.add(LevelSelect);
+    screenControl.add(EndLevel);
 });

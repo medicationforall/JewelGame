@@ -161,6 +161,19 @@ function Board(seed,level,properties){
   };
 
 
+  /**
+   *
+   */
+  this.getEndGameData=function(){
+    var data = {"level":"merf"};
+    data.level = level;
+    data.levelName = properties.name;
+    data.score = parseInt($('.score .value').text());
+    data.moves = parseInt($('.moves .value').text());
+    return data;
+  };
+
+
   //main
   this._constructor();
 }

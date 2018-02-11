@@ -1,3 +1,4 @@
+/*General*/
 html,body{
   width:100%;
   height:100%;
@@ -16,8 +17,9 @@ a:hover{
   text-decoration:underline;
 }
 
-.header, .header a{
-  color:#fff;
+svg{
+  vertical-align: middle;
+  fill:currentColor;
 }
 
 h1{
@@ -28,26 +30,86 @@ h1{
 }
 
 
+/*Header*/
+.header, .header a{
+  color:#fff;
+}
 
-.level,.score,.moves,.endCondition{
+.header .level,.header .score,.header .moves,.header .endCondition{
   display:inline-block;
   font-weight:bold;
   margin-left:20px;
   font-size:14pt;
 }
 
+.header .hamburger{
+  float:right;
+}
+
+
+/*Menu Screen*/
+.menuScreen{
+  display:none;
+}
+
+.menuScreen.display{
+  display:inline-block;
+}
+
+
+/*Hamburger menu*/
+.hamburgerMenu{
+  display:none;
+  background:#5151a0;
+  color:#fff;
+  width:200px;
+  height:calc(100% - 10px);
+  position:absolute;
+  padding:5px;
+  top:0px;
+  right:0px;
+}
+
+.hamburgerMenu a{
+  display:block;
+  color:#fff;
+}
+
+.hamburgerMenu.display{
+  display:inline-block;
+}
+
 
 /*Screen*/
 .screen{
-  height:calc(100% - 39px);
   display:none;
+  height:calc(100% - 39px);
 }
 
 .screen.display{
   display:block;
 }
 
+/*Game*/
 .game{
+}
+
+.tip{
+  background:#fff;
+  color:#000;
+  min-height:60px;
+  width:250px;
+  padding:10px;
+  padding-bottom:42px;
+  border-radius:5px;
+  display:none;
+  font-size:14pt;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 76%, 10% 100%, 11% 76%, 0% 75%);
+  transition:opacity 1s;
+}
+
+.tip.display{
+  display:inline-block;
 }
 
 .board{
@@ -182,6 +244,7 @@ h1{
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 2% 35%, 39% 35%);
 }
 
+/*Level Select*/
 .levelSelect{
   padding-top:60px;
   /*text-align:center;*/
@@ -191,6 +254,7 @@ h1{
 .levelSelect .levelSelection{
   display:inline-block;
   margin-left:10px;
+  margin-top:10px;
   padding:5px;
   background:#b7b70e;
   border-radius:5px;
@@ -202,22 +266,4 @@ h1{
 
 .levelSelect .levelSelection:hover{
   background:#fff;
-}
-
-.tip{
-  background:#fff;
-  color:#000;
-  min-height:60px;
-  width:250px;
-  padding:10px;
-  padding-bottom:42px;
-  border-radius:5px;
-  display:none
-  font-size:14pt;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 76%, 10% 100%, 11% 76%, 0% 75%);
-  transition:opacity 1s;
-}
-
-.tip.display{
-  display:inline-block;
 }

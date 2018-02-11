@@ -14,11 +14,13 @@
 <script src="script/lib/seedrandom.min.js" ></script>
 <script src="script/lib/howler.min.js" ></script>
 
-
 <script src="script/main.js"></script>
+<script src="script/Header.js"></script>
+<script src="script/HamburgerMenu.js"></script>
 <script src="script/ScreenControl.js"></script>
 <script src="script/Game.js"></script>
 <script src="script/LevelSelect.js"></script>
+<script src="script/EndLevel.js"></script>
 <script src="script/board/HasCombos.js"></script>
 <script src="script/board/HasMoveTokens.js"></script>
 <script src="script/board/Board.js"></script>
@@ -31,29 +33,41 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>Jewel Game</h1>
-    <div class="level">Level
-      <span class="value">0</span>
-    </div>
-    <div class="score">Score
-      <span class="value">0</span>
-    </div>
-    <div class="moves">Moves
-      <span class="value">0</span>
-    </div>
-    <div class="endCondition">
-    </div>
-    <a href="" class="screenLink" data-screen="game">Game</a>
+  <div class="hamburgerMenu">
+    <a href="" class="closeHamburger" title="close the menu">&gt;&gt;</a>
+    <a href="" class="screenLink" data-screen="game">Return To Game</a>
     <a href="" class="screenLink" data-screen="levelSelect">Level Select</a>
+    <a href="" class="screenLink" data-screen="endLevel">End Level</a>
     <!--<a href="" class="screenLink" data-screen="options">Options</a>-->
   </div>
+
+  <div class="header">
+    <h1>Jewel Game</h1>
+    <div class="game menuScreen display">
+    <div class="level">Level
+      <span class="value">0</span>
+      </div>
+      <div class="score">Score
+        <span class="value">0</span>
+      </div>
+      <div class="moves">Moves
+        <span class="value">0</span>
+      </div>
+      <div class="endCondition">
+      </div>
+    </div>
+
+    <a href="" class="hamburger">
+      <svg data-reactroot="" class="Icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" style="height: 32px; width: 32px;">
+				<path d="M0 0h512v512H0z" opacity="0"></path>
+				<g class="" transform="translate(0,0)" style="touch-action: none;">
+				<path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z">
+				</path></g><!-- react-empty: 6 -->
+			</svg>
+    </a>
+  </div>
+
   <div class="screenControl">
-    <div class="game screen display"></div>
-    <div class="tip"></div>
-
-    <div class="levelSelect screen"></div>
-
     <div class="options screen"></div>
   </div>
 </body>

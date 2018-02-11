@@ -1,5 +1,6 @@
 function LevelSelect(){
-  this.node=$('.levelSelect');
+  this.template='<div class="levelSelect screen"></div>';
+  this.node=$(this.template);
   this.node.data('node',this);
   this.levels = null;
 
@@ -19,9 +20,9 @@ function LevelSelect(){
    *
    */
   this.addLevel=function(index,level){
-    var template = '<div class="levelSelection" data-level="'+index+'">'+
+    var template = '<div class="levelSelection locked" data-level="'+index+'">'+
     '<a href="" class="selectLevel" data-level="'+index+'">'+
-    'Lv <span class="number">'+(index+1)+'</span>: '+
+    'Lv <span class="number">'+(index)+'</span>: '+
     '<span class="name">'+level.name+'</span>'+
     '</a>'+
     '</div>';
@@ -34,9 +35,19 @@ function LevelSelect(){
    */
   this.node.on('click','.selectLevel',$.proxy(function(levelSelect,event){
     event.preventDefault();
-    console.log('clicked level');
-    var levelNumber = parseInt($(this).data('level'));
-    $('.game').data('node').startLevel(levelNumber);
-    $('.screenControl').data('node').displayScreen('game');
+    if($(this).parent().hasClass('locked')===false){
+      console.log('clicked level');
+      var levelNumber = parseInt($(this).data('level'));
+      $('.game.screen').data('node').startLevel(levelNumber);
+      $('.screenControl').data('node').displayScreen('game');
+    }
   },null,this));
+
+
+  /**
+   *
+   */
+  this.unlockLevel=function(lv){
+    this.node.find('.levelSelection[data-level="'+lv+'"]').removeClass('locked');
+  };
 }

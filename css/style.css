@@ -246,7 +246,7 @@ h1{
 
 /*Level Select*/
 .levelSelect{
-  padding-top:60px;
+  padding-top:20px;
   /*text-align:center;*/
   font-size:16pt;
 }
@@ -258,12 +258,41 @@ h1{
   padding:5px;
   background:#b7b70e;
   border-radius:5px;
-  min-width:150px;
+  min-width:160px;
   min-height:30px;
   padding-top:15px;
   transition:background-color 0.5s;
+  color:#000;
+  vertical-align:top;
+  font-weight:bold;
 }
 
 .levelSelect .levelSelection:hover{
   background:#fff;
+}
+
+.levelSelect .levelSelection.locked:hover{
+  background:#b7b70e;
+}
+
+.levelSelect .levelSelection.locked a:hover{
+  text-decoration:none;
+  cursor:default;
+}
+
+.levelSelection .levelLock{
+  display:none;
+}
+
+.levelSelection.locked .levelLock{
+  display:inline-block;
+}
+
+.nextLevelLink{
+  background: #fff;
+  padding: 7px;
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: bold;
 }

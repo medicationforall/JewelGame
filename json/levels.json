@@ -74,7 +74,7 @@
 			"endCondition": {
 				"remainingMoves": 10
 			},
-			"colors": ["red", "green", "blue", "orange", "purple"],
+			"colors": ["red", "green", "blue", "orange", "purple", "rainbow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
 		}, {
 			"name": "6x6",
@@ -84,6 +84,13 @@
 				"maxScore": 20
 			}
 		}, {
+			"name": "7x7",
+			"width": 7,
+			"height": 7,
+			"endCondition": {
+				"maxScore": 30
+			}
+		},{
 			"name": "10x9",
 			"width": 10,
 			"height": 9,

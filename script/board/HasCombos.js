@@ -20,6 +20,7 @@ function HasCombos(properties){
 
   var comboWorker = new Worker(relativePath+'script/board/checkComboWorker.js');
   var dropWorker = new Worker(relativePath+'script/board/dropComboWorker.js');
+  this.jewelsCleared=0;
 
 
   /**
@@ -128,6 +129,7 @@ function HasCombos(properties){
       fillCount++;
       if(source!=='initial'){
         this.createdJewel();
+        this.jewelsCleared++;
       }
     }
 

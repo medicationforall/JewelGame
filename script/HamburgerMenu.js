@@ -19,6 +19,16 @@ function HamburgerMenu(){
   this.node = $('.hamburgerMenu');
   this.node.data('node',this);
 
+  /**
+   *
+   */
+  this.node.on('click','.restartLevel',$.proxy(function(hamburgerMenu,event){
+    event.preventDefault();
+    $('.game.screen').data('node').restartLevel();
+    var screenControl = $('.screenControl').data('node');
+    screenControl.displayScreen('game');
+  },null,this));
+
 
   /**
    *
@@ -46,7 +56,7 @@ function HamburgerMenu(){
    */
   this.toggleHamburger=function(){
     if(this.node.hasClass('display')===false){
-      this.node.addClass('display');
+      this.node.addClass('display').animateCss('slideInRight');
     }else{
       this.node.removeClass('display');
     }

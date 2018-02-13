@@ -23,7 +23,7 @@ function Game(){
   this.node.data('node',this);
   var seed = 'jewel-game';
   var level = 0;
-  var startLevel = 1;
+  var startLevel = 0;
 
   colors = ['red','green','blue','orange'];
   shapes = ['square','circle','triange','pentagon'];
@@ -71,9 +71,18 @@ function Game(){
 
 
   /**
+   *
+   */
+  this.restartLevel=function(){
+    this.startLevel(level);
+  };
+
+
+  /**
    * Start a level determined by the given level.
    */
   this.startLevel=function(lv){
+    level = lv;
     $('.game.screen').find('.board').remove();
     $('.game.screen').find('.tip').empty().removeClass('display');
     $('.score .value').text(0);

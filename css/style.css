@@ -4,6 +4,7 @@ html,body{
   height:100%;
   padding:0px;
   margin:0px;
+  overflow-x: hidden;
 }
 body{
   font-family:arial;
@@ -42,6 +43,10 @@ h1{
   font-size:14pt;
 }
 
+.header .moves{
+display:none;
+}
+
 .header .hamburger{
   float:right;
 }
@@ -71,6 +76,10 @@ h1{
   font-size:17pt;
 }
 
+.hamburgerMenu .closeHamburger{
+  float:right;
+}
+
 .hamburgerMenu a{
   display:block;
   color:#fff;
@@ -96,7 +105,7 @@ h1{
 }
 
 .tip{
-  background:#fff;
+  background:#e6e6e6;
   color:#000;
   min-height:60px;
   width:250px;
@@ -294,6 +303,10 @@ h1{
   display:inline-block;
 }
 
+.endLevel .content{
+  font-size:16pt;
+}
+
 .nextLevelLink{
   background: #fff;
   padding: 7px;
@@ -301,4 +314,13 @@ h1{
   display: inline-block;
   border-radius: 5px;
   font-weight: bold;
+  font-size:17pt;
+}
+
+.about .content{
+  font-size:16pt;
+}
+
+.about .content a{
+  color:#c0c0c0;
 }

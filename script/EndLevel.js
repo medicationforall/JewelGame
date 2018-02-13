@@ -17,11 +17,12 @@
  */
 function EndLevel(data){
   this.template='<div class="endLevel screen">'+
-    '<h2>Level <span class="endLevel"></span> Complete</h2>'+
+    '<h2>Level <span class="endLevel"></span> Complete!</h2>'+
     '<div class="content">'+
-    'Score: <span class="endScore"></span><br />'+
+    'Jewels Removed: <span class="endJewelsCleared"></span><br />'+
     'Moves: <span class="endMoves"></span><br />'+
-    'Total Points: <span class="totalPoints"></span>'+
+    'Score: <span class="endScore"></span><br />'+
+    '<!--Total Points: <span class="totalPoints"></span>-->'+
     '</div>'+
     '<a href="" class="nextLevelLink">Continue</a>'+
   '</div>';
@@ -38,7 +39,8 @@ function EndLevel(data){
     this.node.find('.endLevelName').text(data.levelName);
     this.node.find('.endScore').text(data.score);
     this.node.find('.endMoves').text(data.moves);
-    this.node.find('.totalPoints').text((data.score/data.moves));
+    this.node.find('.endJewelsCleared').text(data.jewelsCleared);
+    //this.node.find('.totalPoints').text((data.score-data.moves));
   };
 
 

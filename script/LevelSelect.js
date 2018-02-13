@@ -44,7 +44,7 @@ function LevelSelect(){
    */
   this.addLevel=function(index,level){
     var template = '<div class="levelSelection locked" data-level="'+index+'">'+
-    '<a href="" class="selectLevel" data-level="'+index+'">'+
+    '<a href="" title="Start Level '+index+'" class="selectLevel" data-level="'+index+'">'+
     'Lv <span class="number">'+(index)+'</span>: '+
     '<span class="name">'+level.name+'</span>'+
     '</a>'+

@@ -206,6 +206,7 @@ function Board(seed,level,properties){
     data.levelName = properties.name;
     data.score = parseInt($('.score .value').text());
     data.moves = parseInt($('.moves .value').text());
+    data.jewelsCleared = this.jewelsCleared;
     return data;
   };
 

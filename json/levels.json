@@ -69,7 +69,7 @@
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"],
 			"tips":[
 				{"score":0,"message":"Clear 100 Jewels to win the level."},
-				{"score":7,"message":"If you get stuck you can restart the level. Click on the bar icon in the upper right corner."}
+				{"score":1,"message":"If you get stuck you can restart the level. Click on the bar icon in the upper right corner."}
 			]
 		}, {
 			"name": "5x5",
@@ -81,6 +81,18 @@
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
 		}, {
+			"name": "Orange, Green and Purple",
+			"labelName": "POG",
+			"width": 3,
+			"height": 4,
+			"endCondition": {
+				"remainingJewels": 100
+			},
+			"colors": ["green","orange", "purple"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"],
+			"tips":[
+			]
+		}, {
 			"name": "6x6",
 			"width": 6,
 			"height": 6,
@@ -89,6 +101,17 @@
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
+		}, {
+			"name": "Square Pentagon",
+			"width": 4,
+			"height": 4,
+			"endCondition": {
+				"remainingJewels": 100
+			},
+			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
+			"shapes": ["square", "pentagon", "rabbet"],
+			"tips":[
+			]
 		}, {
 			"name": "7x7",
 			"width": 7,

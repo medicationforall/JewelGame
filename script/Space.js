@@ -15,6 +15,15 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
+ /**
+  * Space on a Board, manages jewel state.
+  * @class
+  * @param  {string} color Initial color.
+  * @param  {string} shape Initial shape.
+  * @param  {int} index Reference position.
+  */
 function Space(color,shape,index){
   this.color = color;
   this.shape = shape;
@@ -31,17 +40,9 @@ function Space(color,shape,index){
 
 
   /**
-   *
-   */
-  this.empty=function(data){
-    this.color = undefined;
-    this.shape = undefined;
-    this.node.find('.highlight,.token,.shadow,.outline').addClass('remove').css('display','none');
-  };
-
-
-  /**
-   *
+   * Get the Spaces data.
+   * @public
+   * @returns {Object} data representation of what's in the space.
    */
   this.getData=function(){
     if(this.color && this.shape){
@@ -56,37 +57,58 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Set the Spaces data.
+   * @public
+   * @param {Object} data Information of what the space should change to.
    */
   this.setData=function(data){
     if(data!==undefined && data.empty!==true){
       this.node.find('.token').removeClass('remove');
       this.node.find('.highlight,.token,.shadow,.outline').css('display','');
-      this.setColor(data.color);
-      this.setShape(data.shape);
+      this._setColor(data.color);
+      this._setShape(data.shape);
 
       if(data.drop && data.drop > 0){
-        this.setDrop(data.drop);
+        this._setDrop(data.drop);
       }
     }else{
-      this.empty(data);
+      this._empty(data);
     }
   };
 
 
   /**
-   *
+   * Empty the space.
+   * @private
+   * @param {Object} data state change data.
    */
-  this.setDrop=function(drop){
+  this._empty=function(data){
+    this.color = undefined;
+    this.shape = undefined;
+    this.node.find('.highlight,.token,.shadow,.outline').addClass('remove').css('display','none');
+  };
+
+
+  /**
+   * Set the drop animation.
+   * @private
+   * @param {int} drop How far to drop the token onto the board.
+   */
+  this._setDrop=function(drop){
+    if(drop > 9){
+      drop = 9;
+    }
+
     var token = this.node.find('.highlight,.token,.shadow,.outline');
     return token.animateCss('drop'+drop);
   };
 
 
   /**
-   *
+   * Set the spaces color.
+   * @param {string} color
    */
-  this.setColor=function(color){
+  this._setColor=function(color){
     if(color !== this.color){
       this.color = color;
       this.node.find('.token').attr('data-color',this.color);
@@ -97,11 +119,12 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Set the space shape.
+   * @param {string} shape
    */
-  this.setShape=function(shape){
+  this._setShape=function(shape){
     if(shape !== this.shape){
-      this.animateShapeChange(shape);
+      this._animateShapeChange(shape);
       this.node.find('.token').attr('data-shape',shape);
       this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabbet star');
 
@@ -120,9 +143,11 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Animate shape change.
+   * @private
+   * @param {int} shape that the space is going to.
    */
-  this.animateShapeChange=function(shape){
+  this._animateShapeChange=function(shape){
     var fromShapes = ['square','rabbet','triangle','pentagon','star'];
     var token =this.node.find('.token,.shadow,.outline');
 
@@ -136,10 +161,10 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Mark the space as selected.
+   * @public
    */
   this.selectToken=function(){
-    //console.log('select token');
     if(this.node.hasClass('selected')===false){
       this.node.addClass('selected');
     } else{
@@ -149,10 +174,10 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Mark the space as unselected.
+   * @public
    */
   this.unselectToken=function(){
-    //console.log('select token');
     if(this.node.hasClass('selected')){
       this.node.removeClass('selected');
     }
@@ -160,7 +185,8 @@ function Space(color,shape,index){
 
 
   /**
-   *
+   * Get the reference index for the space.
+   * @public
    */
   this.getIndex=function(){
     return this.index;

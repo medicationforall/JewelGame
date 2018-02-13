@@ -32,6 +32,10 @@ h1{
 
 
 /*Header*/
+.header{
+  height: 70px;
+}
+
 .header, .header a{
   color:#fff;
 }
@@ -74,6 +78,7 @@ display:none;
   top:0px;
   right:0px;
   font-size:17pt;
+  z-index:6;
 }
 
 .hamburgerMenu .closeHamburger{
@@ -105,17 +110,21 @@ display:none;
 }
 
 .tip{
-  background:#e6e6e6;
+  background:#f6f6f6;
   color:#000;
-  min-height:60px;
+  min-height:30px;
   width:250px;
-  padding:10px;
+  padding:3px;
   padding-bottom:42px;
   border-radius:5px;
   display:none;
-  font-size:14pt;
+  font-size:12pt;
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 76%, 10% 100%, 11% 76%, 0% 75%);
   transition:opacity 1s;
+  position:absolute;
+  top: 3px;
+  left: 34px;
+  z-index:5;
 }
 
 .tip.display{
@@ -323,4 +332,10 @@ display:none;
 
 .about .content a{
   color:#c0c0c0;
+}
+
+@media screen and (max-width:425px){
+  .header h1{
+    display:none;
+  }
 }

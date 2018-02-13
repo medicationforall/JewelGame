@@ -15,13 +15,21 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * ScreenControl Component acts as a cheap router.
+ * @class
+ */
 function ScreenControl(){
-  this.node = $('.screenControl');
+  this.template='<div class="screenControl">'+
+      '<div class="options screen"></div>'+
+    '</div>';
+  this.node = $(this.template);
   this.node.data('node',this);
 
 
   /**
-   *
+   * @param {string} screenName Name of the screen to be displayed.
    */
   this.displayScreen=function(screenName){
     //console.log('display screen',screenName);
@@ -32,7 +40,8 @@ function ScreenControl(){
 
 
   /**
-   *
+   * Adds an screen to the ScreenControl.
+   * @param {Object} classObject Global scope of a classObject to be instanced and added to the ScreenControl.
    */
   this.add=function(classObject){
     var screen = new classObject();

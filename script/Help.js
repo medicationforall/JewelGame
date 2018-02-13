@@ -1,5 +1,5 @@
 /**
- *   Jewel Game source file MaxScore,
+ *   Jewel Game source file Help,
  *   Copyright (C) 2018  James M Adams
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -15,32 +15,12 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-function MaxScore(maxScore){
-  var endConditionTemplate = 'Target Score:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
-  this.tmpScore=0;
-
-
-  /**
-   *
-   */
-  this.setMaxScore=function(maxScore){
-    this.maxScore=maxScore;
-    this.endCondition.find('.value').text(maxScore);
-  };
-
-
-  /**
-   *
-   */
-  this.maximizeScore=function(score){
-    console.log('maximizeScore');
-    this.tmpScore+=score;
-    if(this.tmpScore>=maxScore){
-      this.endGame=true;
-    }
-  };
-
-
-  this.setMaxScore(maxScore);
+function Help(){
+  this.template='<div class="about screen">'+
+  '<h2>Help</h2>'+
+  '<h3>Game</h3>'+
+  '<h3>Level Select</h3>'+
+  '</div>';
+  this.node=$(this.template);
+  this.node.data('node',this);
 }

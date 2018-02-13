@@ -68,6 +68,7 @@ h1{
   padding:5px;
   top:0px;
   right:0px;
+  font-size:17pt;
 }
 
 .hamburgerMenu a{
@@ -256,7 +257,7 @@ h1{
   margin-left:10px;
   margin-top:10px;
   padding:5px;
-  background:#b7b70e;
+  background:#c0c0c0;
   border-radius:5px;
   min-width:160px;
   min-height:30px;
@@ -265,6 +266,11 @@ h1{
   color:#000;
   vertical-align:top;
   font-weight:bold;
+  border: 3px solid #333;
+}
+
+.levelSelect .levelSelection.selected{
+  border: 3px solid #00dcff;
 }
 
 .levelSelect .levelSelection:hover{
@@ -272,7 +278,7 @@ h1{
 }
 
 .levelSelect .levelSelection.locked:hover{
-  background:#b7b70e;
+  background:#c0c0c0;
 }
 
 .levelSelect .levelSelection.locked a:hover{

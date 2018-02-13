@@ -1,3 +1,21 @@
+/**
+ *   Jewel Game source file dropComboWorker,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 var data = {};
 var width = 0;
 var height = 0;
@@ -21,7 +39,6 @@ Array.prototype.move = function (old_index, new_index) {
  *
  */
 var checkDropColumns=function(grid){
-  //console.log('checkComboColumns');
   var colCount = width;
 
   for(var colNum=0;colNum<colCount;colNum++){
@@ -41,9 +58,9 @@ var checkDropColumns=function(grid){
       return true;
     }
   }
-
   return false;
 };
+
 
 /**
  * @todo the column array being modified is in local memory and not working it's way back up.
@@ -65,12 +82,11 @@ var checkArrayDrop=function(column){
   return false;
 };
 
+
 /**
  *
  */
 onmessage = function(e) {
-  //console.log('Message received from main script',e);
-
   data = {};
   data.grid=e.data.grid;
   data.dropCount=0;
@@ -80,9 +96,7 @@ onmessage = function(e) {
 
   var counter=0;
   while(checkDropColumns(data.grid) && counter<200 ){
-    //console.log('still checking for tokens to drop',counter);
     counter++;
   }
-
   postMessage(data);
 };

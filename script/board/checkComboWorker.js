@@ -1,3 +1,21 @@
+/**
+ *   Jewel Game source file checkComboWorker,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 var data = {};
 var width = 0;
 var height = 0;
@@ -10,7 +28,6 @@ var checkCombos=function(grid){
   if(checkComboRows(grid) || checkComboColumns(grid)){
     return true;
   }
-
   return false;
 };
 
@@ -19,13 +36,11 @@ var checkCombos=function(grid){
  *
  */
 var checkComboRows=function(grid){
-  //console.log('checkComboRows');
   for(var i=0;i<grid.length;i++){
     if(this.checkArrayCombo(grid[i],'rowHit')){
       return true;
     }
   }
-
   return false;
 };
 
@@ -34,7 +49,6 @@ var checkComboRows=function(grid){
  *
  */
 var checkComboColumns=function(grid){
-  //console.log('checkComboColumns');
   var colCount = width;
 
   for(var colNum=0;colNum<colCount;colNum++){
@@ -48,7 +62,6 @@ var checkComboColumns=function(grid){
       return true;
     }
   }
-
   return false;
 };
 
@@ -59,6 +72,7 @@ var checkComboColumns=function(grid){
 var checkArrayCombo=function(ar,type){
   return checkArrayComboColor(ar,type) || checkArrayComboShape(ar,type);
 };
+
 
 /**
  *
@@ -71,7 +85,6 @@ var checkArrayComboColor=function(ar,type){
 
     if(space===undefined || (space.empty && space[type]) ){
       if(match.length>2){
-        //console.log('match hit shape');
         this.scoreCombo(match,type,'colorHit');
         return true;
       }
@@ -80,7 +93,6 @@ var checkArrayComboColor=function(ar,type){
       match=[];
     } else if(color!=space.color){
       if(match.length>2){
-        //console.log('match hit color');
         this.scoreCombo(match,type,'colorHit');
         return true;
       }
@@ -95,7 +107,6 @@ var checkArrayComboColor=function(ar,type){
 
   //final check
   if(match.length>2){
-    //console.log('match hit color');
     this.scoreCombo(match,type,'colorHit');
     return true;
   }
@@ -114,7 +125,6 @@ var checkArrayComboShape=function(ar,type){
   for(var i=0,space;(space=ar[i]);i++){
     if(space===undefined || (space.empty && space[type])){
       if(match.length>2){
-        //console.log('match hit');
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -124,7 +134,6 @@ var checkArrayComboShape=function(ar,type){
     } else if(shape!=space.shape){
 
       if(match.length>2){
-        //console.log('match hit shape');
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -139,7 +148,6 @@ var checkArrayComboShape=function(ar,type){
 
   //final check
   if(match.length>2){
-    //console.log('match hit shape');
     this.scoreCombo(match,type,'shapeHit');
     return true;
   }
@@ -153,13 +161,9 @@ var checkArrayComboShape=function(ar,type){
  */
 this.scoreCombo=function(match,rc,sc){
   var addScore = match.length-2;
-  //console.log('increase score by',addScore);
   data.score+=addScore;
 
   for(var i=0,space;(space=match[i]);i++){
-      //var node = $(space).data('node');
-      //node.empty();
-      //node.node.addClass('empty');
       space.empty=true;
       space[rc]=true;
       space[sc]=true;
@@ -171,8 +175,6 @@ this.scoreCombo=function(match,rc,sc){
  *
  */
 onmessage = function(e) {
-  //console.log('Message received from main script',e);
-
   data = {};
   data.score=0;
   data.grid=e.data.grid;
@@ -182,9 +184,7 @@ onmessage = function(e) {
 
   var counter=0;
   while(checkCombos(data.grid) && counter<200 ){
-    //console.log('still checking for combos',counter);
     counter++;
   }
-
   postMessage(data);
 };

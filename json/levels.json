@@ -56,9 +56,9 @@
 				{"score":4,"message":"Swap the star and the purple rabbet to remove the column."},
 				{"score":6,"message":"Swap the red circle with another shape to make a matching set."},
 				{"score":7,"message":"All matching sets will be removed after a swap."},
-				{"score":12,"message":"If newly created jewels are a set, they will get removed as well. <br />Get a score of 13 to end the level."}
+				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level."}
 			]
-		},{
+		}, {
 			"name": "4x4",
 			"width": 4,
 			"height": 4,
@@ -67,7 +67,7 @@
 			},
 			"colors": ["red", "green", "blue", "orange", "purple"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
-		},{
+		}, {
 			"name": "5x5",
 			"width": 5,
 			"height": 5,
@@ -87,6 +87,20 @@
 			"name": "7x7",
 			"width": 7,
 			"height": 7,
+			"endCondition": {
+				"maxScore": 30
+			}
+		},{
+			"name": "8x8",
+			"width": 8,
+			"height": 8,
+			"endCondition": {
+				"maxScore": 30
+			}
+		},{
+			"name": "9x9",
+			"width": 9,
+			"height": 9,
 			"endCondition": {
 				"maxScore": 30
 			}

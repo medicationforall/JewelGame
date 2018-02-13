@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file LevelSelect,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Level select screen.
+ *@class
+ */
 function LevelSelect(){
   this.template='<div class="levelSelect screen"></div>';
   this.node=$(this.template);
@@ -6,7 +28,8 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Sets the playable level set.
+   * @param {Array} levelSet The set of playable levels.
    */
   this.setLevelSet=function(levelSet){
     this.levels = levelSet.levels;
@@ -17,7 +40,7 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Adds a level to the list of available levels.
    */
   this.addLevel=function(index,level){
     var template = '<div class="levelSelection locked" data-level="'+index+'">'+
@@ -34,6 +57,7 @@ function LevelSelect(){
 
 
   /**
+   * Starts the selected level if it is unlocked.
    * @todo check if level passed.
    */
   this.node.on('click','.selectLevel',$.proxy(function(levelSelect,event){
@@ -48,9 +72,20 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Unlocks a level for selection.
+   * @param {int} lv Level integer.
    */
   this.unlockLevel=function(lv){
     this.node.find('.levelSelection[data-level="'+lv+'"]').removeClass('locked');
+  };
+
+
+  /**
+   * Selects a level as being played.
+   * @param {int} lv Level integer.
+   */
+  this.selectLevel=function(lv){
+    this.node.find('.levelSelection').removeClass('selected');
+    this.node.find('.levelSelection[data-level="'+lv+'"]').addClass('selected');
   };
 }

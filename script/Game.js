@@ -1,3 +1,20 @@
+/**
+ *   Jewel Game source file Game,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 function Game(){
   this.template='<div class="game screen display">'+
       '<div class="tip"></div>'+
@@ -6,6 +23,7 @@ function Game(){
   this.node.data('node',this);
   var seed = 'jewel-game';
   var level = 0;
+  var startLevel = 1;
 
   colors = ['red','green','blue','orange'];
   shapes = ['square','circle','triange','pentagon'];
@@ -22,7 +40,7 @@ function Game(){
     $.getJSON('json/levels.json').done($.proxy(function(data){
       levelSet = data;
       $('.levelSelect').data('node').setLevelSet(levelSet);
-      this.startLevel(0);
+      this.startLevel(startLevel);
     },this)).fail(function() {
       console.log( "error" );
     });
@@ -64,6 +82,9 @@ function Game(){
     $('.endCondition').empty();
     this.board=new Board(seed,lv,levelSet.levels[lv]);
     this.node.prepend(this.board.node);
+
+    //select level
+    $('.levelSelect').data('node').selectLevel(lv);
 
     //clear locked status
     $('.levelSelect').data('node').unlockLevel(lv);

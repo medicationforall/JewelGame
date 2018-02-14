@@ -79,17 +79,17 @@
 				"remainingMoves": 30
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
 			"name": "Orange, Green and Purple",
-			"labelName": "POG",
+			"levelName": "POG",
 			"width": 3,
 			"height": 4,
 			"endCondition": {
 				"remainingJewels": 100
 			},
 			"colors": ["green","orange", "purple"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"],
 			"tips":[
 			]
 		}, {
@@ -102,14 +102,15 @@
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
 		}, {
-			"name": "Square Pentagon",
+			"name": "Square Pentagon Circle",
+			"levelName":"SCP",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
 				"remainingJewels": 100
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
-			"shapes": ["square", "pentagon", "rabbet"],
+			"shapes": ["square", "pentagon", "circle"],
 			"tips":[
 			]
 		}, {

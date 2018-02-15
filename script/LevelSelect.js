@@ -21,10 +21,13 @@
  *@class
  */
 function LevelSelect(){
-  this.template='<div class="levelSelect screen"></div>';
+  this.template='<div class="levelSelect screen"><h2>Select Level</h2></div>';
   this.node=$(this.template);
   this.node.data('node',this);
   this.levels = null;
+
+  //mixin
+  Stats.call(this);
 
 
   /**
@@ -77,6 +80,26 @@ function LevelSelect(){
    */
   this.unlockLevel=function(lv){
     this.node.find('.levelSelection[data-level="'+lv+'"]').removeClass('locked');
+  };
+
+
+  /**
+   *
+   */
+  this.unlockLevelsFromData=function(levelHistory){
+    var maxLevel =0;
+    for(var i=0,level;(level=levelHistory[i]);i++){
+      this.unlockLevel(level.level);
+
+      if(level.level>maxLevel){
+        maxLevel=level.level;
+      }
+    }
+
+    if(maxLevel >0){
+      maxLevel++;
+      this.unlockLevel(maxLevel);
+    }
   };
 
 

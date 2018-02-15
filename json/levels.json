@@ -50,13 +50,13 @@
 				{"color": "purple","shape": "square"}
 			],
 			"tips":[
-				{"score":0,"message":"Click on the star and the pentagon below."},
+				{"score":0,"message":"Click on the star and the red pentagon."},
 				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical."},
-				{"score":2,"message":"You can match on color or shape for now just match on color."},
+				{"score":2,"message":"You can match on color or shape."},
 				{"score":4,"message":"Swap the star and the purple rabbet to remove the column."},
 				{"score":6,"message":"Swap the red circle with another shape to make a matching set."},
 				{"score":7,"message":"All matching sets will be removed after a swap."},
-				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level."}
+				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level.","enabled":false}
 			]
 		}, {
 			"name": "4x4",

@@ -24,6 +24,7 @@ function Game(){
   var seed = 'jewel-game';
   var level = 0;
   var startLevel = 0;
+  var levelHistory = [];
 
   colors = ['red','green','blue','orange'];
   shapes = ['square','circle','triange','pentagon'];
@@ -40,6 +41,9 @@ function Game(){
     $.getJSON('json/levels.json').done($.proxy(function(data){
       levelSet = data;
       $('.levelSelect').data('node').setLevelSet(levelSet);
+
+      this.getStoredGameData();
+
       this.startLevel(startLevel);
     },this)).fail(function() {
       console.log( "error" );
@@ -50,11 +54,44 @@ function Game(){
   /**
    *
    */
+  this.getStoredGameData=function(){
+    var userData = store.get('userData');
+    if(userData){
+      startLevel = userData.currentLevel;
+      levelHistory = userData.levelHistory;
+      $('.levelSelect').data('node').unlockLevelsFromData(levelHistory);
+      $('.levelSelect').data('node').setStatsFromData(levelHistory);
+    }else{
+      store.set('userData',{"currentLevel":startLevel,"levelHistory":[]});
+    }
+  };
+
+
+  /**
+   *
+   */
   this.node.on('end-game',$.proxy(function(event,data){
     console.log('end Game');
+    this.setStoredGameData(data);
+    $('.levelSelect').data('node').resolveStats(data);
     $('.endLevel').data('node').setEndLevelData(data);
     $('.screenControl').data('node').displayScreen('endLevel');
   },this));
+
+
+  /**
+   *
+   */
+  this.setStoredGameData=function(data){
+    levelHistory.push(data);
+    var currentLevel = data.level;
+    currentLevel++;
+    var uData = {};
+    uData.currentLevel=currentLevel;
+    uData.levelHistory=levelHistory;
+
+    store.set('userData',uData);
+  };
 
 
   /**

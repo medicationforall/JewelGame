@@ -31,8 +31,9 @@ function About(){
   'Powered By:'+
   '<ul>'+
   '<li><a href="https://jquery.com" target="blank">jQuery</a></li>'+
-  '<li><a href="https://github.com/davidbau/seedrandom" target="_blank">seedRandom.js</a></li>'+
+  '<li><a href="https://github.com/davidbau/seedrandom" target="_blank">seedrandom.js</a></li>'+
   '<li><a href="https://daneden.github.io/animate.css" target="_blank">animate.css</a></li>'+
+  '<li><a href="https://github.com/marcuswestin/store.js" target="_blank">Store.js</a></li>'+
   '</ul>'+
   'For other tools and games see - <a href="https://medicationforall.com" target="_blank">medicationforall.com</a><br />'+
   '</div>'+

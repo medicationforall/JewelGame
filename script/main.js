@@ -83,5 +83,6 @@ $(document).ready(function(){
     screenControl.add(Game);
     screenControl.add(LevelSelect);
     screenControl.add(EndLevel);
+    //screenControl.add(Stats);
     screenControl.add(About);
 });

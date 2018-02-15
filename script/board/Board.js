@@ -151,7 +151,7 @@ function Board(seed,level,properties){
    */
   this.showTip=function(prop){
     if(properties.tips){
-      if(properties.tips[this.tipIndex]){
+      if(properties.tips[this.tipIndex] && properties.tips[this.tipIndex].enabled != false){
         var message = properties.tips[this.tipIndex].message;
         var score = properties.tips[this.tipIndex].score;
 

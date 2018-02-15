@@ -30,6 +30,11 @@ h1{
   vertical-align:middle;
 }
 
+h2{
+  margin:0px;
+  font-size: 16pt;
+}
+
 
 /*Header*/
 .header{
@@ -99,6 +104,7 @@ display:none;
 .screen{
   display:none;
   height:calc(100% - 39px);
+  padding:0px 5px;
 }
 
 .screen.display{
@@ -107,6 +113,7 @@ display:none;
 
 /*Game*/
 .game{
+  padding:0px;
 }
 
 .tip{
@@ -326,6 +333,8 @@ display:none;
   font-size:17pt;
 }
 
+
+/*About screen*/
 .about .content{
   font-size:16pt;
 }
@@ -333,6 +342,7 @@ display:none;
 .about .content a{
   color:#c0c0c0;
 }
+
 
 @media screen and (max-width:425px){
   .header h1{

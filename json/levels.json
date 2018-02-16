@@ -50,36 +50,13 @@
 				{"color": "purple","shape": "square"}
 			],
 			"tips":[
-				{"score":0,"message":"Click on the star and the red pentagon."},
+				{"score":0,"message":"Click on the purple star and the red pentagon."},
 				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical."},
 				{"score":2,"message":"You can match on color or shape."},
-				{"score":4,"message":"Swap the star and the purple rabbet to remove the column."},
-				{"score":6,"message":"Swap the red circle with another shape to make a matching set."},
+				{"score":4,"message":"Swap the star and the purple rabbet to match the shapes."},
 				{"score":7,"message":"All matching sets will be removed after a swap."},
 				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level.","enabled":false}
 			]
-		}, {
-			"name": "4x4",
-			"width": 4,
-			"height": 4,
-			"endCondition": {
-				"remainingJewels": 100
-			},
-			"colors": ["red", "green", "blue", "orange", "purple"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"],
-			"tips":[
-				{"score":0,"message":"Clear 100 Jewels to win the level."},
-				{"score":1,"message":"If you get stuck you can restart the level. Click on the bar icon in the upper right corner."}
-			]
-		}, {
-			"name": "5x5",
-			"width": 5,
-			"height": 5,
-			"endCondition": {
-				"remainingMoves": 30
-			},
-			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
 			"name": "Orange, Green and Purple",
 			"levelName": "POG",
@@ -93,14 +70,26 @@
 			"tips":[
 			]
 		}, {
-			"name": "6x6",
-			"width": 6,
-			"height": 6,
+			"name": "4x4",
+			"width": 4,
+			"height": 4,
 			"endCondition": {
-				"maxScore": 100
+				"remainingJewels": 100
+			},
+			"colors": ["red", "green", "blue", "orange", "purple"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"],
+			"tips":[
+				{"score":0,"message":"If you get stuck you can restart! Click on the hamburger in the upper right corner."}
+			]
+		}, {
+			"name": "5x5",
+			"width": 5,
+			"height": 5,
+			"endCondition": {
+				"remainingMoves": 30
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
 			"name": "Square Pentagon Circle",
 			"levelName":"SCP",
@@ -114,6 +103,15 @@
 			"tips":[
 			]
 		}, {
+			"name": "6x6",
+			"width": 6,
+			"height": 6,
+			"endCondition": {
+				"maxScore": 100
+			},
+			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
+		}, {
 			"levelName":"Stones 7x7",
 			"name": "7x7",
 			"width": 7,
@@ -126,23 +124,53 @@
 			"tips":[
 				{"score":0,"message":"Introducing stone blocks. They can be pretty tricky!"},
 				{"score":2,"message":"Stone blocks do not match on color. When matched on shape only the non-stone blocks are removed."},
-				{"score":3,"message":"To remove stone blocks you have to drop them to the bottom of the board. Their heavy weight causes them to fall off!"}
+				{"score":3,"message":"To remove stone blocks drop them to the bottom of the board, and they will fall off!"}
 			]
-		},{
+		}, {
+			"name": "Stone Center",
+			"width": 4,
+			"height": 4,
+			"endCondition": {
+				"remainingJewels": 36
+			},
+			"colors": ["red", "green", "blue", "orange"],
+			"shapes": ["square", "circle", "pentagon", "rabbet"],
+			"startBlocks": [
+				{"color": "orange","shape": "square"},
+				{"color": "green","shape": "rabbet"},
+				{"color": "blue","shape": "square"},
+				{"color": "blue","shape": "circle"},
+
+				{"color": "blue","shape": "rabbet"},
+				{"color": "stone","shape": "pentagon"},
+				{"color": "stone","shape": "circle"},
+				{"color": "blue","shape": "square"},
+
+				{"color": "orange","shape": "circle"},
+				{"color": "stone","shape": "rabbet"},
+				{"color": "stone","shape": "square"},
+				{"color": "green","shape": "circle"},
+
+				{"color": "red","shape": "pentagon"},
+				{"color": "orange","shape": "pentagon"},
+				{"color": "red","shape": "rabbet"},
+				{"color": "blue","shape": "square"}
+			]
+		}, {
 			"name": "8x8",
 			"width": 8,
 			"height": 8,
 			"endCondition": {
 				"maxScore": 30
 			}
-		},{
+		}, {
 			"name": "9x9",
 			"width": 9,
 			"height": 9,
 			"endCondition": {
 				"maxScore": 30
 			}
-		},{
+		}, {
 			"name": "10x9",
 			"width": 10,
 			"height": 9,

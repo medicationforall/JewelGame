@@ -83,7 +83,7 @@ var checkArrayComboColor=function(ar,type){
 
   for(var i=0,space;(space=ar[i]);i++){
 
-    if(space===undefined || (space.empty && space[type]) ){
+    if(space===undefined || (space.empty && space[type]) || space.color==='stone'){
       if(match.length>2){
         this.scoreCombo(match,type,'colorHit');
         return true;
@@ -100,7 +100,7 @@ var checkArrayComboColor=function(ar,type){
       color=space.color;
       match=[];
       match.push(space);
-    }else if(color===space.color){
+    } else if(color===space.color){
       match.push(space);
     }
   }
@@ -124,7 +124,7 @@ var checkArrayComboShape=function(ar,type){
 
   for(var i=0,space;(space=ar[i]);i++){
     if(space===undefined || (space.empty && space[type])){
-      if(match.length>2){
+      if(match.length>2 && allStoneCheck(match)===false){
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -133,7 +133,7 @@ var checkArrayComboShape=function(ar,type){
       match=[];
     } else if(shape!=space.shape){
 
-      if(match.length>2){
+      if(match.length>2 && allStoneCheck(match)===false){
         this.scoreCombo(match,type,'shapeHit');
         return true;
       }
@@ -147,12 +147,22 @@ var checkArrayComboShape=function(ar,type){
   }
 
   //final check
-  if(match.length>2){
+  if(match.length>2 && allStoneCheck(match)===false){
     this.scoreCombo(match,type,'shapeHit');
     return true;
   }
 
   return false;
+};
+
+var allStoneCheck=function(match){
+  for(var i=0,space;(space=match[i]);i++){
+    if(space.color !== 'stone'){
+      return false;
+    }
+  }
+
+  return true;
 };
 
 
@@ -164,7 +174,12 @@ this.scoreCombo=function(match,rc,sc){
   data.score+=addScore;
 
   for(var i=0,space;(space=match[i]);i++){
-      space.empty=true;
+      if(space.color === 'stone'){
+        //stones are not removed from combos.
+        //console.log('stone hit');
+      }else{
+        space.empty=true;
+      }
       space[rc]=true;
       space[sc]=true;
   }

@@ -63,12 +63,18 @@ var checkDropColumns=function(grid){
 
 
 /**
- * @todo the column array being modified is in local memory and not working it's way back up.
+ *
  */
 var checkArrayDrop=function(column){
   var emptyCount = 0;
   for(var i=0,space;(space=column[i]);i++){
-    //console.log(space);
+
+    if( i===0 &&space.color==='stone'){
+      //console.log('drop stone check');
+      space.empty=true;
+      space.fallOff=true;
+    }
+
     if(space.empty){
       emptyCount++;
     }else if((space.empty===undefined || space.empty===false) && emptyCount>0){

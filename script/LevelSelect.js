@@ -66,7 +66,7 @@ function LevelSelect(){
   this.node.on('click','.selectLevel',$.proxy(function(levelSelect,event){
     event.preventDefault();
     if($(this).parent().hasClass('locked')===false){
-      console.log('clicked level');
+      //console.log('clicked level');
       var levelNumber = parseInt($(this).data('level'));
       $('.game.screen').data('node').startLevel(levelNumber);
       $('.screenControl').data('node').displayScreen('game');

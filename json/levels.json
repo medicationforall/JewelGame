@@ -114,12 +114,20 @@
 			"tips":[
 			]
 		}, {
+			"levelName":"Stones 7x7",
 			"name": "7x7",
 			"width": 7,
 			"height": 7,
 			"endCondition": {
 				"maxScore": 30
-			}
+			},
+			"colors": ["red", "green", "blue", "orange", "purple", "stone"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"],
+			"tips":[
+				{"score":0,"message":"Introducing stone blocks. They can be pretty tricky!"},
+				{"score":2,"message":"Stone blocks do not match on color. When matched on shape only the non-stone blocks are removed."},
+				{"score":3,"message":"To remove stone blocks you have to drop them to the bottom of the board. Their heavy weight causes them to fall off!"}
+			]
 		},{
 			"name": "8x8",
 			"width": 8,

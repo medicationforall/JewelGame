@@ -9,7 +9,7 @@ function Stats(){
    *
    */
   this.setStatsFromData=function(levelHistory){
-    console.log('set level stats',levelHistory);
+    //console.log('set level stats',levelHistory);
 
     for(var i=0,level;(level=levelHistory[i]);i++){
       this.resolveStats(level);

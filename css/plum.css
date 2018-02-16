@@ -170,18 +170,16 @@ body{
 }
 
 /*Stone*/
-/*.stone ~ .highlight{
-  opacity:0.2;
-  margin-left: 28px;
-}*/
+.stone ~ .highlight{
+  display:none;
+}
 
 .stone{
-  background: #c0c0c0;
-  background-image: url('image/stone/stone2.png');
+  background: #c0c0c0 url('image/stone/stone3.png') 8px 8px;
 }
 
 .stone ~ .shadow{
-  background:#222;
+  background:#333;
 }
 
 /*Ice*/

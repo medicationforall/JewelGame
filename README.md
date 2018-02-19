@@ -1,7 +1,7 @@
 # JewelGame
 
 
-![Screenshot](image/screenshot2.png)
+![Screenshot](image/screenshot.png)
 
 HTML 5, CSS 3, and Javascript matching game.
 You can see a working version of the app at [https://medicationforall.github.io/JewelGame](https://medicationforall.github.io/JewelGame)

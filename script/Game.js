@@ -23,7 +23,7 @@ function Game(){
   this.node.data('node',this);
   var seed = 'jewel-game';
   var level = 0;
-  var startLevel = 9;
+  var startLevel = 0;
   var levelHistory = [];
 
   colors = ['red','green','blue','orange'];

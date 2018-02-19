@@ -84,6 +84,7 @@ var checkArrayComboColor=function(ar,type){
   for(var i=0,space;(space=ar[i]);i++){
 
     if(space===undefined || (space.empty && space[type]) || space.color==='stone'){
+      //skip existing rowhit match
       if(match.length>2){
         this.scoreCombo(match,type,'colorHit');
         return true;
@@ -91,16 +92,30 @@ var checkArrayComboColor=function(ar,type){
 
       color = '';
       match=[];
-    } else if(color!=space.color){
+    } else if(color!=space.color && space.color!=='rainbow'){
+      //switch color
+      var rainbowEnd = endsInRainbowCheck(match);
+
       if(match.length>2){
         this.scoreCombo(match,type,'colorHit');
         return true;
       }
 
-      color=space.color;
-      match=[];
-      match.push(space);
-    } else if(color===space.color){
+      if(match.length>0 && allRainbowCheck(match)){
+        color=space.color;
+        match.push(space);
+      }else if(match.length>1 &&  rainbowEnd.length>0){
+        color=space.color;
+        match=rainbowEnd;
+        match.push(space);
+      }else{
+        color=space.color;
+        match=[];
+        match.push(space);
+      }
+
+    } else if(color===space.color || space.color==='rainbow'){
+      //color continuation
       match.push(space);
     }
   }
@@ -155,6 +170,9 @@ var checkArrayComboShape=function(ar,type){
   return false;
 };
 
+/**
+ *
+ */
 var allStoneCheck=function(match){
   for(var i=0,space;(space=match[i]);i++){
     if(space.color !== 'stone'){
@@ -163,6 +181,39 @@ var allStoneCheck=function(match){
   }
 
   return true;
+};
+
+
+/**
+ *
+ */
+var allRainbowCheck=function(match){
+  for(var i=0,space;(space=match[i]);i++){
+    if(space.color !== 'rainbow'){
+      return false;
+    }
+  }
+
+  return true;
+};
+
+
+/**
+ *
+ */
+var endsInRainbowCheck=function(match){
+  var hit = false;
+  var rSet = [];
+  for(var i=0,space;(space=match[i]);i++){
+    if(space.color !== 'rainbow'){
+      hit = true;
+      rSet = [];
+    } else if(hit && space.color == 'rainbow'){
+      rSet.push(space);
+    }
+  }
+
+  return rSet;
 };
 
 

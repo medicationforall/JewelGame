@@ -155,10 +155,9 @@ body{
 }
 
 /*Rainbow*/
-/*.rainbow ~ .highlight{
-  margin-top: 20px;
-  margin-left: 25px;
-}*/
+.rainbow ~ .highlight{
+  display:none;
+}
 
 .rainbow{
   background: #ff5983;

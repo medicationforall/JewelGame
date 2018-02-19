@@ -70,13 +70,14 @@
 			"tips":[
 			]
 		}, {
+			"levelName":"Rainbow Intro",
 			"name": "Rainbow",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
 				"maxScore": 30
 			},
-			"colors": ["green", "orange", "purple", "yellow", "rainbow"],
+			"colors": ["red", "blue","green", "orange", "purple", "yellow", "rainbow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "star"],
 			"tips":[
 				{"score":0,"message":"Rainbow blocks can be matched with sets of any color."}

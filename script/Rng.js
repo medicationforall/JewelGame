@@ -18,18 +18,17 @@
 
 /**
  * Random number generator based on passed in seeds.
+ * @class
  * @see lib/seedrandom
  * Written by James Adams Copyright 2016
- * @todo change how the rng's are stored so that they aren't registered directly against the rng object.
- * @todo move to MJS?
  */
 function Rng(seed){
 
   /**
-   *
+   * Creates the psuedo random number generator.
    */
   this._constructor=function(){
-    this.createSeed(seed);
+    this._createSeed(seed);
   };
 
   //main
@@ -38,20 +37,41 @@ function Rng(seed){
 
 
 /**
- * Returns a new random number from the seed.
+ * Gets a random number from the seed and range.
+ * @public
+ * @param {string} seed unique key.
+ * @param {int} min Minimun of the range.
+ * @param {int} max Maximum of the range.
+ * @return {int}
  */
 Rng.prototype.getRandom=function(seed, min, max){
   if(this[seed] ===undefined){
-    this.createSeed(seed);
+    this._createSeed(seed);
   }
   return ((this[seed]() * (max - min + 1)) + min)<<0;
 };
 
 
-/*
- * Initializes a seed. If it already exists throws an error.
+/**
+ * Gets a random number from the given range.
+ * @public
+ * @param {int} min Minimun of the range.
+ * @param {int} max Maximum of the range.
+ * @return {int}
  */
-Rng.prototype.createSeed=function(seed){
+Rng.prototype.getTrueRandom=function(min, max){
+  //return ((this[seed]()*(max-min+1))+min)<<0;
+  return Math.floor(Math.random()*(max-min+1)+min);
+};
+
+
+/**
+ * Initializes a seed. If it already exists throws an error.
+ * @private
+ * @param {string} seed unique key.
+ *
+ */
+Rng.prototype._createSeed=function(seed){
   if(this[seed] !==undefined){
     throw 'Seed Already exists.';
   }

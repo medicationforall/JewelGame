@@ -15,6 +15,12 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
+/**
+ * Game screen.
+ * @class
+ */
 function Game(){
   this.template='<div class="game screen display">'+
       '<div class="tip"></div>'+
@@ -23,8 +29,9 @@ function Game(){
   this.node.data('node',this);
   var seed = 'jewel-game';
   var level = 0;
-  var startLevel = 9;
+  var startLevel = 0;
   var levelHistory = [];
+  var options;
 
   colors = ['red','green','blue','orange'];
   shapes = ['square','circle','triange','pentagon'];
@@ -43,6 +50,7 @@ function Game(){
       $('.levelSelect').data('node').setLevelSet(levelSet);
 
       this.getStoredGameData();
+      this.getStoredOptions();
 
       this.startLevel(startLevel);
     },this)).fail(function() {
@@ -52,7 +60,8 @@ function Game(){
 
 
   /**
-   *
+   * Gather the users cached game data.
+   * If it doesn't exist intiates the user cache.
    */
   this.getStoredGameData=function(){
     var userData = store.get('userData');
@@ -62,13 +71,32 @@ function Game(){
       $('.levelSelect').data('node').unlockLevelsFromData(levelHistory);
       $('.levelSelect').data('node').setStatsFromData(levelHistory);
     }else{
-      store.set('userData',{"currentLevel":startLevel,"levelHistory":[]});
+      store.set('userData',{
+        "currentLevel":startLevel,
+        "levelHistory":[]
+      });
     }
   };
 
 
   /**
    *
+   */
+  this.getStoredOptions=function(){
+    options = store.get('options');
+    if(options){
+      $('.options.screen').data('node').setOptionsFromData(options);
+    }else{
+      options = {"playSpeed":1};
+      store.set('options',options);
+    }
+
+    console.log('get stored options',options);
+  };
+
+
+  /**
+   * End game event called when a level is finished.
    */
   this.node.on('end-game',$.proxy(function(event,data){
     console.log('end Game');
@@ -80,10 +108,9 @@ function Game(){
 
 
   /**
-   *
+   * Set the users stored data.
    */
   this.setStoredGameData=function(data){
-    levelHistory.push(data);
     var currentLevel = data.level;
     currentLevel++;
     var uData = {};
@@ -95,7 +122,7 @@ function Game(){
 
 
   /**
-   *
+   * Starts the next level.
    */
   this.startNextLevel=function(){
     level++;
@@ -108,7 +135,7 @@ function Game(){
 
 
   /**
-   *
+   * Restart the current level.
    */
   this.restartLevel=function(){
     this.startLevel(level);
@@ -117,6 +144,7 @@ function Game(){
 
   /**
    * Start a level determined by the given level.
+   * @param {int} lv level number.
    */
   this.startLevel=function(lv){
     level = lv;
@@ -126,7 +154,7 @@ function Game(){
     $('.level .value').text(0);
     $('.moves .value').text(0);
     $('.endCondition').empty();
-    this.board=new Board(seed,lv,levelSet.levels[lv]);
+    this.board=new Board(seed,lv,levelSet.levels[lv],options);
     this.node.prepend(this.board.node);
 
     //select level
@@ -134,6 +162,19 @@ function Game(){
 
     //clear locked status
     $('.levelSelect').data('node').unlockLevel(lv);
+  };
+
+
+  /**
+   * Set options.
+   * @param {object} options Option data.
+   */
+  this.setOptions=function(tmpOptions){
+    options=tmpOptions;
+    store.set('options',options);
+    if(this.board){
+      this.board.setPlaySpeed(options.playSpeed);
+    }
   };
 
   this._constructor();

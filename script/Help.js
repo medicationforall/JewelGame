@@ -15,11 +15,17 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Help screen.
+ * @class
+ */
 function Help(){
   this.template='<div class="about screen">'+
   '<h2>Help</h2>'+
   '<h3>Game</h3>'+
   '<h3>Level Select</h3>'+
+  '<h3>Options</h3>'+
   '</div>';
   this.node=$(this.template);
   this.node.data('node',this);

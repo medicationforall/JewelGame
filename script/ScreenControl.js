@@ -22,7 +22,6 @@
  */
 function ScreenControl(){
   this.template='<div class="screenControl">'+
-      '<div class="options screen"></div>'+
     '</div>';
   this.node = $(this.template);
   this.node.data('node',this);

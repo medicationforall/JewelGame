@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Hambuger Menu and options.
+ * @class
+ */
 function HamburgerMenu(){
   this.node = $('.hamburgerMenu');
   this.node.data('node',this);

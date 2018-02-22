@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * About screen.
+ * @class
+ */
 function About(){
   this.template='<div class="about screen">'+
   '<h2>About</h2>'+
@@ -39,6 +44,7 @@ function About(){
   '<li><a href="https://github.com/davidbau/seedrandom" target="_blank">seedrandom.js</a></li>'+
   '<li><a href="https://daneden.github.io/animate.css" target="_blank">animate.css</a></li>'+
   '<li><a href="https://github.com/marcuswestin/store.js" target="_blank">Store.js</a></li>'+
+  '<li><a href="http://game-icons.net/" target="_blank">Game-icons.net</a></li>'+
   '</ul>'+
   '</div>';
 

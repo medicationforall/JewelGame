@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Page header.
+ * @class
+ */
 function Header(){
   this.node = $('.header');
   this.node.data('node',this);

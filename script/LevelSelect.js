@@ -18,7 +18,7 @@
 
 /**
  * Level select screen.
- *@class
+ * @class
  */
 function LevelSelect(){
   this.template='<div class="levelSelect screen"><h2>Select Level</h2></div>';

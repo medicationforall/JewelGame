@@ -1,6 +1,7 @@
 {
 	"levels": [{
 			"name": "Tutorial",
+			"seed": "Tutorial",
 			"width": 3,
 			"height": 3,
 			"endCondition": {
@@ -58,8 +59,8 @@
 				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level.","enabled":false}
 			]
 		}, {
-			"name": "Orange, Green and Purple",
-			"levelName": "POG",
+			"name": "POG",
+			"seed": "Orange, Green and Purple",
 			"width": 3,
 			"height": 4,
 			"endCondition": {
@@ -70,8 +71,8 @@
 			"tips":[
 			]
 		}, {
-			"levelName":"Rainbow Intro",
-			"name": "Rainbow",
+			"name":"Rainbow Intro",
+			"seed": "Rainbow",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
@@ -84,6 +85,7 @@
 			]
 		}, {
 			"name": "4x4",
+			"seed": "4x4",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
@@ -96,6 +98,7 @@
 			]
 		}, {
 			"name": "Rainbow 5x5",
+			"seed": "Rainbow 5x5",
 			"width": 5,
 			"height": 5,
 			"endCondition": {
@@ -105,6 +108,7 @@
 			"shapes": ["square", "circle", "triangle", "pentagon", "star"]
 		}, {
 			"name": "5x5",
+			"seed": "5x5",
 			"width": 5,
 			"height": 5,
 			"endCondition": {
@@ -113,8 +117,8 @@
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
-			"name": "Square Pentagon Circle",
-			"levelName":"SCP",
+			"name":"SCP",
+			"seed": "Square Pentagon Circle",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
@@ -126,6 +130,7 @@
 			]
 		}, {
 			"name": "6x6",
+			"seed": "6x6",
 			"width": 6,
 			"height": 6,
 			"endCondition": {
@@ -134,8 +139,8 @@
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
 		}, {
-			"levelName":"Stones 7x7",
-			"name": "7x7",
+			"name":"Stones 7x7",
+			"seed": "7x7",
 			"width": 7,
 			"height": 7,
 			"endCondition": {
@@ -150,6 +155,7 @@
 			]
 		}, {
 			"name": "Stone Center",
+			"seed": "Stone Center",
 			"width": 4,
 			"height": 4,
 			"endCondition": {
@@ -180,6 +186,7 @@
 			]
 		}, {
 			"name": "8x8",
+			"seed": "8x8",
 			"width": 8,
 			"height": 8,
 			"endCondition": {
@@ -187,6 +194,7 @@
 			}
 		}, {
 			"name": "9x9",
+			"seed": "9x9",
 			"width": 9,
 			"height": 9,
 			"endCondition": {
@@ -194,6 +202,7 @@
 			}
 		}, {
 			"name": "10x9",
+			"seed": "10x9",
 			"width": 10,
 			"height": 9,
 			"endCondition": {
@@ -203,6 +212,7 @@
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
 		}, {
 			"name": "Infinite",
+			"seed": "Infinite",
 			"width": 9,
 			"height": 9,
 			"endCondition": {

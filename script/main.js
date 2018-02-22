@@ -16,9 +16,9 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- /**
-  * Extentions on jquery for picking up when css animations and transitions are finished.
-  */
+/**
+ * Extentions on jquery for picking up when css animations and transitions are finished.
+ */
 $.fn.extend({
     animateCss: function (animationName) {
       var animationEnd = 'animationend';
@@ -83,6 +83,7 @@ $(document).ready(function(){
     screenControl.add(Game);
     screenControl.add(LevelSelect);
     screenControl.add(EndLevel);
+    screenControl.add(Options);
     //screenControl.add(Stats);
     screenControl.add(About);
 });

@@ -23,7 +23,7 @@
  * @param  {Object} properties Level description object.
  * @returns {Board}
  */
-function Board(seed,level,properties){
+function Board(seed,level,properties,options){
   var template='<div class="board"></div>';
   this.node= $(template);
   this.node.data('node',this);
@@ -37,6 +37,7 @@ function Board(seed,level,properties){
   this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
 
   this.sleepTime = 250;
+  this.playSpeed=1;
 
   /*Mixin*/
   HasCombos.call(this,properties);
@@ -51,6 +52,7 @@ function Board(seed,level,properties){
     this.setEndCondition(properties.endCondition);
     this.setColors(properties.colors);
     this.setShapes(properties.shapes);
+    this.setPlaySpeed(options.playSpeed);
 
     this._buildBoardSpaces();
     this.showTip({"score":0});
@@ -174,8 +176,8 @@ function Board(seed,level,properties){
    */
   this.sleep=function(ms) {
     return new Promise(function(resolve, reject) {
-      setTimeout(resolve, ms, 'foo');
-    });
+      setTimeout(resolve, (ms/this.playSpeed), 'foo');
+    }.bind(this));
   };
 
 
@@ -184,7 +186,7 @@ function Board(seed,level,properties){
    * @returns {string}  Resolves a random color driven by seed.
    */
   this._getRandomColor=function(){
-    return this.colors[this.rng.getRandom(this.seed+properties.name+'-color',0,this.colors.length-1)];
+    return this._getRandom(this.colors,'color');
   };
 
 
@@ -193,7 +195,19 @@ function Board(seed,level,properties){
    * @returns {string}  Resolves a random shape driven by seed.
    */
   this._getRandomShape=function(){
-    return this.shapes[this.rng.getRandom(this.seed+properties.name+'-shape',0,this.shapes.length-1)];
+    return this._getRandom(this.shapes,'shape');
+  };
+
+
+  /**
+   *
+   */
+  this._getRandom=function(lookup,modifier){
+    if(properties.seed){
+      return lookup[this.rng.getRandom(this.seed+properties.seed+'-'+modifier,0,lookup.length-1)];
+    } else{
+      return lookup[this.rng.getTrueRandom(0,lookup.length-1)];
+    }
   };
 
 
@@ -208,6 +222,14 @@ function Board(seed,level,properties){
     data.moves = parseInt($('.moves .value').text());
     data.jewelsCleared = this.jewelsCleared;
     return data;
+  };
+
+
+  /**
+   *
+   */
+  this.setPlaySpeed=function(playSpeed){
+    this.playSpeed=parseFloat(playSpeed).toFixed(1);
   };
 
 

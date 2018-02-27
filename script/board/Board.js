@@ -37,7 +37,7 @@ function Board(seed,level,properties,options){
   this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
 
   this.sleepTime = 250;
-  this.playSpeed=1;
+  this.playSpeed=2;
 
   /*Mixin*/
   HasCombos.call(this,properties);

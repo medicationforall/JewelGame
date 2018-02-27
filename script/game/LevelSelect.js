@@ -24,7 +24,7 @@ function LevelSelect(){
   this.template='<div class="levelSelect screen"><h2>Select Level</h2></div>';
   this.node=$(this.template);
   this.node.data('node',this);
-  this.levels = null;
+  this.levels = [];
 
   //mixin
   Stats.call(this);
@@ -38,6 +38,20 @@ function LevelSelect(){
     this.levels = levelSet.levels;
     for(var i=0,level;(level = levelSet.levels[i]);i++){
       this.addLevel(i,level);
+    }
+  };
+
+
+  /**
+   * Sets the playable level set.
+   * @param {Array} levelSet The set of playable levels.
+   * @todo test to see if this works.
+   */
+  this.appendLevelSet=function(levelSet){
+    var length = this.levels.length;
+    for(var i=0,level;(level = levelSet.levels[i]);i++){
+      this.levels.push(level);
+      this.addLevel(i+length,level);
     }
   };
 

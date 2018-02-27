@@ -24,14 +24,14 @@ function Options(){
   this.template='<div class="options screen">'+
   '<h2>Options</h2>'+
   '<div>'+
-  'Play Speed:<div class="playSpeedContainer"><span class="playSpeed">1</span><br /><input name="playSpeed" type="range" min="0.1" max="10" step="0.1" value="1.0" /></div>'+
+  'Play Speed:<div class="playSpeedContainer"><span class="playSpeed">2</span><br /><input name="playSpeed" type="range" min="0.1" max="10" step="0.1" value="2.0" /></div>'+
   '</div><br />'+
   '<a href="" class="apply button">Apply</a> '+
   '<a href="" class="reset button">Reset</a>'+
   '</div>';
   this.node = $(this.template);
   this.node.data('node',this);
-  this.playSpeed = 1;
+  this.playSpeed = 2;
 
 
   /**
@@ -68,6 +68,7 @@ function Options(){
     }
   },null,this));
 
+
   /**
    *
    */
@@ -103,8 +104,7 @@ function Options(){
    *
    */
   this.reset=function(){
-    this.setPlaySpeed(1);
+    this.setPlaySpeed(2);
     this.node.find('input[name="playSpeed"]').val(this.playSpeed);
   };
-
 }

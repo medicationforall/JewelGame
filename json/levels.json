@@ -67,9 +67,7 @@
 				"remainingJewels": 100
 			},
 			"colors": ["green", "orange", "purple"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"],
-			"tips":[
-			]
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
 			"name":"Rainbow Intro",
 			"seed": "Rainbow",

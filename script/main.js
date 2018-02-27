@@ -22,9 +22,13 @@
 $.fn.extend({
     animateCss: function (animationName) {
       var animationEnd = 'animationend';
+      var dfd = jQuery.Deferred();
+
       $(this).addClass('animated ' + animationName).one(animationEnd, function() {
         $(this).removeClass('animated ' + animationName);
-      });
+        dfd.resolve( "resolved animation" );
+      }).promise();
+      return dfd;
     },
 
     transitionCss: function (className) {

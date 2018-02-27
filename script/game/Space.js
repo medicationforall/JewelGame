@@ -69,7 +69,10 @@ function Space(color,shape,index){
       this._setShape(data.shape);
 
       if(data.drop && data.drop > 0){
-        this._setDrop(data.drop);
+        this.node.find('.highlight,.token,.shadow,.outline').addClass('noTransition');
+        $.when(this._setDrop(data.drop)).done($.proxy(function(){
+          this.node.find('.highlight,.token,.shadow,.outline').removeClass('noTransition');
+        },this));
       }
     }else{
       this._empty(data);
@@ -128,16 +131,8 @@ function Space(color,shape,index){
       this.node.find('.token').attr('data-shape',shape);
       this.node.find('.token,.shadow,.outline').removeClass('square circle triangle pentagon rabbet star');
 
-      if(shape==='circle'){
-        this.shape = shape;
-        this.node.find('.token,.shadow,.outline').transitionCss(this.shape);
-      }else if(this.shape){
-        this.shape = shape;
-        this.node.find('.token,.shadow,.outline').transitionCss(this.shape);
-      }else{
-        this.shape = shape;
-        this.node.find('.token,.shadow,.outline').addClass(this.shape);
-      }
+      this.shape = shape;
+      this.node.find('.token,.shadow,.outline').addClass(this.shape);
     }
   };
 

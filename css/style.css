@@ -369,6 +369,9 @@ display:none;
   background-color:#c0c0c0;
 }
 
+.noTransition{
+  transition: none;
+}
 
 @media screen and (max-width:425px){
   .header h1{

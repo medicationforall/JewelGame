@@ -1,0 +1,69 @@
+{
+  "name":"Random Levels",
+  "levels": [
+    {
+      "name": "R-3",
+      "width": 3,
+      "height": 3,
+      "endCondition": {"remainingJewels": 300},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-4",
+      "width": 4,
+      "height": 4,
+      "endCondition": {"remainingJewels": 400},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-5",
+      "width": 5,
+      "height": 5,
+      "endCondition": {"remainingJewels": 500},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-6",
+      "width": 6,
+      "height": 6,
+      "endCondition": {"remainingJewels": 600},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-7",
+      "width": 7,
+      "height": 7,
+      "endCondition": {"remainingJewels": 700},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-8",
+      "width": 8,
+      "height": 8,
+      "endCondition": {"remainingJewels": 800},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-9",
+      "width": 9,
+      "height": 9,
+      "endCondition": {"remainingJewels": 900},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    },
+    {
+      "name": "R-10",
+      "width": 10,
+      "height": 10,
+      "endCondition": {"remainingJewels": 1000},
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+    }
+  ]
+}

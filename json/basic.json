@@ -1,4 +1,5 @@
 {
+	"name":"Basic Levels",
 	"levels": [{
 			"name": "Tutorial",
 			"seed": "Tutorial",
@@ -82,6 +83,16 @@
 				{"score":0,"message":"Rainbow blocks can be matched with sets of any color."}
 			]
 		}, {
+			"name": "Rainbow 5x5",
+			"seed": "Rainbow 5x5",
+			"width": 5,
+			"height": 5,
+			"endCondition": {
+				"maxScore": 30
+			},
+			"colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "star"]
+		}, {
 			"name": "4x4",
 			"seed": "4x4",
 			"width": 4,
@@ -94,16 +105,6 @@
 			"tips":[
 				{"score":0,"message":"If you get stuck you can restart! Click on the hamburger in the upper right corner."}
 			]
-		}, {
-			"name": "Rainbow 5x5",
-			"seed": "Rainbow 5x5",
-			"width": 5,
-			"height": 5,
-			"endCondition": {
-				"maxScore": 30
-			},
-			"colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "star"]
 		}, {
 			"name": "5x5",
 			"seed": "5x5",
@@ -209,12 +210,12 @@
 			"colors": ["red", "green", "blue", "orange", "purple"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
 		}, {
-			"name": "Infinite",
+			"name": "500",
 			"seed": "Infinite",
 			"width": 9,
 			"height": 9,
 			"endCondition": {
-				"unknown": 20
+				"remainingJewels": 500
 			}
 		}
 	]

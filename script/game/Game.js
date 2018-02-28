@@ -28,8 +28,6 @@ function Game(){
   this.node = $(this.template);
   this.node.data('node',this);
   this.seed = 'jewel-game';
-  var levelFile = 'levels.json';
-  var experimentFile = 'experiment.json';
 
 
   //Mixin
@@ -42,8 +40,8 @@ function Game(){
    * Load the levels data and start the initial level.
    */
   this._constructor=function(){
-    var bLevels = this.getLevelsFromJson('levels.json');
-    var eLevels = this.getLevelsFromJson('experiment.json');
+    var bLevels = this.getLevelsFromJson('basic.json');
+    var eLevels = this.getLevelsFromJson('random.json');
 
     $.when(bLevels,eLevels).done($.proxy(function(bData, eData){
       this.addLoadedLevels(bData[0].levels);

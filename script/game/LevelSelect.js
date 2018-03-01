@@ -101,6 +101,7 @@ function LevelSelect(){
    *
    */
   this.unlockLevelsFromData=function(levelHistory){
+    console.log('unlockLevelsFromData');
     var maxLevel =0;
     for(var i=0,level;(level=levelHistory[i]);i++){
       this.unlockLevel(level.level);

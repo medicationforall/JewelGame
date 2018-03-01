@@ -22,6 +22,21 @@ function HasCombos(properties){
   var dropWorker = new Worker(relativePath+'script/board/dropComboWorker.js');
   this.jewelsCleared=0;
 
+  comboSounds = [];
+  comboSounds.push(new Howl({src: ['sound/combo.wav']}));
+  comboSounds.push(new Howl({src: ['sound/combo3.wav']}));
+  comboSounds.push(new Howl({src: ['sound/combo2.wav']}));
+  comboSounds.push(new Howl({src: ['sound/combo4.wav']}));
+  comboSounds.push(new Howl({src: ['sound/combo5.wav']}));
+
+  var introSound = new Howl({
+    src: ['sound/intro2.wav']
+  });
+
+  var endSound = new Howl({
+    src: ['sound/levelComplete.wav']
+  });
+
 
   /**
    *
@@ -36,12 +51,16 @@ function HasCombos(properties){
         this.dropBoard(e.data.grid,e.data.source);
       },this));
     }else{
+      if(e.data.source==='initial'){
+        introSound.play();
+      }
       this.canInteract=true;
 
       if(this.endGame===true){
           dropWorker.terminate();
           comboWorker.terminate();
           $('.game').trigger('end-game',this.getEndGameData());
+          endSound.play();
       }
     }
 
@@ -196,7 +215,13 @@ function HasCombos(properties){
     $('.score .value').text(newScore);
     this.maximizeScore(score);
 
-    this.showTip({"score":newScore});
+    if(this.tipType==='score'){
+      this.showTip({"score":newScore});
+    }
+
+    comboSound = comboSounds.shift();
+    comboSound.play();
+    comboSounds.push(comboSound);
   };
 
 

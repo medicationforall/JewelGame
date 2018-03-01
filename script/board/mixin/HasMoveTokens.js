@@ -17,6 +17,22 @@
  */
 function HasMoveTokens(properties){
 
+  var moveSound = new Howl({
+    src: ['sound/move.wav']
+  });
+
+  var selectSound = new Howl({
+    src: ['sound/select.wav']
+  });
+
+  var deSelectSound = new Howl({
+    src: ['sound/deSelect.wav']
+  });
+
+  var cancelSelectSound = new Howl({
+    src: ['sound/cancelSelect.wav']
+  });
+
 
   /**
    *
@@ -29,6 +45,10 @@ function HasMoveTokens(properties){
       var selectedSpaces = board.node.find('.space.selected');
       if(selectedSpaces.length>1){
         board.moveTokens(selectedSpaces);
+      }else if(selectedSpaces.length===1){
+        selectSound.play();
+      }else if(selectedSpaces.length===0){
+        deSelectSound.play();
       }
     }else{
       console.log('can\'t interact');
@@ -45,9 +65,13 @@ function HasMoveTokens(properties){
 
     if(this._isTouching(sp1,sp2)){
       this.swapTokens('moveTokens');
+      moveSound.play();
+      selectSound.play();
     }else{
       this.unselectTokens();
       success = false;
+      console.log('play cancel sound');
+      cancelSelectSound.play();
     }
     this.increaseMoves();
   };
@@ -60,6 +84,10 @@ function HasMoveTokens(properties){
     var eMoves = parseInt($('.moves .value').text());
     var newMoves = eMoves+1;
     $('.moves .value').text(newMoves);
+
+    if(this.tipType==='move'){
+      this.showTip({"move":newMoves});
+    }
     this.playedMove();
   };
 

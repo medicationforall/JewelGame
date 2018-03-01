@@ -31,6 +31,7 @@ function Board(seed,level,properties,options){
   this.seed= seed;
   this.rng=new Rng(this.seed);
   this.startBlockIndex = 0;
+  this.tipType='score';
   this.tipIndex=0;
 
   this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
@@ -52,10 +53,12 @@ function Board(seed,level,properties,options){
     this.setEndCondition(properties.endCondition);
     this.setColors(properties.colors);
     this.setShapes(properties.shapes);
+    this.setTipType(properties.tipType);
     this.setPlaySpeed(options.playSpeed);
 
+
     this._buildBoardSpaces();
-    this.showTip({"score":0});
+    this.showTip({"score":0,"move":0});
     this.checkCombos('initial');
   };
 
@@ -156,9 +159,21 @@ function Board(seed,level,properties,options){
       if(properties.tips[this.tipIndex] && properties.tips[this.tipIndex].enabled != false){
         var message = properties.tips[this.tipIndex].message;
         var score = properties.tips[this.tipIndex].score;
+        var move = properties.tips[this.tipIndex].move;
+        var color = properties.tips[this.tipIndex].color;
 
-        if(prop && prop.score === score){
-          $('.tip').addClass('display').html(message).animateCss('vanishIn');
+        if(color===undefined){
+          color='';
+        }
+
+        $('.tip').removeClass('red orange yellow green blue purple rainbow stone');
+
+        console.log('show tip');
+        if(prop && score !==undefined && prop.score === score){
+          $('.tip').addClass('display '+color).html(message).animateCss('vanishIn');
+          this.tipIndex++;
+        }else if(prop && move !==undefined && prop.move === move){
+          $('.tip').addClass('display '+color).html(message).animateCss('vanishIn');
           this.tipIndex++;
         }else{
           $('.tip').removeClass('display');
@@ -230,6 +245,15 @@ function Board(seed,level,properties,options){
    */
   this.setPlaySpeed=function(playSpeed){
     this.playSpeed=parseFloat(playSpeed).toFixed(1);
+  };
+
+  /**
+   *
+   */
+  this.setTipType=function(tipType){
+    if(tipType !==undefined){
+      this.tipType=tipType;
+    }
   };
 
 

@@ -88,10 +88,20 @@
 			"width": 5,
 			"height": 5,
 			"endCondition": {
-				"maxScore": 30
+				"maxScore": 50
 			},
 			"colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "star"]
+		}, {
+			"name": "5x5",
+			"seed": "5x5",
+			"width": 5,
+			"height": 5,
+			"endCondition": {
+				"remainingMoves": 30
+			},
+			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
 			"name": "4x4",
 			"seed": "4x4",
@@ -106,16 +116,6 @@
 				{"score":0,"message":"If you get stuck you can restart! Click on the hamburger in the upper right corner."}
 			]
 		}, {
-			"name": "5x5",
-			"seed": "5x5",
-			"width": 5,
-			"height": 5,
-			"endCondition": {
-				"remainingMoves": 30
-			},
-			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
-		}, {
 			"name":"SCP",
 			"seed": "Square Pentagon Circle",
 			"width": 4,
@@ -128,6 +128,22 @@
 			"tips":[
 			]
 		}, {
+			"name":"Stone Intro",
+			"seed": "7x7",
+			"width": 7,
+			"height": 7,
+			"endCondition": {
+				"maxScore": 30
+			},
+			"colors": ["red", "green", "blue", "orange", "purple", "stone"],
+			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"],
+			"tipType":"move",
+			"tips":[
+				{"move":0,"message":"Stone blocks are pretty tricky!"},
+				{"move":1,"message":"Stone blocks do not match on color. Matching on shape removes the non-stone blocks.","color":"yellow"},
+				{"move":2,"message":"To remove stone blocks drop them to the bottom of the board, and they will fall off!","color":"orange"}
+			]
+		}, {
 			"name": "6x6",
 			"seed": "6x6",
 			"width": 6,
@@ -137,21 +153,6 @@
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
-		}, {
-			"name":"Stones 7x7",
-			"seed": "7x7",
-			"width": 7,
-			"height": 7,
-			"endCondition": {
-				"maxScore": 30
-			},
-			"colors": ["red", "green", "blue", "orange", "purple", "stone"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"],
-			"tips":[
-				{"score":0,"message":"Stone blocks are pretty tricky!"},
-				{"score":2,"message":"Stone blocks do not match on color. When matched on shape only the non-stone blocks are removed."},
-				{"score":3,"message":"To remove stone blocks drop them to the bottom of the board, and they will fall off!"}
-			]
 		}, {
 			"name": "Stone Center",
 			"seed": "Stone Center",

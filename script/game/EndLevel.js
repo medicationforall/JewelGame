@@ -35,6 +35,10 @@ function EndLevel(data){
   this.node = $(this.template);
   this.node.data('node',this);
 
+  var continueSound = new Howl({
+    src: ['sound/continue.wav']
+  });
+
 
   /**
    *
@@ -56,5 +60,6 @@ function EndLevel(data){
     event.preventDefault();
     $('.game.screen').data('node').startNextLevel();
     $('.screenControl').data('node').displayScreen('game');
+    continueSound.play();
   },this));
 }

@@ -31,6 +31,7 @@ function UserGameData(){
     currentLevel++;
     var uData = {};
     uData.currentLevel=currentLevel;
+    this.levelHistory.push(data);
     uData.levelHistory=this.levelHistory;
 
     store.set('userData',uData);

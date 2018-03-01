@@ -45,6 +45,7 @@ function About(){
   '<li><a href="https://daneden.github.io/animate.css" target="_blank">animate.css</a></li>'+
   '<li><a href="https://github.com/marcuswestin/store.js" target="_blank">Store.js</a></li>'+
   '<li><a href="http://game-icons.net/" target="_blank">Game-icons.net</a></li>'+
+  '<li><a href="https://howlerjs.com/" target="_blank">HOWLER.js</a></li>'+
   '</ul>'+
   '</div>';
 

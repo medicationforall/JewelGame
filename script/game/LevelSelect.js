@@ -29,6 +29,28 @@ function LevelSelect(){
   //mixin
   Stats.call(this);
 
+  /**
+   *
+   */
+  this.konamiCode=function(cb) {
+    var input = '';
+    var key = '38384040373937396665';
+    document.addEventListener('keydown', function (e) {
+      input += ("" + e.keyCode);
+      if (input === key) {
+        return cb();
+      }
+      if (!key.indexOf(input)) return;
+      input = ("" + e.keyCode);
+    });
+  };
+
+  //register the code
+  this.konamiCode($.proxy(function(){
+    console.log('entered konami code - unlocking all levels.');
+    this.node.find('.levelSelection').removeClass('locked');
+  },this));
+
 
   /**
    * Sets the playable level set.

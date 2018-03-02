@@ -50,6 +50,7 @@ function LevelManager(){
       this.level = 0;
     }
     this.startLevel(this.level);
+    this.startMusic(this.level);
   };
 
 

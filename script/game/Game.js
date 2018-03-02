@@ -34,6 +34,7 @@ function Game(){
   LevelManager.call(this);
   UserOptions.call(this);
   UserGameData.call(this);
+  Music.call(this);
 
 
   /**
@@ -52,6 +53,7 @@ function Game(){
       this.getStoredGameData();
       this.getStoredOptions();
       this.startLevel(this.startingLevel);
+      this.startMusic(this.startingLevel);
     },this)).fail(function() {
       console.log( "error" );
     });

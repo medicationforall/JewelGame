@@ -49,6 +49,11 @@ function About(){
   '</ul>'+
   '</div>';
 
+  this.musicBy='<div class="musicBy">'+
+  'Music by Eric Matyas<br />'+
+  '<a href="http://soundimage.org/" target="blank">www.soundimage.org</a>'+
+  '</div><br />';
+
   this.disclaimer='<div class="disclaimer">'+
   'Disclaimer:<br />'+
   'This site uses the browsers local storage for persisting user play data across sessions.<br />'+
@@ -63,6 +68,7 @@ function About(){
   this.node.data('node',this);
 
   this.node.find('.content').append(this.poweredBy);
+  this.node.find('.content').append(this.musicBy);
   this.node.find('.content').append(this.disclaimer);
   this.node.find('.content').append(this.shamelessPlug);
 

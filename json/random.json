@@ -5,15 +5,20 @@
       "name": "R-3",
       "width": 3,
       "height": 3,
-      "endCondition": {"remainingJewels": 300},
-      "colors": ["red", "green", "orange", "yellow", "purple"],
-      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
+      "endCondition": {"remainingJewels": 30},
+      "colors": ["red", "green", "orange", "yellow"],
+      "shapes": ["square", "circle", "triangle", "pentagon"],
+      "tipType":"move",
+      "tips":[
+        {"move":0,"message":"The next set of levels are random."},
+        {"move":1,"message":"If you restart the block pattern will not be the same.","color":"yellow"}
+      ]
     },
     {
       "name": "R-4",
       "width": 4,
       "height": 4,
-      "endCondition": {"remainingJewels": 400},
+      "endCondition": {"remainingJewels": 60},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -21,7 +26,7 @@
       "name": "R-5",
       "width": 5,
       "height": 5,
-      "endCondition": {"remainingJewels": 500},
+      "endCondition": {"remainingJewels": 90},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -29,7 +34,7 @@
       "name": "R-6",
       "width": 6,
       "height": 6,
-      "endCondition": {"remainingJewels": 600},
+      "endCondition": {"remainingJewels": 120},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -37,7 +42,7 @@
       "name": "R-7",
       "width": 7,
       "height": 7,
-      "endCondition": {"remainingJewels": 700},
+      "endCondition": {"remainingJewels": 150},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -45,7 +50,7 @@
       "name": "R-8",
       "width": 8,
       "height": 8,
-      "endCondition": {"remainingJewels": 800},
+      "endCondition": {"remainingJewels": 180},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -53,7 +58,7 @@
       "name": "R-9",
       "width": 9,
       "height": 9,
-      "endCondition": {"remainingJewels": 900},
+      "endCondition": {"remainingJewels": 210},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     },
@@ -61,7 +66,7 @@
       "name": "R-10",
       "width": 10,
       "height": 10,
-      "endCondition": {"remainingJewels": 1000},
+      "endCondition": {"remainingJewels": 230},
       "colors": ["red", "green", "orange", "yellow", "purple"],
       "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
     }

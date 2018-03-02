@@ -29,6 +29,7 @@ function HamburgerMenu(){
    */
   this.node.on('click','.restartLevel',$.proxy(function(hamburgerMenu,event){
     event.preventDefault();
+    $('.board').data('node').killWorkers();
     $('.game.screen').data('node').restartLevel();
     var screenControl = $('.screenControl').data('node');
     screenControl.displayScreen('game');

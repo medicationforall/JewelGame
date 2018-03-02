@@ -57,8 +57,7 @@ function HasCombos(properties){
       this.canInteract=true;
 
       if(this.endGame===true){
-          dropWorker.terminate();
-          comboWorker.terminate();
+          this.killWorkers();
           $('.game').trigger('end-game',this.getEndGameData());
           endSound.play();
       }
@@ -71,6 +70,14 @@ function HasCombos(properties){
       this.unselectTokens();
     }
   }.bind(this);
+
+  /**
+   *
+   */
+  this.killWorkers=function(){
+    dropWorker.terminate();
+    comboWorker.terminate();
+  };
 
 
   /**

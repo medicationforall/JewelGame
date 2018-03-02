@@ -189,8 +189,10 @@
 			"seed": "8x8",
 			"width": 8,
 			"height": 8,
+			"colors": ["red", "green", "blue", "orange", "purple","yellow","stone"],
+			"shapes": ["square", "circle", "pentagon", "rabbet","star"],
 			"endCondition": {
-				"maxScore": 30
+				"maxScore": 50
 			}
 		}, {
 			"name": "9x9",
@@ -198,8 +200,10 @@
 			"width": 9,
 			"height": 9,
 			"endCondition": {
-				"maxScore": 30
-			}
+				"maxScore": 38
+			},
+			"colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow","stone"],
+			"shapes": ["square", "circle", "pentagon", "rabbet","star"]
 		}, {
 			"name": "10x9",
 			"seed": "10x9",
@@ -215,6 +219,8 @@
 			"seed": "Infinite",
 			"width": 9,
 			"height": 9,
+			"colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow"],
+			"shapes": ["square", "circle", "pentagon", "rabbet","star"],
 			"endCondition": {
 				"remainingJewels": 500
 			}

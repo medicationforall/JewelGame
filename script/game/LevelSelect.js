@@ -104,7 +104,10 @@ function LevelSelect(){
     if($(this).parent().hasClass('locked')===false){
       //console.log('clicked level');
       var levelNumber = parseInt($(this).data('level'));
-      $('.game.screen').data('node').startLevel(levelNumber);
+      $('.board').data('node').killWorkers();
+      var game = $('.game.screen').data('node');
+      game.startLevel(levelNumber);
+      game.startMusic(levelNumber);
       $('.screenControl').data('node').displayScreen('game');
     }
   },null,this));

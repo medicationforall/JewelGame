@@ -344,12 +344,33 @@ h2{
 }
 
 /*options screen*/
-.options .playSpeedContainer{
+.options .playSpeedContainer, .options .musicVolumeContainer{
   display:inline-block;
   vertical-align:middle;
   margin-left:5px;
   text-align:center;
 }
+
+.options .musicControl{
+  display:inline-block;
+}
+
+.options .musicControl:hover{
+  color:yellow;
+}
+
+.options .musicControl .mute{
+  display:none;
+}
+
+.options .musicControl.disabled .mute{
+  display:inline-block;
+}
+
+.options .musicControl.disabled .unmute{
+  display:none;
+}
+
 
 .options .button{
   background-color:#c0c0c0;

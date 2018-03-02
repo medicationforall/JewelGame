@@ -33,6 +33,7 @@ function Options(){
   '<div class="musicVolumeContainer"><span class="musicVolume">100</span><br /><input name="musicVolume" type="range" min="0" max="100" step="1" value="100" /></div>'+
   '</div>'+
   '</div><br />'+
+  '<div>SFX:</div><br />'+
   '<a href="" class="apply button">Apply</a> '+
   '<a href="" class="reset button">Reset</a>'+
   '</div>';

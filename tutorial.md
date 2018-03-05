@@ -2,8 +2,8 @@
 
 ![image1](tutorial/01.png)
 1. Click on the purple star.
-* Click on the center Red pentagon.
-* This will cause center row to have 3 purple shapes, and remove the set.
+2. Click on the center Red pentagon.
+3. This will cause center row to have 3 purple shapes, and remove the set.
 
 ![image2](tutorial/02.png)
 1. Click on the blue circle.

@@ -28,7 +28,9 @@ function UserGameData(){
    */
   this.setStoredGameData=function(data){
     var currentLevel = data.level;
-    currentLevel++;
+    if(data.win){
+      currentLevel++;
+    }
     var uData = {};
     uData.currentLevel=currentLevel;
     this.levelHistory.push(data);

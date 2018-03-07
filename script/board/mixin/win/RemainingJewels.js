@@ -15,13 +15,20 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Sets a win condition for the board of remaining jewels.
+ * @mixin
+ * @param {int} remainingJewels
+ */
 function RemainingJewels(remainingJewels){
   var endConditionTemplate = 'Remaining Jewels:<span class="value">0</span>';
   this.endCondition = $('.endCondition').append(endConditionTemplate);
 
 
   /**
-   *
+   * Set remaining jewels.
+   * @param {int} remainingJewels
    */
   this.setRemainingJewels=function(remainingJewels){
     this.remainingJewels=remainingJewels;
@@ -30,16 +37,15 @@ function RemainingJewels(remainingJewels){
 
 
   /**
-   *
+   * Called when a jewel is created.
    */
   this.createdJewel=function(){
-    console.log('created Jewel');
     this.decrementRemainingJewels();
   };
 
 
   /**
-   *
+   * Decrement remaining jewels by one.
    */
   this.decrementRemainingJewels=function(){
     this.remainingJewels--;
@@ -48,6 +54,20 @@ function RemainingJewels(remainingJewels){
       this.endGame=true;
     }
   };
+
+
+  /**
+   * Has the win condition been satisfied?
+   * @return {boolean}
+   */
+  this.isWin=function(){
+    if(this.remainingJewels<=0){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
 
 
   this.setRemainingJewels(remainingJewels);

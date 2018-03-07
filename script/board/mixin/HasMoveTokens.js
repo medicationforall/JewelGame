@@ -155,4 +155,17 @@ function HasMoveTokens(properties){
       node.unselectToken();
     }
   };
+
+
+  /**
+   *
+   */
+  this.unhighlightTokens=function(){
+    var selectedSpaces = this.node.find('.space.highlighted');
+
+    for(var i=0,space;(space=selectedSpaces[i]);i++){
+      node = $(space).data('node');
+      node.unhighlightToken();
+    }
+  };
 }

@@ -15,6 +15,12 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Sets a win condition for the board of maxScore.
+ * @mixin
+ * @param {int} maxScore
+ */
 function MaxScore(maxScore){
   var endConditionTemplate = 'Target Score:<span class="value">0</span>';
   this.endCondition = $('.endCondition').append(endConditionTemplate);
@@ -22,7 +28,8 @@ function MaxScore(maxScore){
 
 
   /**
-   *
+   * Set max score.
+   * @param {int} maxScore
    */
   this.setMaxScore=function(maxScore){
     this.maxScore=maxScore;
@@ -31,16 +38,28 @@ function MaxScore(maxScore){
 
 
   /**
-   *
+   * Called when score is increased.
+   * @param {int} score Amount to increase by.
    */
   this.maximizeScore=function(score){
-    console.log('maximizeScore');
     this.tmpScore+=score;
     if(this.tmpScore>=maxScore){
       this.endGame=true;
     }
   };
 
+
+  /**
+   * Has the win condition been satisfied?
+   * @return {boolean}
+   */
+  this.isWin=function(){
+    if(this.tmpScore>=maxScore){
+      return true;
+    }else{
+      return false;
+    }
+  };
 
   this.setMaxScore(maxScore);
 }

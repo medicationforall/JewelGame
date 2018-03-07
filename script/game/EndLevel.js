@@ -22,7 +22,7 @@
  */
 function EndLevel(data){
   this.template='<div class="endLevel screen">'+
-    '<h2>Level <span class="endLevel"></span> Complete!</h2>'+
+    '<h2>Level <span class="endLevel"></span> <span class="endStatus">Complete!</span></h2>'+
     '<div class="content">'+
     'Jewels Removed: <span class="endJewelsCleared"></span><br />'+
     'Moves: <span class="endMoves"></span><br />'+
@@ -30,6 +30,7 @@ function EndLevel(data){
     '<!--Total Points: <span class="totalPoints"></span>-->'+
     '</div>'+
     '<a href="" class="nextLevelLink">Continue</a>'+
+    '<a href="" class="retryLevelLink">Retry</a>'+
   '</div>';
 
   this.node = $(this.template);
@@ -45,10 +46,19 @@ function EndLevel(data){
    */
   this.setEndLevelData=function(data){
     this.node.find('.endLevel').text(data.level);
+    this.node.find('.endStatus').text(data.win==true?'Complete!':"Lost");
     this.node.find('.endLevelName').text(data.levelName);
     this.node.find('.endScore').text(data.score);
     this.node.find('.endMoves').text(data.moves);
     this.node.find('.endJewelsCleared').text(data.jewelsCleared);
+
+    if(data.win){
+      this.node.find('.nextLevelLink').css('display','');
+      this.node.find('.retryLevelLink').css('display','none');
+    }else{
+      this.node.find('.nextLevelLink').css('display','none');
+      this.node.find('.retryLevelLink').css('display','');
+    }
     //this.node.find('.totalPoints').text((data.score-data.moves));
   };
 
@@ -59,6 +69,16 @@ function EndLevel(data){
   this.node.on('click','.nextLevelLink',$.proxy(function(event){
     event.preventDefault();
     $('.game.screen').data('node').startNextLevel();
+    $('.screenControl').data('node').displayScreen('game');
+    continueSound.play();
+  },this));
+
+  /**
+   *
+   */
+  this.node.on('click','.retryLevelLink',$.proxy(function(event){
+    event.preventDefault();
+    $('.game.screen').data('node').startLevel();
     $('.screenControl').data('node').displayScreen('game');
     continueSound.play();
   },this));

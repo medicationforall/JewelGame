@@ -16,13 +16,19 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Sets a win condition for the board of remaining moves.
+ * @mixin
+ * @param {int} remainingMoves
+ */
 function RemainingMoves(remainingMoves){
   var endConditionTemplate = 'Remaining Moves:<span class="value">0</span>';
   this.endCondition = $('.endCondition').append(endConditionTemplate);
 
 
   /**
-   *
+   * Set remaining moves.
+   * @param {int} remainingMoves
    */
   this.setRemainingMoves=function(remainingMoves){
     this.remainingMoves=remainingMoves;
@@ -31,22 +37,34 @@ function RemainingMoves(remainingMoves){
 
 
   /**
-   *
+   * Called when a move is played.
    */
   this.playedMove=function(){
-    console.log('created Jewel');
     this.decrementRemainingMoves();
   };
 
 
   /**
-   *
+   * Decrement remaining moves by one.
    */
   this.decrementRemainingMoves=function(){
     this.remainingMoves--;
     this.setRemainingMoves(this.remainingMoves);
     if(this.remainingMoves==0){
       this.endGame=true;
+    }
+  };
+
+
+  /**
+   * Has the win condition been satisfied?
+   * @return {boolean}
+   */
+  this.isWin=function(){
+    if(this.remainingMoves<=0){
+      return true;
+    }else{
+      return false;
     }
   };
 

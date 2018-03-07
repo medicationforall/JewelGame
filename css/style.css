@@ -116,6 +116,7 @@ h2{
   padding:0px;
 }
 
+/*tip*/
 .tip{
   background:#f6f6f6;
   color:#000;
@@ -139,6 +140,27 @@ h2{
   display:inline-block;
 }
 
+/*timer*/
+.timer{
+  height:6px;
+  width:100%;
+}
+
+.timerBar{
+  height:100%;
+  width:0%;
+  background-color:green;
+  transition:width 0.5s, background-color 0.5s;
+}
+
+/*.timerBar.yellow{
+  background-color:yellow;
+}
+
+.timerBar.red{
+  background-color:red;
+}*/
+
 .board{
   height:100%;
   /*border:1px solid black;*/
@@ -155,9 +177,14 @@ h2{
   vertical-align:top;
 }
 
-.space.selected{
+.space.highlighted{
+  outline:2px dashed #30f030;
+}
+
+.space.selecteded, .space.highlighted.selected{
   outline:2px dashed #ffc107;
 }
+
 
 /*Token*/
 .highlight{
@@ -328,7 +355,7 @@ h2{
   font-size:16pt;
 }
 
-.nextLevelLink{
+.nextLevelLink, .retryLevelLink{
   background: #fff;
   padding: 7px;
   margin-top: 10px;

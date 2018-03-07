@@ -29,6 +29,7 @@ function LevelSelect(){
   //mixin
   Stats.call(this);
 
+
   /**
    *
    */
@@ -44,6 +45,7 @@ function LevelSelect(){
       input = ("" + e.keyCode);
     });
   };
+
 
   //register the code
   this.konamiCode($.proxy(function(){
@@ -129,10 +131,12 @@ function LevelSelect(){
     console.log('unlockLevelsFromData');
     var maxLevel =0;
     for(var i=0,level;(level=levelHistory[i]);i++){
-      this.unlockLevel(level.level);
+      if(level.win){
+        this.unlockLevel(level.level);
 
-      if(level.level>maxLevel){
-        maxLevel=level.level;
+        if(level.level>maxLevel){
+          maxLevel=level.level;
+        }
       }
     }
 

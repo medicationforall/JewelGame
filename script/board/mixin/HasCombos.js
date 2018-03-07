@@ -15,6 +15,12 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+/**
+ * HasCombos mixin for board.
+ * @param {object} properties level properties.
+ * @see ../Board.js
+ * @mixin
+ */
 function HasCombos(properties){
   relativePath = window.location.pathname.replace('index.html','');
 
@@ -33,18 +39,16 @@ function HasCombos(properties){
     src: ['sound/intro2.wav']
   });
 
-  var endSound = new Howl({
-    src: ['sound/levelComplete.wav']
-  });
-
 
   /**
-   *
+   * Onmessage response for comboWorker.
+   * @param {object} e onMessage response.
    */
   comboWorker.onmessage = function(e) {
     if(e.data.score>0){
       if(e.data.source!=='initial'){
         this.updateScore(e.data.score);
+        $('.timer').data('node').increaseTime(e.data.score);
       }
       this.updateGridPostCombo(e.data.grid);
       $.when(this.sleep(this.sleepTime)).then($.proxy(function() {
@@ -57,9 +61,7 @@ function HasCombos(properties){
       this.canInteract=true;
 
       if(this.endGame===true){
-          this.killWorkers();
-          $('.game').trigger('end-game',this.getEndGameData());
-          endSound.play();
+        this.endBoard();
       }
     }
 
@@ -71,8 +73,9 @@ function HasCombos(properties){
     }
   }.bind(this);
 
+
   /**
-   *
+   * Destroy the web workers.
    */
   this.killWorkers=function(){
     dropWorker.terminate();
@@ -81,7 +84,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Onmessage response for dropWorker.
+   * @param {object} e onMessage response.
    */
   dropWorker.onmessage = function(e) {
     if(e.data.dropCount>0){
@@ -95,7 +99,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Check for combos from the current board state.
+   * @param {string} source name of the checkCombos request initiator.
    */
   this.checkCombos=function(source){
     this.canInteract=false;
@@ -111,7 +116,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Update the grid after checking for combos
+   * @param {array} gridData state of the boards cells.
    */
   this.updateGridPostCombo=function(gridData){
     var bs = this.node.children();
@@ -129,7 +135,9 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Kicks off the dropWorker to check for tokens that can be dropped.
+   * @param {array,array} grid current state of the board as an array.
+   * @param {string} source of the dropBoard request.
    */
   this.dropBoard=function(grid,source){
     var data={};
@@ -142,7 +150,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Fill empty board spaces.
+   * @param {string} source of the fillBoard request.
    */
   this.fillBoard=function(source){
     var children = this.node.find('.space .token.remove');
@@ -168,7 +177,7 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Collect the data to fill a board.
    */
   this.fillBoardSpaceData=function(){
     var data = {};
@@ -187,13 +196,15 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Called when a jewel is created.
+   * Intended to be overriden.
    */
   this.createdJewel=function(){};
 
 
   /**
-   *
+   * Collect a snapshot of the board as an array
+   * @return {array,array}
    */
   this.createGridData=function(){
     var bs = this.node.children();
@@ -214,7 +225,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Increase the score.
+   * @param {int} score to increase by.
    */
   this.updateScore=function(score){
     var eScore = parseInt($('.score .value').text());
@@ -233,7 +245,8 @@ function HasCombos(properties){
 
 
   /**
-   *
+   * Called when score is increased.
+   * Intended to be overriden.
    */
   this.maximizeScore=function(score){};
 }

@@ -6,6 +6,9 @@ function LevelManager(){
 
   this.levelSet ={'levels':[]};
 
+  this.timer = new Timer();
+  this.node.prepend(this.timer.node);
+
   /**
    *
    */
@@ -13,6 +16,10 @@ function LevelManager(){
     return $.getJSON('json/'+levelFile);
   };
 
+
+  /**
+   *
+   */
   this.addLoadedLevels=function(levels){
     this.levelSet.levels = this.levelSet.levels.concat(levels);
   };
@@ -22,21 +29,33 @@ function LevelManager(){
    * @param {int} lv level number.
    */
   this.startLevel=function(lv){
-    this.level = lv;
-    $('.game.screen').find('.board').remove();
-    $('.game.screen').find('.tip').empty().removeClass('display');
+    if(lv!==undefined){
+      this.level = lv;
+    }
+
+    this.node.find('.timer .timerBar').css('width','0%');
+    this.node.find('.board').remove();
+    this.node.find('.tip').empty().removeClass('display');
     $('.score .value').text(0);
     $('.level .value').text(0);
     $('.moves .value').text(0);
     $('.endCondition').empty();
-    this.board=new Board(this.seed,lv,this.levelSet.levels[lv],this.options);
-    this.node.prepend(this.board.node);
+    this.board=new Board(this.seed,this.level,this.levelSet.levels[this.level],this.options);
+    this.node.append(this.board.node);
+
+    if(this.levelSet.levels[this.level].timeLimit){
+      this.node.find('.timer .timerBar').css('width','100%');
+      this.timer.setTimeLimit(this.levelSet.levels[this.level].timeLimit);
+      this.timer.startTimer();
+    }else{
+      this.timer.killTimer();
+    }
 
     //select level
-    $('.levelSelect').data('node').selectLevel(lv);
+    $('.levelSelect').data('node').selectLevel(this.level);
 
     //clear locked status
-    $('.levelSelect').data('node').unlockLevel(lv);
+    $('.levelSelect').data('node').unlockLevel(this.level);
   };
 
 
@@ -58,6 +77,9 @@ function LevelManager(){
    * Restart the current level.
    */
   this.restartLevel=function(){
+    if(this.timer){
+      this.timer.reset();
+    }
     this.startLevel(this.level);
   };
 
@@ -67,6 +89,7 @@ function LevelManager(){
    */
   this.node.on('end-game',$.proxy(function(event,data){
     console.log('end Game');
+    this.timer.killTimer();
     this.setStoredGameData(data);
     $('.levelSelect').data('node').resolveStats(data);
     $('.endLevel').data('node').setEndLevelData(data);

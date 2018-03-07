@@ -16,7 +16,6 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
  /**
   * Space on a Board, manages jewel state.
   * @class
@@ -27,7 +26,7 @@
 function Space(color,shape,index){
   this.color = color;
   this.shape = shape;
-  this.template = '<div class="space">'+
+  this.template = '<div class="space" data-index="'+index+'">'+
   '<span class="token '+shape+' '+color+'" data-color="'+color+'" data-shape="'+shape+'"></span>'+
   '<span class="highlight"></span>'+
   '<span class="outline '+shape+'"></span>'+
@@ -175,6 +174,30 @@ function Space(color,shape,index){
   this.unselectToken=function(){
     if(this.node.hasClass('selected')){
       this.node.removeClass('selected');
+    }
+  };
+
+
+  /**
+   * Mark the space as highlighted.
+   * @public
+   */
+  this.highlightToken=function(){
+    if(this.node.hasClass('highlighted')===false){
+      this.node.addClass('highlighted');
+    } else{
+      this.node.removeClass('highlighted');
+    }
+  };
+
+
+  /**
+   * Mark the space as unhighlighted.
+   * @public
+   */
+  this.unhighlightToken=function(){
+    if(this.node.hasClass('highlighted')){
+      this.node.removeClass('highlighted');
     }
   };
 

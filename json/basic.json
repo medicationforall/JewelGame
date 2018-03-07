@@ -52,10 +52,10 @@
 				{"color": "purple","shape": "square"}
 			],
 			"tips":[
-				{"score":0,"message":"Click on the purple star and the red pentagon."},
-				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical."},
-				{"score":2,"message":"You can match on color or shape."},
-				{"score":4,"message":"Swap the star and the purple rabbet to match the shapes."},
+				{"score":0,"message":"Click on the purple star and the red pentagon.","highlight":[1,4]},
+				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical.","highlight":[5,8]},
+				{"score":2,"message":"You can match on color or shape.","highlight":[3,6]},
+				{"score":4,"message":"Swap the star and the purple rabbet to match the shapes.","highlight":[0,1]},
 				{"score":7,"message":"All matching sets will be removed after a swap."},
 				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level.","enabled":false}
 			]
@@ -97,6 +97,7 @@
 			"seed": "5x5",
 			"width": 5,
 			"height": 5,
+			"timeLimit":90,
 			"endCondition": {
 				"remainingMoves": 30
 			},

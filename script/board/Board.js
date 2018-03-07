@@ -40,6 +40,10 @@ function Board(seed,level,properties,options){
   this.sleepTime = 250;
   this.playSpeed=2;
 
+  this.endSound = new Howl({
+    src: ['sound/levelComplete.wav']
+  });
+
   /*Mixin*/
   HasCombos.call(this,properties);
   HasMoveTokens.call(this,properties);
@@ -161,18 +165,20 @@ function Board(seed,level,properties,options){
         var score = properties.tips[this.tipIndex].score;
         var move = properties.tips[this.tipIndex].move;
         var color = properties.tips[this.tipIndex].color;
+        var highlight = properties.tips[this.tipIndex].highlight;
 
         if(color===undefined){
           color='';
         }
 
         $('.tip').removeClass('red orange yellow green blue purple rainbow stone');
+        this.unhighlightTokens();
 
         console.log('show tip');
-        if(prop && score !==undefined && prop.score === score){
-          $('.tip').addClass('display '+color).html(message).animateCss('vanishIn');
-          this.tipIndex++;
-        }else if(prop && move !==undefined && prop.move === move){
+        if((prop && score !==undefined && prop.score === score) || (prop && move !==undefined && prop.move === move)){
+          if(highlight !== undefined && highlight.length>0){
+            this.highlightSpaces(highlight);
+          }
           $('.tip').addClass('display '+color).html(message).animateCss('vanishIn');
           this.tipIndex++;
         }else{
@@ -182,6 +188,19 @@ function Board(seed,level,properties,options){
         $('.tip').removeClass('display');
       }
     }
+  };
+
+
+  /**
+   *
+   */
+  this.highlightSpaces=function(highlight){
+      console.log('highlight the following spaces',highlight);
+
+      for(var i=0,spaceIndex;i<highlight.length;i++){
+        var space = this.node.find('.space[data-index="'+highlight[i]+'"]').data('node');
+        space.highlightToken();
+      }
   };
 
 
@@ -230,13 +249,21 @@ function Board(seed,level,properties,options){
    * @returns {Object}  The end of stage summary data.
    */
   this.getEndGameData=function(){
-    var data = {"level":"merf"};
+    var data = {};
     data.level = level;
     data.levelName = properties.name;
     data.score = parseInt($('.score .value').text());
     data.moves = parseInt($('.moves .value').text());
     data.jewelsCleared = this.jewelsCleared;
+    data.win = this.isWin();
     return data;
+  };
+
+  /**
+   *
+   */
+  this.isWin=function(){
+    return false;
   };
 
 
@@ -247,6 +274,7 @@ function Board(seed,level,properties,options){
     this.playSpeed=parseFloat(playSpeed).toFixed(1);
   };
 
+
   /**
    *
    */
@@ -254,6 +282,16 @@ function Board(seed,level,properties,options){
     if(tipType !==undefined){
       this.tipType=tipType;
     }
+  };
+
+
+  /**
+   *
+   */
+  this.endBoard=function(){
+    this.killWorkers();
+    $('.game').trigger('end-game',this.getEndGameData());
+    this.endSound.play();
   };
 
 

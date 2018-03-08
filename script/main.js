@@ -38,6 +38,7 @@ $.fn.extend({
     }
 });
 
+
 /**
  * detect IE
  * returns version of IE or false, if browser is not Internet Explorer
@@ -69,6 +70,7 @@ function detectIE() {
     return false;
 }
 
+
 /**
  * Main run once everything is loaded.
  */
@@ -88,6 +90,5 @@ $(document).ready(function(){
     screenControl.add(LevelSelect);
     screenControl.add(EndLevel);
     screenControl.add(Options);
-    //screenControl.add(Stats);
     screenControl.add(About);
 });

@@ -13,7 +13,6 @@ function UserOptions(){
       this.options = {"playSpeed":2.0,"musicEnabled":true,"musicVolume":100};
       store.set('options',this.options);
     }
-    //console.log('get stored options',this.options);
   };
 
 

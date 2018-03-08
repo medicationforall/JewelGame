@@ -28,10 +28,10 @@ function ScreenControl(){
 
 
   /**
+   * Displays a screen.
    * @param {string} screenName Name of the screen to be displayed.
    */
   this.displayScreen=function(screenName){
-    //console.log('display screen',screenName);
     this.node.find('.screen').removeClass('display');
     this.node.find('.'+screenName).addClass('display');
     $('.header').data('node').displayMenu(screenName);

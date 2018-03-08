@@ -44,7 +44,7 @@ function Options(){
 
 
   /**
-   *
+   * Click on the music control icon.
    */
   this.node.on('click','.musicControl svg',$.proxy(function(optionsControl,event){
       optionsControl.setMusic($(this).parent().hasClass('disabled'));
@@ -53,7 +53,8 @@ function Options(){
 
 
   /**
-   *
+   * Set if music is muted or enabled.
+   * @param {boolean} value
    */
   this.setMusic=function(value){
     var musicControl = this.node.find('.musicControl');
@@ -67,7 +68,7 @@ function Options(){
 
 
   /**
-   *
+   * Change to the playspeed range.
    */
   this.node.on('input','input[name="playSpeed"]',$.proxy(function(options,event){
     var value = $(this).val();
@@ -77,7 +78,7 @@ function Options(){
 
 
   /**
-   *
+   * Change to the music volume control.
    */
   this.node.on('input','input[name="musicVolume"]',$.proxy(function(options,event){
     var value = $(this).val();
@@ -87,7 +88,8 @@ function Options(){
 
 
   /**
-   *
+   * Set the playspeed multiplier.
+   * @param {float} value
    */
   this.setPlaySpeed=function(value){
     this.playSpeed = parseFloat(value).toFixed(1);
@@ -96,7 +98,8 @@ function Options(){
 
 
   /**
-   *
+   * Set the music volume.
+   * @param {int} value 0-100
    */
   this.setMusicVolume=function(value){
     this.musicVolume = parseInt(value);
@@ -105,7 +108,7 @@ function Options(){
 
 
   /**
-   *
+   * Apply settings click.
    */
   this.node.on('click','.apply.button',$.proxy(function(options,event){
     event.preventDefault();
@@ -121,7 +124,7 @@ function Options(){
 
 
   /**
-   *
+   * Reset setting click.
    */
   this.node.on('click','.reset.button',$.proxy(function(options,event){
     event.preventDefault();
@@ -133,7 +136,8 @@ function Options(){
 
 
   /**
-   *
+   * Get the settings data.
+   * @return {object}
    */
   this.getData=function(){
     var data = {};
@@ -145,7 +149,8 @@ function Options(){
 
 
   /**
-   *
+   * Set option from data object.
+   * @param {object} options data.
    */
   this.setOptionsFromData=function(options){
     this.setPlaySpeed(options.playSpeed);
@@ -157,7 +162,7 @@ function Options(){
 
 
   /**
-   *
+   * Reset settings to initial state.
    */
   this.reset=function(){
     this.setPlaySpeed(2);

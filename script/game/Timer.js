@@ -15,6 +15,7 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 /**
  * Level timer when it reaches the end it triggers an end level state.
  * @class
@@ -54,7 +55,6 @@ function Timer(){
    */
   this.countDown = function(time){
     if(time>0){
-      //console.log('create countdown');
       this.node.find('.timerBar').css('width','100%').removeClass('red yellow');
       this.createTimer(time);
     }

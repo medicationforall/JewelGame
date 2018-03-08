@@ -227,7 +227,6 @@ this.scoreCombo=function(match,rc,sc){
   for(var i=0,space;(space=match[i]);i++){
       if(space.color === 'stone'){
         //stones are not removed from combos.
-        //console.log('stone hit');
       }else{
         space.empty=true;
       }

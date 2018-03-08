@@ -31,7 +31,8 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Level select accepts a konami code this is the monitor for it.
+   * up, up, down, down, left, right, left, right, b, a
    */
   this.konamiCode=function(cb) {
     var input = '';
@@ -47,7 +48,9 @@ function LevelSelect(){
   };
 
 
-  //register the code
+  /**
+   * when the konami code event is fired this unlocks all of the levels.
+   */
   this.konamiCode($.proxy(function(){
     console.log('entered konami code - unlocking all levels.');
     this.node.find('.levelSelection').removeClass('locked');
@@ -104,7 +107,6 @@ function LevelSelect(){
   this.node.on('click','.selectLevel',$.proxy(function(levelSelect,event){
     event.preventDefault();
     if($(this).parent().hasClass('locked')===false){
-      //console.log('clicked level');
       var levelNumber = parseInt($(this).data('level'));
       $('.board').data('node').killWorkers();
       var game = $('.game.screen').data('node');
@@ -125,7 +127,8 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Unlocks level from player history.
+   * @param {array} levelHistory play history.
    */
   this.unlockLevelsFromData=function(levelHistory){
     console.log('unlockLevelsFromData');

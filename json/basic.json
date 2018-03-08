@@ -56,7 +56,7 @@
 				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical.","highlight":[5,8]},
 				{"score":2,"message":"You can match on color or shape.","highlight":[3,6]},
 				{"score":4,"message":"Swap the star and the purple rabbet to match the shapes.","highlight":[0,1]},
-				{"score":7,"message":"All matching sets will be removed after a swap."},
+				{"score":7,"message":"All matching sets will be removed after a swap.","highlight":[7,8]},
 				{"score":12,"message":"Newly created jewels that form sets will be removed as well. Get a score of 13 to end the level.","enabled":false}
 			]
 		}, {
@@ -70,34 +70,10 @@
 			"colors": ["green", "orange", "purple"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"]
 		}, {
-			"name":"Rainbow Intro",
-			"seed": "Rainbow",
-			"width": 4,
-			"height": 4,
-			"endCondition": {
-				"maxScore": 30
-			},
-			"colors": ["red", "blue","green", "orange", "purple", "yellow", "rainbow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "star"],
-			"tips":[
-				{"score":0,"message":"Rainbow blocks can be matched with sets of any color."}
-			]
-		}, {
-			"name": "Rainbow 5x5",
-			"seed": "Rainbow 5x5",
-			"width": 5,
-			"height": 5,
-			"endCondition": {
-				"maxScore": 50
-			},
-			"colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "star"]
-		}, {
 			"name": "5x5",
 			"seed": "5x5",
 			"width": 5,
 			"height": 5,
-			"timeLimit":90,
 			"endCondition": {
 				"remainingMoves": 30
 			},
@@ -129,22 +105,6 @@
 			"tips":[
 			]
 		}, {
-			"name":"Stone Intro",
-			"seed": "7x7",
-			"width": 7,
-			"height": 7,
-			"endCondition": {
-				"maxScore": 30
-			},
-			"colors": ["red", "green", "blue", "orange", "purple", "stone"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"],
-			"tipType":"move",
-			"tips":[
-				{"move":0,"message":"Stone blocks are pretty tricky!"},
-				{"move":1,"message":"Stone blocks do not match on color. Matching on shape removes the non-stone blocks.","color":"yellow"},
-				{"move":2,"message":"To remove stone blocks drop them to the bottom of the board, and they will fall off!","color":"orange"}
-			]
-		}, {
 			"name": "6x6",
 			"seed": "6x6",
 			"width": 6,
@@ -154,77 +114,6 @@
 			},
 			"colors": ["red", "green", "blue", "orange", "purple", "yellow"],
 			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"]
-		}, {
-			"name": "Stone Center",
-			"seed": "Stone Center",
-			"width": 4,
-			"height": 4,
-			"endCondition": {
-				"remainingJewels": 36
-			},
-			"colors": ["red", "green", "blue", "orange"],
-			"shapes": ["square", "circle", "pentagon", "rabbet"],
-			"startBlocks": [
-				{"color": "orange","shape": "square"},
-				{"color": "green","shape": "rabbet"},
-				{"color": "blue","shape": "square"},
-				{"color": "blue","shape": "circle"},
-
-				{"color": "blue","shape": "rabbet"},
-				{"color": "stone","shape": "pentagon"},
-				{"color": "stone","shape": "circle"},
-				{"color": "blue","shape": "square"},
-
-				{"color": "orange","shape": "circle"},
-				{"color": "stone","shape": "rabbet"},
-				{"color": "stone","shape": "square"},
-				{"color": "green","shape": "circle"},
-
-				{"color": "red","shape": "pentagon"},
-				{"color": "orange","shape": "pentagon"},
-				{"color": "red","shape": "rabbet"},
-				{"color": "blue","shape": "square"}
-			]
-		}, {
-			"name": "8x8",
-			"seed": "8x8",
-			"width": 8,
-			"height": 8,
-			"colors": ["red", "green", "blue", "orange", "purple","yellow","stone"],
-			"shapes": ["square", "circle", "pentagon", "rabbet","star"],
-			"endCondition": {
-				"maxScore": 50
-			}
-		}, {
-			"name": "9x9",
-			"seed": "9x9",
-			"width": 9,
-			"height": 9,
-			"endCondition": {
-				"maxScore": 38
-			},
-			"colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow","stone"],
-			"shapes": ["square", "circle", "pentagon", "rabbet","star"]
-		}, {
-			"name": "10x9",
-			"seed": "10x9",
-			"width": 10,
-			"height": 9,
-			"endCondition": {
-				"remainingJewels": 300
-			},
-			"colors": ["red", "green", "blue", "orange", "purple"],
-			"shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
-		}, {
-			"name": "500",
-			"seed": "Infinite",
-			"width": 9,
-			"height": 9,
-			"colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow"],
-			"shapes": ["square", "circle", "pentagon", "rabbet","star"],
-			"endCondition": {
-				"remainingJewels": 500
-			}
 		}
 	]
 }

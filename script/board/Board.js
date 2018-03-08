@@ -174,7 +174,6 @@ function Board(seed,level,properties,options){
         $('.tip').removeClass('red orange yellow green blue purple rainbow stone');
         this.unhighlightTokens();
 
-        console.log('show tip');
         if((prop && score !==undefined && prop.score === score) || (prop && move !==undefined && prop.move === move)){
           if(highlight !== undefined && highlight.length>0){
             this.highlightSpaces(highlight);
@@ -192,11 +191,10 @@ function Board(seed,level,properties,options){
 
 
   /**
-   *
+   * Highlight spaces from array
+   * @param {array} highlight array space indexes to highlight.
    */
   this.highlightSpaces=function(highlight){
-      console.log('highlight the following spaces',highlight);
-
       for(var i=0,spaceIndex;i<highlight.length;i++){
         var space = this.node.find('.space[data-index="'+highlight[i]+'"]').data('node');
         space.highlightToken();

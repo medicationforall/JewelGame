@@ -70,7 +70,6 @@ var checkArrayDrop=function(column){
   for(var i=0,space;(space=column[i]);i++){
 
     if( i===0 &&space.color==='stone'){
-      //console.log('drop stone check');
       space.empty=true;
       space.fallOff=true;
     }
@@ -78,7 +77,6 @@ var checkArrayDrop=function(column){
     if(space.empty){
       emptyCount++;
     }else if((space.empty===undefined || space.empty===false) && emptyCount>0){
-      //console.log(space, 'move down'+emptyCount);
       space.drop=emptyCount;
       column.move(i,i-emptyCount);
       data.dropCount++;

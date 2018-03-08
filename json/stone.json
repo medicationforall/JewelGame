@@ -1,0 +1,125 @@
+{
+	"name":"Stone Levels",
+	"levels": [{
+    "name":"Stone Intro",
+    "seed": "7x7",
+    "width": 7,
+    "height": 7,
+    "endCondition": {
+      "maxScore": 30
+    },
+    "colors": ["red", "green", "blue", "orange", "purple", "stone"],
+    "shapes": ["square", "circle", "triangle", "pentagon", "rabbet","star"],
+    "tipType":"move",
+    "tips":[
+      {"move":0,"message":"Stone blocks are pretty tricky!"},
+      {"move":1,"message":"Stone blocks do not match on color. Matching on shape removes the non-stone blocks.","color":"yellow"},
+      {"move":2,"message":"To remove stone blocks drop them to the bottom of the board, and they will fall off!","color":"orange"}
+    ]
+  }, {
+    "name": "Stone Center",
+    "seed": "Stone Center",
+    "width": 4,
+    "height": 4,
+    "endCondition": {
+      "remainingJewels": 36
+    },
+    "colors": ["red", "green", "blue", "orange"],
+    "shapes": ["square", "circle", "pentagon", "rabbet"],
+    "startBlocks": [
+      {"color": "orange","shape": "square"},
+      {"color": "green","shape": "rabbet"},
+      {"color": "blue","shape": "square"},
+      {"color": "blue","shape": "circle"},
+
+      {"color": "blue","shape": "rabbet"},
+      {"color": "stone","shape": "pentagon"},
+      {"color": "stone","shape": "circle"},
+      {"color": "blue","shape": "square"},
+
+      {"color": "orange","shape": "circle"},
+      {"color": "stone","shape": "rabbet"},
+      {"color": "stone","shape": "square"},
+      {"color": "green","shape": "circle"},
+
+      {"color": "red","shape": "pentagon"},
+      {"color": "orange","shape": "pentagon"},
+      {"color": "red","shape": "rabbet"},
+      {"color": "blue","shape": "square"}
+    ]
+  }, {
+    "name": "Checkerboard",
+    "seed": "Checkerboard",
+    "width": 6,
+    "height": 6,
+    "colors": ["red", "green", "blue", "orange", "purple", "yellow"],
+    "shapes": ["square", "circle", "pentagon", "rabbet","star"],
+		"startBlocks": [
+      {"color": "red","shape": "rabbet"},
+			{"color": "purple","shape": "rabbet"},
+			{"color": "red","shape": "star"},
+			{"color": "green","shape": "rabbet"},
+			{"color": "red","shape": "rabbet"},
+			{"color": "green","shape": "square"},
+
+			{"color": "green","shape": "rabbet"},
+			{"color": "stone","shape": "circle"},
+			{"color": "orange","shape": "rabbet"},
+			{"color": "stone","shape": "square"},
+			{"color": "yellow","shape": "square"},
+			{"color": "stone","shape": "star"},
+
+			{"color": "stone","shape": "circle"},
+			{"color": "blue","shape": "rabbet"},
+			{"color": "stone","shape": "star"},
+			{"color": "orange","shape": "pentagon"},
+			{"color": "stone","shape": "rabbet"},
+			{"color": "purple","shape": "star"},
+
+			{"color": "purple","shape": "star"},
+			{"color": "stone","shape": "star"},
+			{"color": "yellow","shape": "circle"},
+			{"color": "stone","shape": "rabbet"},
+			{"color": "yellow","shape": "rabbet"},
+			{"color": "stone","shape": "square"},
+
+			{"color": "stone","shape": "circle"},
+			{"color": "red","shape": "square"},
+			{"color": "stone","shape": "rabbet"},
+			{"color": "orange","shape": "square"},
+			{"color": "stone","shape": "star"},
+			{"color": "green","shape": "rabbet"},
+
+			{"color": "purple","shape": "rabbet"},
+			{"color": "red","shape": "star"},
+			{"color": "green","shape": "rabbet"},
+			{"color": "blue","shape": "star"},
+			{"color": "green","shape": "circle"},
+			{"color": "orange","shape": "circle"}
+
+		],
+    "endCondition": {
+      "maxScore": 50
+    }
+  },{
+    "name": "Stone 8x8",
+    "seed": "8x8",
+    "width": 8,
+    "height": 8,
+    "colors": ["red", "green", "blue", "orange", "purple","yellow","stone"],
+    "shapes": ["square", "circle", "pentagon", "rabbet","star"],
+    "endCondition": {
+      "maxScore": 50
+    }
+  },{
+    "name": "9x9",
+    "seed": "9x9",
+    "width": 9,
+    "height": 9,
+    "endCondition": {
+      "maxScore": 38
+    },
+    "colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow","stone"],
+    "shapes": ["square", "circle", "pentagon", "rabbet","star"]
+  }]
+}

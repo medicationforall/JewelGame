@@ -1,0 +1,24 @@
+{
+	"name":"Timed Levels",
+	"levels": [{
+    "name": "Timed 10x9",
+    "seed": "10x9",
+    "width": 10,
+    "height": 9,
+    "endCondition": {
+      "remainingJewels": 300
+    },
+    "colors": ["red", "green", "blue", "orange", "purple"],
+    "shapes": ["square", "circle", "triangle", "pentagon", "rabbet"]
+  },{
+    "name": "Timed 500",
+    "seed": "Infinite",
+    "width": 9,
+    "height": 9,
+    "colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow"],
+    "shapes": ["square", "circle", "pentagon", "rabbet","star"],
+    "endCondition": {
+      "remainingJewels": 500
+    }
+  }]
+}

@@ -42,7 +42,7 @@ function Rng(seed){
  * @param {string} seed unique key.
  * @param {int} min Minimun of the range.
  * @param {int} max Maximum of the range.
- * @return {int}
+ * @return {int} The integer result of the roll.
  */
 Rng.prototype.getRandom=function(seed, min, max){
   if(this[seed] ===undefined){
@@ -57,7 +57,7 @@ Rng.prototype.getRandom=function(seed, min, max){
  * @public
  * @param {int} min Minimun of the range.
  * @param {int} max Maximum of the range.
- * @return {int}
+ * @return {int} The integer result of the roll.
  */
 Rng.prototype.getTrueRandom=function(min, max){
   //return ((this[seed]()*(max-min+1))+min)<<0;

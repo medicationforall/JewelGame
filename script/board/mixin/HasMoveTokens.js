@@ -17,19 +17,19 @@
  */
 function HasMoveTokens(properties){
 
-  var moveSound = new Howl({
+  this.moveSound = new Howl({
     src: ['sound/move.wav']
   });
 
-  var selectSound = new Howl({
+  this.selectSound = new Howl({
     src: ['sound/select.wav']
   });
 
-  var deSelectSound = new Howl({
+  this.deSelectSound = new Howl({
     src: ['sound/deSelect.wav']
   });
 
-  var cancelSelectSound = new Howl({
+  this.cancelSelectSound = new Howl({
     src: ['sound/cancelSelect.wav']
   });
 
@@ -46,12 +46,12 @@ function HasMoveTokens(properties){
       if(selectedSpaces.length>1){
         board.moveTokens(selectedSpaces);
       }else if(selectedSpaces.length===1){
-        selectSound.play();
+        board.selectSound.play();
       }else if(selectedSpaces.length===0){
-        deSelectSound.play();
+        board.deSelectSound.play();
       }
     }else{
-      console.log('can\'t interact');
+      console.log('can\'t interact with the board.');
     }
   },null,this));
 
@@ -65,13 +65,12 @@ function HasMoveTokens(properties){
 
     if(this._isTouching(sp1,sp2)){
       this.swapTokens('moveTokens');
-      moveSound.play();
-      selectSound.play();
+      this.moveSound.play();
+      this.selectSound.play();
     }else{
       this.unselectTokens();
       success = false;
-      console.log('play cancel sound');
-      cancelSelectSound.play();
+      this.cancelSelectSound.play();
     }
     this.increaseMoves();
   };

@@ -24,8 +24,9 @@ function HamburgerMenu(){
   this.node = $('.hamburgerMenu');
   this.node.data('node',this);
 
+
   /**
-   *
+   * Click on restart level menu option.
    */
   this.node.on('click','.restartLevel',$.proxy(function(hamburgerMenu,event){
     event.preventDefault();
@@ -37,7 +38,7 @@ function HamburgerMenu(){
 
 
   /**
-   *
+   * Click on a particular screen link.
    */
   this.node.on('click','.screenLink',$.proxy(function(hamburgerMenu,event){
     event.preventDefault();
@@ -49,7 +50,7 @@ function HamburgerMenu(){
 
 
   /**
-   *
+   * Close the hamburger menu click.
    */
   this.node.on('click','.closeHamburger',$.proxy(function(hamburgerMenu,event){
     event.preventDefault();
@@ -58,7 +59,7 @@ function HamburgerMenu(){
 
 
   /**
-   *
+   * Toggle the display of the hamburger menu.
    */
   this.toggleHamburger=function(){
     if(this.node.hasClass('display')===false){

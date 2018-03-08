@@ -1,0 +1,27 @@
+{
+	"name":"Rainbow Levels",
+	"levels": [ {
+    "name":"Rainbow Intro",
+    "seed": "Rainbow",
+    "width": 4,
+    "height": 4,
+    "endCondition": {
+      "maxScore": 30
+    },
+    "colors": ["red", "blue","green", "orange", "purple", "yellow", "rainbow"],
+    "shapes": ["square", "circle", "triangle", "pentagon", "star"],
+    "tips":[
+      {"score":0,"message":"Rainbow blocks can be matched with sets of any color."}
+    ]
+  }, {
+    "name": "Rainbow 5x5",
+    "seed": "Rainbow 5x5",
+    "width": 5,
+    "height": 5,
+    "endCondition": {
+      "maxScore": 50
+    },
+    "colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
+    "shapes": ["square", "circle", "triangle", "pentagon", "star"]
+  }]
+}

@@ -42,23 +42,37 @@ function Game(){
    */
   this._constructor=function(){
     var bLevels = this.getLevelsFromJson('basic.json');
+    var rLevels = this.getLevelsFromJson('rainbow.json');
+    var sLevels = this.getLevelsFromJson('stone.json');
     var eLevels = this.getLevelsFromJson('random.json');
+    var tLevels = this.getLevelsFromJson('timed.json');
 
-    $.when(bLevels,eLevels).done($.proxy(function(bData, eData){
-      this.addLoadedLevels(bData[0].levels);
-      this.addLoadedLevels(eData[0].levels);
-
-      $('.levelSelect').data('node').setLevelSet(this.levelSet);
-
-      this.getStoredGameData();
-      this.getStoredOptions();
-      this.startLevel(this.startingLevel);
-      this.startMusic(this.startingLevel);
-    },this)).fail(function() {
-      console.log( "error" );
+    $.when(bLevels,rLevels,sLevels,eLevels,tLevels).done($.proxy(this._resolvedLevels,this)).fail(function(){
+      console.log( "Failed to load level data - error" );
     });
   };
 
 
+  /**
+   * Handle loaded levels.
+   * @private
+   */
+  this._resolvedLevels=function(bData, rData, sData, eData,tData){
+    this.addLoadedLevels(bData[0].levels);
+    this.addLoadedLevels(rData[0].levels);
+    this.addLoadedLevels(sData[0].levels);
+    this.addLoadedLevels(eData[0].levels);
+    this.addLoadedLevels(tData[0].levels);
+
+    $('.levelSelect').data('node').setLevelSet(this.levelSet);
+
+    this.getStoredGameData();
+    this.getStoredOptions();
+    this.startLevel(this.startingLevel);
+    this.startMusic(this.startingLevel);
+  };
+
+
+  //Main
   this._constructor();
 }

@@ -26,7 +26,8 @@ function Header(){
 
 
   /**
-   *
+   * Display particular header depending upon screen context.
+   * @param {string} menuName class name of the menu to display.
    */
   this.displayMenu=function(menuName){
     this.node.find('.menuScreen').removeClass('display');
@@ -35,7 +36,7 @@ function Header(){
 
 
   /**
-   *
+   * Click on the hamburger icon.
    */
   this.node.on('click','.hamburger',$.proxy(function(event){
     event.preventDefault();

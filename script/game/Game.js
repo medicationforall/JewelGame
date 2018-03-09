@@ -22,7 +22,8 @@
  * @class
  */
 function Game(){
-  this.template='<div class="game screen display">'+
+  //this.template='<div class="game screen display">'+
+  this.template='<div class="game screen">'+
       '<div class="tip"></div>'+
     '</div>';
   this.node = $(this.template);

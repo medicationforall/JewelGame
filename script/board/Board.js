@@ -54,12 +54,13 @@ function Board(seed,level,properties,options){
    */
   this._constructor=function(){
     this.setLevel(level);
+
     this.setEndCondition(properties.endCondition);
     this.setColors(properties.colors);
     this.setShapes(properties.shapes);
     this.setTipType(properties.tipType);
-    this.setPlaySpeed(options.playSpeed);
 
+    this.setPlaySpeed(options.playSpeed);
 
     this._buildBoardSpaces();
     this.showTip({"score":0,"move":0});

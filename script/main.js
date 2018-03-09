@@ -88,6 +88,7 @@ $(document).ready(function(){
     $('body').append(screenControl.node);
     screenControl.add(Game);
     screenControl.add(LevelSelect);
+    screenControl.add(LevelEditor);
     screenControl.add(EndLevel);
     screenControl.add(Options);
     screenControl.add(About);

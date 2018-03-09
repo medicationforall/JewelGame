@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 /*General*/
 html,body{
   width:100%;
@@ -28,6 +30,7 @@ h1{
   padding:0px;
   display:inline-block;
   vertical-align:middle;
+  font-family: 'Press Start 2P', arial;
 }
 
 h2{
@@ -99,11 +102,14 @@ h2{
   display:inline-block;
 }
 
+.screenControl{
+  height: calc(100% - 70px);
+}
 
 /*Screen*/
 .screen{
   display:none;
-  height:calc(100% - 39px);
+  height:calc(100% - 0px);
   padding:0px 5px;
 }
 
@@ -163,6 +169,7 @@ h2{
 
 .board{
   height:100%;
+  display: inline-block;
   /*border:1px solid black;*/
 }
 
@@ -424,6 +431,33 @@ h2{
 
 .noTransition{
   transition: none;
+}
+
+.editorControl{
+  background:orange;
+  display:inline-block;
+  height:100%;
+  width:200px;
+  vertical-align:top;
+  color:#000;
+}
+
+.editorControl .control{
+  margin:5px 5px;
+}
+
+
+.editorControl .control.startBlocksList{
+  height:150px;
+  background:#fff;
+  overflow:auto;
+  resize:both;
+}
+
+.editorControl .control.startBlocksList .startBlock{
+  width:30px;
+  height:30px;
+  display: inline-block;
 }
 
 @media screen and (max-width:425px){

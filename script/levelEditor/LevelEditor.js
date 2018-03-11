@@ -11,13 +11,26 @@ function LevelEditor(){
 
   this.options = {"playSpeed":2,"musicEnabled":false};
 
-  this.board = new Board(this.seed,0,{"width":3,"height":3,"endCondition":{"infinite":0}},this.options);
+  this.timer = new Timer();
+  this.node.prepend(this.timer.node);
+
+  this.board = new Board(this.seed,0,{
+    "width":3,
+    "height":3,
+    "colors":['red','orange','yellow','green','blue','purple'],
+    "shapes":['triangle','square','pentagon','circle','rabbet'],
+    "endCondition":{"infinite":0}
+  },this.options);
   this.node.append(this.board.node);
 
   /**
    *
    */
   this.updateBoard=function(levelData){
+    if(levelData===undefined){
+      levelData = this.editor.getData();
+    }
+
     this.node.find('.board').data('node').killWorkers();
     this.node.find('.board').remove();
     $('.score .value').text(0);
@@ -27,5 +40,16 @@ function LevelEditor(){
     this.board = new Board(this.seed,0,levelData,this.options);
     this.node.append(this.board.node);
   };
+
+
+  /**
+   * End game event called when a level is finished.
+   */
+  this.node.on('end-game',$.proxy(function(event,data){
+    console.log('end Game');
+    this.timer.killTimer();
+    $('.endLevel').data('node').setEndLevelData(data,'levelEditor');
+    $('.screenControl').data('node').displayScreen('endLevel');
+  },this));
 
 }

@@ -88,7 +88,13 @@ function Board(seed,level,properties,options){
       RemainingMoves.call(this,endCondition.remainingMoves);
     } else if(endCondition.maxScore){
       MaxScore.call(this,endCondition.maxScore);
-    }else{
+    } else if(endCondition.minScore){
+      MinScore.call(this,endCondition.minScore);
+    } else if(endCondition.minMoves){
+      MinMoves.call(this,endCondition.minMoves);
+    } else if(endCondition.minJewels){
+      MinJewels.call(this,endCondition.minJewels);
+    } else{
       console.warn('unknown end condition');
     }
   };
@@ -289,7 +295,7 @@ function Board(seed,level,properties,options){
    */
   this.endBoard=function(){
     this.killWorkers();
-    $('.game').trigger('end-game',this.getEndGameData());
+    this.node.parent().trigger('end-game',this.getEndGameData());
     this.endSound.play();
   };
 

@@ -35,6 +35,7 @@ function EndLevel(data){
 
   this.node = $(this.template);
   this.node.data('node',this);
+  this.source='game';
 
   this.continueSound = new Howl({
     src: ['sound/continue.wav']
@@ -44,7 +45,7 @@ function EndLevel(data){
   /**
    *
    */
-  this.setEndLevelData=function(data){
+  this.setEndLevelData=function(data,source){
     this.node.find('.endLevel').text(data.level);
     this.node.find('.endStatus').text(data.win==true?'Complete!':"Lost");
     this.node.find('.endLevelName').text(data.levelName);
@@ -59,6 +60,8 @@ function EndLevel(data){
       this.node.find('.nextLevelLink').css('display','none');
       this.node.find('.retryLevelLink').css('display','');
     }
+
+    this.source = source;
     //this.node.find('.totalPoints').text((data.score-data.moves));
   };
 
@@ -68,18 +71,27 @@ function EndLevel(data){
    */
   this.node.on('click','.nextLevelLink',$.proxy(function(event){
     event.preventDefault();
-    $('.game.screen').data('node').startNextLevel();
-    $('.screenControl').data('node').displayScreen('game');
+    if(this.source==="game"){
+      $('.game.screen').data('node').startNextLevel();
+    }else if(this.source==="levelEditor"){
+      $('.levelEditor.screen').data('node').updateBoard();
+    }
+    $('.screenControl').data('node').displayScreen(this.source);
     this.continueSound.play();
   },this));
+
 
   /**
    *
    */
   this.node.on('click','.retryLevelLink',$.proxy(function(event){
     event.preventDefault();
-    $('.game.screen').data('node').startLevel();
-    $('.screenControl').data('node').displayScreen('game');
+    if(this.source==="game"){
+      $('.game.screen').data('node').startLevel();
+    }else if(this.source==="levelEditor"){
+      $('.levelEditor.screen').data('node').updateBoard();
+    }
+    $('.screenControl').data('node').displayScreen(this.source);
     this.continueSound.play();
   },this));
 }

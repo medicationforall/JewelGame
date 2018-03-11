@@ -1,7 +1,9 @@
 function EditorControl(){
   this.template='<div class="editorControl">'+
   '<h2>Level Editor</h2>'+
-  '<div>Live Edits: <input type="checkbox" name="liveEdit" checked /></div>'+
+  '<div>'+
+  '<svg class="Icon liveEdits" title="Live Edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 32px; width: 32px;"><path d="M0 0h512v512H0z" fill="transparent" fill-opacity="0"></path><g class="" transform="translate(0,0)" style="touch-action: none;"><path d="M241.844 28.625l-21.188 5.063L33.25 78.53l-9.594 2.282 2.813 9.47 54.718 184.03 6.156 20.782 10.875-18.75 36.624-63.125 39.344 22.655 9.375-16.188-47.47-27.312L128 187.72l-4.656 8.06-30.406 52.47-45.75-153.844 156.625-37.47-30.344 52.345-4.69 8.126 8.126 4.656L332.75 211.75l-17.594 30.344 16.22 9.312 22.25-38.375 4.687-8.124-8.125-4.656-155.844-89.688 36.594-63.093 10.906-18.845zm-28.25 176.47l-57.438 99.31 155.22 89.5 8.093 4.658-4.69 8.093-44.06 76.25 218.81-52.5-63.874-215.47-44.094 76.25-4.656 8.064-8.094-4.656-155.218-89.5z" fill="" fill-opacity="1"></path></g></svg>'+
+  '</div>'+
   '<div class="control">Name: <input name="levelName" style="width:100px;margin-left:3px" /></div>'+
   '<div class="control">Seed: <input name="seed" style="width:100px;margin-left:9px" /></div>'+
   '<div class="control">Width: <input name="width" type="number" min="3" value="3" style="width:50px;margin-left:5px" /></div>'+
@@ -27,8 +29,6 @@ function EditorControl(){
   '<div class="colorSelection green" data-color="green"></div>'+
   '<div class="colorSelection blue" data-color="blue"></div>'+
   '<div class="colorSelection purple" data-color="purple"></div>'+
-  '<div class="colorSelection rainbow" data-color="rainbow"></div>'+
-  '<div class="colorSelection stone" data-color="stone"></div>'+
   '</div>'+
 
   '<div class="control"><select name="shapeSelect">'+
@@ -47,102 +47,50 @@ function EditorControl(){
   '<div class="shapeSelection pentagon" data-shape="pentagon"></div>'+
   '<div class="shapeSelection circle" data-shape="circle"></div>'+
   '<div class="shapeSelection rabbet" data-shape="rabbet"></div>'+
-  '<div class="shapeSelection star" data-shape="star"></div>'+
   '</div>'+
 
-  '<div class="control">'+
-  'Win Condition:'+
-  '<select name="winCondition">'+
-  '<option value="maxScore">Max Score</option>'+
-  '<option value="remainingJewels">Remaining Jewels</option>'+
-  '<option value="remainingMoves">Remaining Moves</option>'+
-  '</select>'+
-  'Number:<input name="winValue" type="number" min="1" value="30" style="width:60px" />'+
-  '</div>'+
-
-  '<div class="control startBlocksSelect">'+
-  'Start Blocks:<a href="" class="snapshot button">Snapshot</a><br />'+
-  '<select name="startColor">'+
-  '<option value="red">Red</option>'+
-  '<option value="orange">Orange</option>'+
-  '<option value="yellow">Yellow</option>'+
-  '<option vlaue="green">Green</option>'+
-  '<option value="blue">Blue</option>'+
-  '<option value="purple">Purple</option>'+
-  '<option value="rainbow">Rainbow</option>'+
-  '<option value="stone">Stone</option>'+
-  '</select>'+
-  '<select name="startShape">'+
-  '<option value="triangle">Triangle</option>'+
-  '<option value="square">Square</option>'+
-  '<option value="pentagon">Pentagon</option>'+
-  '<option value="circle">Circle</option>'+
-  '<option value="rabbet">Rabbet</option>'+
-  '<option value="star">Star</option>'+
-  '</select>'+
-  '<a href="" class="addStartBlock button">Add</a>'+
-  '</div>'+
-
-  '<div class="control startBlocksList">'+
-  '</div>'+
-
-  '<a href="" class="restart button" title="Update and Restart the game.">Restart</a>'+
   '</div>';
 
   this.node = $(this.template);
   this.node.data('node',this);
 
+  this.liveEdits=true;
   this.name='';
   this.width=3;
   this.height=3;
   this.seed='';
   this.colors=['red','orange','yellow','green','blue','purple'];
   this.shapes=['triangle','square','pentagon','circle','rabbet','star'];
-  this.endCondition={"maxScore":30};
-  this.startBlocks=[];
+
+  this.endCondition=new EndCondition();
+  this.node.append(this.endCondition.node);
+
+  this.startBlocks = new StartBlocks();
+  this.node.append(this.startBlocks.node);
+
+  //reset button
+  this.node.append('<a href="" class="restart button" title="Update and Restart the game.">Apply</a>');
 
 
   /**
    *
    */
-  this.node.find('.snapshot.button').on('click',$.proxy(function(event){
-    event.preventDefault();
-    var board = this.node.parent().find('.board').data('node');
-    var children = board.node.children();
-
-    for(var i=0,space;(space=children[i]);i++){
-      if(space.tagName==='DIV'){
-        var data = $(space).data('node').getData();
-        this.addStartBlock(data);
-      }
+  this.node.find('.liveEdits').on('click',$.proxy(function(editor,event){
+    if($(this).hasClass('disabled')===false){
+      $(this).addClass('disabled');
+      editor.setLiveEdits(false);
+    }else{
+      $(this).removeClass('disabled');
+      editor.setLiveEdits(true);
     }
-    console.log('clicked snapshot');
-  },this));
-
-
-  /**
-   *
-   */
-  this.node.find('.addStartBlock.button').on('click',$.proxy(function(editor,event){
-    event.preventDefault();
-    var shape = editor.node.find('select[name="startShape"]').val();
-    var color = editor.node.find('select[name="startColor"]').val();
-    var data = {"shape":shape,"color":color};
-    console.log('clicked add start block button',shape,color);
-
-    editor.addStartBlock(data);
-    editor.updateBoard();
   },null,this));
 
-
   /**
    *
    */
-  this.addStartBlock=function(data){
-      this.startBlocks.push(data);
-      this.node.find('.startBlocksList').append('<div class="startBlock '+data.shape+' '+data.color+'" data-shape="'+data.shape+'" data-color="'+data.color+'"></div>');
+  this.setLiveEdits=function(value){
+    this.liveEdits=value;
   };
-
 
   /**
    *
@@ -154,64 +102,9 @@ function EditorControl(){
   },this));
 
 
-  /**
-   *
-   */
-  this.node.find('select[name="winCondition"]').on('change',$.proxy(function(editor,event){
-    var winCondition = $(this).val();
-    var winValue = parseInt(editor.node.find('input[name="winValue"]').val());
-    var endCondition = {};
-    endCondition[winCondition]=winValue;
-    editor.setEndCondition(endCondition);
-    editor.updateBoard();
-  },null,this));
-
-
-  /**
-   *
-   */
-  this.node.find('input[name="winValue"]').on('input',$.proxy(function(editor,event){
-    var winCondition = editor.node.find('select[name="winCondition"]').val();
-    var winValue = parseInt($(this).val());
-    var endCondition = {};
-    endCondition[winCondition]=winValue;
-    editor.setEndCondition(endCondition);
-    editor.updateBoard();
-  },null,this));
-
-
   //setup sortables
   this.node.find('.colors.control').sortable({change:$.proxy(this.changeColorOrder,this)});
   this.node.find('.shapes.control').sortable({change:$.proxy(this.changeShapeOrder,this)});
-  this.node.find('.startBlocksList').sortable({update:$.proxy(function(){
-    console.log('update');
-    this.changeStartBlockOrder();
-  },this)});
-
-  /**
-   *
-   */
-  this.changeStartBlockOrder=function(){
-    console.log('change start block order');
-    this.updateStartBlocks();
-    this.updateBoard();
-  };
-
-
-  /**
-   *
-   */
-  this.updateStartBlocks=function(){
-    this.startBlocks=[];
-    var startBlocks = this.node.find('.startBlock');
-
-    for(var i=0,startBlock;(startBlock=startBlocks[i]);i++){
-      var data = {};
-      data.shape=$(startBlock).data('shape');
-      data.color=$(startBlock).data('color');
-      this.startBlocks.push(data);
-    }
-  };
 
 
   /**
@@ -337,7 +230,7 @@ function EditorControl(){
    */
   this.node.find('input[name="levelName"]').on('input',$.proxy(function(editor){
     var value = $(this).val();
-    console.log('level name is is',value);
+    //console.log('level name is is',value);
     editor.setName(value);
     editor.updateBoard();
   },null,this));
@@ -357,7 +250,7 @@ function EditorControl(){
    */
   this.node.find('input[name="seed"]').on('input',$.proxy(function(editor){
     var value = $(this).val();
-    console.log('seed is',value);
+    //console.log('seed is',value);
     editor.setSeed(value);
     editor.updateBoard();
   },null,this));
@@ -367,7 +260,7 @@ function EditorControl(){
    *
    */
   this.updateBoard=function(force){
-    if(force || this.node.find('input[name="liveEdit"]').is(':checked')){
+    if(force || this.liveEdits){
       this.node.parent().data('node').updateBoard(this.getData());
     }
   };
@@ -437,43 +330,15 @@ function EditorControl(){
     data.height=this.height;
     data.colors=this.colors;
     data.shapes=this.shapes;
-    data.endCondition=this.endCondition;
+    data.endCondition=this.endCondition.getEndCondition();
 
-    if(this.startBlocks.length>0){
-      data.startBlocks=this.startBlocks;
+    var startBlocks = this.startBlocks.getStartBlocks();
+
+    if(startBlocks.length>0){
+      data.startBlocks=startBlocks;
     }
 
     return data;
-  };
-
-
-  /**
-   *
-   */
-  this.setEndCondition=function(endCondition){
-    this.endCondition=endCondition;
-
-    for (var key in endCondition) {
-      if(endCondition.hasOwnProperty(key)){
-        var winCondition = key;
-        var winValue = endCondition[key];
-
-        this.node.find('select[name="winCondition"]').val(winCondition);
-        this.node.find('input[name="winValue"]').val(winValue);
-      }
-    }
-  };
-
-
-  /**
-   *
-   */
-  this.setStartBlocks=function(startBlocks){
-    //reset
-    this.startBlocks=[];
-    for(var i,startBlock;(startBlock=startBlocks[i]);i++){
-      this.addStartBlock(startBlock);
-    }
   };
 
 
@@ -493,10 +358,10 @@ function EditorControl(){
     this.setHeight(data.height);
     this.setColors(data.colors);
     this.setShapes(data.shapes);
-    this.setEndCondition(data.endCondition);
+    this.endCondition.setEndCondition(data.endCondition);
 
     if(data.startBlocks && data.startBlocks.length>0){
-      this.setStartBlocks(data.startBlocks);
+      this.startBlocks.setStartBlocks(data.startBlocks);
     }
   };
 }

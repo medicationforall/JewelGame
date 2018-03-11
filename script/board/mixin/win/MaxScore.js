@@ -25,6 +25,7 @@ function MaxScore(maxScore){
   var endConditionTemplate = 'Target Score:<span class="value">0</span>';
   this.endCondition = $('.endCondition').append(endConditionTemplate);
   this.tmpScore=0;
+  this.maxScore=0;
 
 
   /**

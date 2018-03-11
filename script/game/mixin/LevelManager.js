@@ -92,7 +92,7 @@ function LevelManager(){
     this.timer.killTimer();
     this.setStoredGameData(data);
     $('.levelSelect').data('node').resolveStats(data);
-    $('.endLevel').data('node').setEndLevelData(data);
+    $('.endLevel').data('node').setEndLevelData(data,'game');
     $('.screenControl').data('node').displayScreen('endLevel');
   },this));
 }

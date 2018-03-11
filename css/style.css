@@ -471,6 +471,21 @@ h2{
   display: inline-block;
 }
 
+.editorControl .shapeSelection{
+  width: 30px;
+  height: 30px;
+  background: #000;
+  margin:1px;
+  display:inline-block;
+}
+
+.editorControl .colorSelection{
+  width: 30px;
+  height: 30px;
+  margin:1px;
+  display:inline-block;
+}
+
 @media screen and (max-width:425px){
   .header h1{
     display:none;

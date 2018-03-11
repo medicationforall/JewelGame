@@ -468,6 +468,7 @@ h2{
 .editorControl .startBlocksList .startBlock{
   width:30px;
   height:30px;
+  margin:1px;
   display: inline-block;
 }
 

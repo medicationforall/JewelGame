@@ -15,6 +15,7 @@ function StartBlocks(){
     '<option value="purple" class="purple">Purple</option>'+
     '<option value="rainbow" class="rainbow">Rainbow</option>'+
     '<option value="stone" class="stone">Stone</option>'+
+    '<option value="warp" class="warp">Warp</option>'+
     '</select>'+
     '<select name="startShape">'+
     '<option value="triangle">Triangle</option>'+

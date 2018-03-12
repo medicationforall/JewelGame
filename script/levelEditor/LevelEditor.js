@@ -32,6 +32,7 @@ function LevelEditor(){
     }
 
     this.node.find('.board').data('node').killWorkers();
+    this.node.find('.timer .timerBar').css('width','0%');
     this.node.find('.board').remove();
     $('.score .value').text(0);
     $('.level .value').text(0);
@@ -39,6 +40,14 @@ function LevelEditor(){
     $('.endCondition').empty();
     this.board = new Board(this.seed,0,levelData,this.options);
     this.node.append(this.board.node);
+
+    if(levelData.timeLimit!==undefined){
+      //this.node.find('.timer .timerBar').css('width','100%');
+      this.timer.setTimeLimit(levelData.timeLimit);
+      this.timer.startTimer();
+    }else{
+      this.timer.killTimer();
+    }
   };
 
 

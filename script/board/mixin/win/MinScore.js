@@ -26,7 +26,7 @@ function MinScore(minScore){
    * @return {boolean}
    */
   this.isWin=function(){
-    if(this.tmpScore>=maxScore){
+    if(this.tmpScore>=this.minScore){
       return true;
     }else{
       return false;

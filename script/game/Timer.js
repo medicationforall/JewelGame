@@ -139,7 +139,7 @@ function Timer(){
    * Action to take when the timer ends.
    */
   this.endTimer=function(){
-    $('.board').data('node').endBoard();
+    this.node.parent().find('.board').data('node').endBoard();
   };
 
 

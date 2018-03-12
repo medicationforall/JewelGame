@@ -30,6 +30,9 @@ function EditorControl(){
   this.startBlocks = new StartBlocks();
   this.node.append(this.startBlocks.node);
 
+  this.timerControl = new TimerControl();
+  this.node.append(this.timerControl.node);
+
   this.endCondition=new EndCondition();
   this.node.append(this.endCondition.node);
 
@@ -72,6 +75,11 @@ function EditorControl(){
     data.height=this.heightControl.getHeight();
     data.colors=this.colorSelector.getColors();
     data.shapes=this.shapeSelector.getShapes();
+
+    if(this.timerControl.getTimeLimit()!==undefined){
+      data.timeLimit = this.timerControl.getTimeLimit();
+    }
+    
     data.endCondition=this.endCondition.getEndCondition();
 
     var startBlocks = this.startBlocks.getStartBlocks();
@@ -100,6 +108,11 @@ function EditorControl(){
     this.heightControl.setHeight(data.height);
     this.colorSelector.setColors(data.colors);
     this.shapeSelector.setShapes(data.shapes);
+
+    if(data.timeLimit !==undefined){
+      this.timerControl.setTimeLimit(true,data.timeLimit);
+    }
+
     this.endCondition.setEndCondition(data.endCondition);
 
     if(data.startBlocks && data.startBlocks.length>0){

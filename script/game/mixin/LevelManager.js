@@ -44,7 +44,7 @@ function LevelManager(){
     this.node.append(this.board.node);
 
     if(this.levelSet.levels[this.level].timeLimit){
-      this.node.find('.timer .timerBar').css('width','100%');
+      //this.node.find('.timer .timerBar').css('width','100%');
       this.timer.setTimeLimit(this.levelSet.levels[this.level].timeLimit);
       this.timer.startTimer();
     }else{

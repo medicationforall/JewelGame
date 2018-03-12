@@ -10,18 +10,18 @@
 <link rel="stylesheet" type="text/css" href="../../css/shapeAnimations.css">
 <link rel="stylesheet" type="text/css" href="../../css/dropAnimations.css">
 
-<script src="../../script/lib/jquery-3.2.1.min.js" ></script>
-<script src="../../script/lib/seedrandom.min.js" ></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.3/seedrandom.min.js" integrity="sha384-aWVNr46OuY/0J65ZcoUF3fcT4DHNtt76aZUe6A2Qziy4TWSnpKh4iFDgmTD1r+Io" crossorigin="anonymous"></script>
 <!--<script src="../../script/main.js"></script>-->
-<script src="../../script/Game.js"></script>
+<script src="../../script/game/Game.js"></script>
 <script src="../../script/board/Board.js"></script>
-<script src="../../script/Space.js"></script>
-<script src="../../script/Rng.js"></script>
+<script src="../../script/game/Space.js"></script>
+<script src="../../script/game/Rng.js"></script>
 
 <!-- Win Conditions-->
-<script src="../../script/win/RemainingJewels.js"></script>
-<script src="../../script/win/RemainingMoves.js"></script>
-<script src="../../script/win/MaxScore.js"></script>
+<script src="../../script/board/mixin/win/RemainingJewels.js"></script>
+<script src="../../script/board/mixin/win/RemainingMoves.js"></script>
+<script src="../../script/board/mixin/win/MaxScore.js"></script>
 </head>
 
 <body>
@@ -96,6 +96,13 @@
 
   <div class="space">
     <span class="token square fire" data-color="fire" data-shape="square"></span>
+    <span class="highlight"></span>
+    <span class="outline square"></span>
+    <span class="shadow square"></span>
+  </div>
+
+  <div class="space">
+    <span class="token square warp" data-color="warp" data-shape="square"></span>
     <span class="highlight"></span>
     <span class="outline square"></span>
     <span class="shadow square"></span>

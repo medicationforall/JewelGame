@@ -212,6 +212,32 @@ body{
   filter: brightness(1.1);
 }
 
+/*Warp*/
+.warp ~ .highlight{
+  display:none;
+}
+
+.warp{
+  background: purple url('image/warp/warp.png') 8px 8px;
+}
+
+.selected .warp{
+  background: purple url('image/warp/warp3.gif') 8px 8px;
+}
+
+.warp ~ .shadow{
+  background:#8e84e0;
+}
+
+/*Warp Hover*/
+.space:hover .warp{
+  filter: brightness(1.1);
+}
+
+.space:hover .warp ~ .shadow{
+  filter: brightness(1.1);
+}
+
 /*Ice*/
 .ice{
   background:#9999ff url('image/ice/ice2.png') 0px 0px;

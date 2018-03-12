@@ -114,7 +114,7 @@ function Space(color,shape,index){
     if(color !== this.color){
       this.color = color;
       this.node.find('.token').attr('data-color',this.color);
-      this.node.find('.token').removeClass('red blue green purple orange yellow stone ice fire rainbow');
+      this.node.find('.token').removeClass('red blue green purple orange yellow stone ice fire rainbow warp');
       this.node.find('.token').transitionCss(this.color);
     }
   };

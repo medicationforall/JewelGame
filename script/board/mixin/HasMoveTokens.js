@@ -108,7 +108,9 @@ function HasMoveTokens(properties){
     var topCheck = i1 - properties.width;
     var bottomCheck = i1 + properties.width;
 
-    if(xAxisCheck === -1 || xAxisCheck === 1){
+    if(sp1.color==='warp' || sp2.color==='warp'){
+      return true;
+    } else if(xAxisCheck === -1 || xAxisCheck === 1){
       return true;
     }else if(topCheck === i2){
       return true;

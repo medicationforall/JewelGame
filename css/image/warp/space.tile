@@ -1,0 +1,130 @@
+Tilemancer 0.2.1
+
+Color 0 0 0
+PaletteSave1 
+PaletteSave2 
+FileSave1 \Users\u958Adams\Desktop
+FileSave2 space.tile
+Indexed 0
+Size 64
+Camera 0 0
+Node {
+Name cells.lua
+Position 146.062 40.684
+Parameter -1 -1 -1 0
+Parameter 2 2 -1 0
+Parameter 41 0 100 0
+Parameter 119 0 -1 0
+}
+Node {
+Name perlin_noise.lua
+Position 155.055 63.5079
+Parameter 7 -1 -1 0
+Parameter 2 2 -1 0
+Parameter 6 1 -1 0
+Parameter 200 100 -1 0
+Parameter 100 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name blend.lua
+Position 164.053 83.5172
+Parameter 4 0 5 0
+Parameter 100 0 100 0
+Connection 0 0 0
+Connection 1 1 0
+}
+Node {
+Name simple_color.lua
+Position 169.831 104.424
+Parameter 255 0 255 0
+Parameter 133 0 255 0
+Parameter 255 0 255 0
+Parameter 1 1 100 0
+Connection 0 2 0
+}
+Node {
+Name brightness.lua
+Position 176.967 124.332
+Parameter 2 0 2 0
+Parameter 60 0 100 0
+Parameter 0 0 255 0
+Parameter 255 0 255 0
+Connection 0 3 0
+}
+Node {
+Name shape.lua
+Position 143.321 316.59
+Parameter 0 0 10 0
+Parameter 100 0 -1 0
+}
+Node {
+Name directional_warp.lua
+Position 180.031 145.279
+Parameter 358 -1 -1 0
+Parameter 10 0 100 0
+Connection 0 4 0
+Connection 2 5 0
+}
+Node {
+Name blend.lua
+Position 326.813 67.3963
+Parameter 1 0 5 0
+Parameter 100 0 100 0
+Connection 0 6 0
+Connection 1 3 0
+}
+Node {
+Name perlin_noise.lua
+Position 264.868 313.21
+Parameter 6 -1 -1 0
+Parameter 5 2 -1 0
+Parameter 3 1 -1 0
+Parameter 200 100 -1 0
+Parameter 80 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name directional_blur.lua
+Position 482.683 56.5759
+Parameter 0 -1 -1 0
+Parameter 28 0 100 0
+Connection 0 7 0
+Connection 1 8 0
+}
+Node {
+Name brightness.lua
+Position 694.72 64.6636
+Parameter 1 0 2 0
+Parameter 100 0 100 0
+Parameter 117 0 255 0
+Parameter 255 0 255 0
+Connection 0 9 0
+}
+Node {
+Name perlin_noise.lua
+Position 398.589 276.555
+Parameter 2 -1 -1 0
+Parameter 5 2 -1 0
+Parameter 3 1 -1 0
+Parameter 200 100 -1 0
+Parameter 80 0 100 0
+Parameter 100 0 -1 0
+}
+Node {
+Name simple_color.lua
+Position 537.658 277.948
+Parameter 0 0 255 0
+Parameter 0 0 255 0
+Parameter 255 0 255 0
+Parameter 1 1 100 0
+Connection 0 11 0
+}
+Node {
+Name blend.lua
+Position 660.035 275.505
+Parameter 0 0 5 0
+Parameter 66 0 100 0
+Connection 0 10 0
+Connection 1 12 0
+}

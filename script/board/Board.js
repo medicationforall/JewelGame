@@ -35,7 +35,7 @@ function Board(seed,level,properties,options){
   this.tipIndex=0;
 
   this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
-  this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow'];
+  this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow', 'warp'];
 
   this.sleepTime = 250;
   this.playSpeed=2;

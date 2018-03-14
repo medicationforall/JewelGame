@@ -46,6 +46,7 @@ function About(){
   '<li><a href="https://github.com/marcuswestin/store.js" target="_blank">Store.js</a></li>'+
   '<li><a href="http://game-icons.net/" target="_blank">Game-icons.net</a></li>'+
   '<li><a href="https://howlerjs.com/" target="_blank">HOWLER.js</a></li>'+
+  '<li><a href="https://github.com/eligrey/FileSaver.js/" target="_blank">FileSaver.js</a></li>'+
   '</ul>'+
   '</div>';
 

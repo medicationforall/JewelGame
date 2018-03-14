@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file ShapeSelector,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Used for setting the up available shapes that populate the board.
+ * @class
+ */
 function ShapeSelector(){
   this.template=  '<div class="control">'+
     'Shapes:'+
@@ -23,10 +45,11 @@ function ShapeSelector(){
   this.node=$(this.template);
   this.node.data('node',this);
 
-  this.shapes=['triangle','square','pentagon','circle','rabbet','star'];
+  this.shapes=['triangle','square','pentagon','circle','rabbet'];
+
 
   /**
-   *
+   * The shapes can be re-ordered.
    */
   this.node.find('.shapes.control').sortable({update:$.proxy(function(){
     console.log('update shapes order');
@@ -35,7 +58,7 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Double clicking on a shape removes it.
    */
   this.node.find('.shapes.control').on('dblclick','.shapeSelection',$.proxy(function(editor,event){
     console.log('double clicked shapeSelection');
@@ -46,7 +69,7 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Change shape order.
    */
   this.changeShapeOrder=function(event,ui){
     console.log('change shape order');
@@ -56,7 +79,7 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Update the shapes array.
    */
   this.updateShapes=function(){
       this.shapes=[];
@@ -69,7 +92,7 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Add shape click.
    */
   this.node.find('.addShape').on('click',$.proxy(function(editor,event){
     event.preventDefault();
@@ -82,7 +105,8 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Set the shapes array.
+   * @param {array} shapes
    */
   this.setShapes=function(shapes){
     //reset
@@ -96,7 +120,8 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Add shape to the array
+   * @param {string} shape
    */
   this.addShape=function(shape){
     this.shapes.push(shape);

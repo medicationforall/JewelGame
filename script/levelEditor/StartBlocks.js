@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file StartBlocks,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Used for setting the starting blocks.
+ * @class
+ */
 function StartBlocks(){
   this.template='<div class="control startBlocksSelect">'+
     'Start Blocks:'+
@@ -37,7 +59,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Double Clicking on a start block removes it.
    */
   this.node.find('.startBlocksList').on('dblclick','.startBlock',$.proxy(function(editor,event){
     console.log('double clicked start block');
@@ -48,7 +70,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Look at the existing board and copy it block for block into the startBlocks array.
    */
   this.node.find('.snapshot.button').on('click',$.proxy(function(event){
     event.preventDefault();
@@ -66,7 +88,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Adda start Block click.
    */
   this.node.find('.addStartBlock.button').on('click',$.proxy(function(editor,event){
     event.preventDefault();
@@ -81,7 +103,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Make the startBlocks sortable.
    */
   this.node.find('.startBlocksList').sortable({update:$.proxy(function(){
     console.log('update');
@@ -90,7 +112,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Change the start block order.
    */
   this.changeStartBlockOrder=function(){
     console.log('change start block order');
@@ -100,7 +122,7 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Update the stored start blocks array.
    */
   this.updateStartBlocks=function(){
     this.startBlocks=[];
@@ -116,7 +138,8 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Add a start block.
+   * @param {object} data example {"shape":"square","color":"red"}
    */
   this.addStartBlock=function(data){
       this.startBlocks.push(data);
@@ -125,7 +148,8 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Get the array of start blocks
+   * @return {array}
    */
   this.getStartBlocks=function(){
     return this.startBlocks;
@@ -133,14 +157,14 @@ function StartBlocks(){
 
 
   /**
-   *
+   * Set the start blocks.
+   * @param {array} startBlocks
    */
   this.setStartBlocks=function(startBlocks){
     //reset
     this.startBlocks=[];
-    for(var i,startBlock;(startBlock=startBlocks[i]);i++){
+    for(var i=0,startBlock;(startBlock=startBlocks[i]);i++){
       this.addStartBlock(startBlock);
     }
   };
-
 }

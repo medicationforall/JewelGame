@@ -8,49 +8,53 @@
 			"endCondition": {
 				"maxScore": 13
 			},
-			"colors": ["red", "green", "blue", "orange", "purple"],
-			"shapes": ["square", "circle", "pentagon", "rabbet"],
-			"startBlocks": [
-				{"color": "red","shape": "square"},
-				{"color": "purple","shape": "star"},
-				{"color": "blue","shape": "circle"},
+			"levelBlocks":[{
+				"trigger":"score",
+				"value":"value",
+				"colors": ["red", "green", "blue", "orange", "purple"],
+				"shapes": ["square", "circle", "pentagon", "rabbet"],
+				"blocks": [
+					{"color": "red","shape": "square"},
+					{"color": "purple","shape": "star"},
+					{"color": "blue","shape": "circle"},
 
-				{"color": "purple","shape": "circle"},
-				{"color": "red","shape": "pentagon"},
-				{"color": "purple","shape": "pentagon"},
+					{"color": "purple","shape": "circle"},
+					{"color": "red","shape": "pentagon"},
+					{"color": "purple","shape": "pentagon"},
 
-				{"color": "blue","shape": "rabbet"},
-				{"color": "orange","shape": "square"},
-				{"color": "red","shape": "circle"},
+					{"color": "blue","shape": "rabbet"},
+					{"color": "orange","shape": "square"},
+					{"color": "red","shape": "circle"},
 
-				{"color": "purple","shape": "rabbet"},
-				{"color": "blue","shape": "rabbet"},
-				{"color": "blue","shape": "square"},
+					{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "rabbet"},
+					{"color": "blue","shape": "square"},
 
-				{"color": "purple","shape": "circle"},
-				{"color": "purple","shape": "pentagon"},
-				{"color": "green","shape": "rabbet"},
+					{"color": "purple","shape": "circle"},
+					{"color": "purple","shape": "pentagon"},
+					{"color": "green","shape": "rabbet"},
 
-				{"color": "blue","shape": "rabbet"},
-				{"color": "red","shape": "circle"},
-				{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "rabbet"},
+					{"color": "red","shape": "circle"},
+					{"color": "purple","shape": "rabbet"},
 
-				{"color": "blue","shape": "star"},
-				{"color": "purple","shape": "rabbet"},
-				{"color": "blue","shape": "square"},
+					{"color": "blue","shape": "star"},
+					{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "square"},
 
-				{"color": "purple","shape": "rabbet"},
-				{"color": "blue","shape": "rabbet"},
-				{"color": "blue","shape": "square"},
+					{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "rabbet"},
+					{"color": "blue","shape": "square"},
 
-				{"color": "purple","shape": "rabbet"},
-				{"color": "blue","shape": "rabbet"},
-				{"color": "blue","shape": "square"},
+					{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "rabbet"},
+					{"color": "blue","shape": "square"},
 
-				{"color": "purple","shape": "rabbet"},
-				{"color": "blue","shape": "circle"},
-				{"color": "purple","shape": "square"}
-			],
+					{"color": "purple","shape": "rabbet"},
+					{"color": "blue","shape": "circle"},
+					{"color": "purple","shape": "square"}
+				]
+				}],
 			"tips":[
 				{"score":0,"message":"Click on the purple star and the red pentagon.","highlight":[1,4]},
 				{"score":1,"message":"Match sets of 3 or more. Horizontal or vertical.","highlight":[5,8]},

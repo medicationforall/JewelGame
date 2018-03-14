@@ -1,6 +1,6 @@
 function LevelEditor(){
   this.seed ='jewel-game';
-  this.template='<div class="levelEditor screen display">'+
+  this.template='<div class="levelEditor screen">'+
   '</div>';
 
   this.node=$(this.template);
@@ -19,7 +19,7 @@ function LevelEditor(){
     "height":3,
     "colors":['red','orange','yellow','green','blue','purple'],
     "shapes":['triangle','square','pentagon','circle','rabbet'],
-    "endCondition":{"infinite":0}
+    "endCondition":{"maxScore":30}
   },this.options);
   this.node.append(this.board.node);
 

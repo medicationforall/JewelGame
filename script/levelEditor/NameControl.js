@@ -9,6 +9,7 @@ function NameControl(){
    *
    */
   this.node.find('input[name="levelName"]').on('input',$.proxy(function(editor){
+    $(this).removeClass('error');
     var value = $(this).val();
     //console.log('level name is is',value);
     editor.setName(value);
@@ -21,7 +22,7 @@ function NameControl(){
    */
   this.setName=function(name){
     this.name=name;
-    this.node.find('input[name="name"]').val(name);
+    this.node.find('input[name="levelName"]').val(name);
   };
 
 
@@ -33,4 +34,10 @@ function NameControl(){
   };
 
 
+  /**
+   *
+   */
+  this.error=function(){
+    this.node.find('input[name="levelName"]').addClass('error');
+  };
 }

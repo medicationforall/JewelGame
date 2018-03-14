@@ -43,6 +43,11 @@ h2{
   font-size: 16pt;
 }
 
+.error{
+	transition:border-color 0.5s ease;
+	border:2px solid red;
+}
+
 
 /*Header*/
 .header{
@@ -173,7 +178,7 @@ h2{
 }*/
 
 .board{
-  height:100%;
+  height:calc(100% - 6px);
   display: inline-block;
   /*border:1px solid black;*/
 }
@@ -441,7 +446,7 @@ h2{
 .editorControl{
   background:orange;
   display:inline-block;
-  height:100%;
+  height:calc(100% - 6px);
   width:200px;
   vertical-align:top;
   color:#000;

@@ -21,10 +21,12 @@ python -m http.server
 ## Libraries
 This Application uses:
 * [jQuery](https://jquery.com/)
-* [Animate.css](https://daneden.github.io/animate.css/)
 * [seedrandom.js](https://github.com/davidbau/seedrandom)
-* [Game-icons.net](http://game-icons.net/)
+* [Animate.css](https://daneden.github.io/animate.css/)
 * [Store.js](https://github.com/marcuswestin/store.js)
+* [Game-icons.net](http://game-icons.net/)
+* [HOWLER.js](https://howlerjs.com/)
+* [FileSaver.js](https://github.com/eligrey/FileSaver.js/)
 
 
 All of the scripts are being called via cdn.<br />

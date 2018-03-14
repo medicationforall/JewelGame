@@ -87,7 +87,9 @@ function HasMoveTokens(properties){
     if(this.tipType==='move'){
       this.showTip({"move":newMoves});
     }
+    this.moves++;
     this.playedMove();
+    this.checkLevelBlocks();
   };
 
 

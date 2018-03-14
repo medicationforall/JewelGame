@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file TimerControl,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+/**
+ * Used for setting the level timer.
+ * @class
+ */ 
 function TimerControl(){
   this.template='<div class="control">'+
   '<svg class="Icon timerIcon disabled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 32px; width: 32px;">'+
@@ -15,7 +37,7 @@ function TimerControl(){
 
 
   /**
-   *
+   * Click on the timer icon.
    */
   this.node.find('.timerIcon').on('click',$.proxy(function(editor,event){
     var enable = $(this).hasClass('disabled');
@@ -27,7 +49,7 @@ function TimerControl(){
 
 
   /**
-   *
+   * Timer value number input.
    */
   this.node.find('input[name="timerValue"]').on('input',$.proxy(function(editor,event){
     var timerValue = parseInt(editor.node.find('input[name="timerValue"]').val());
@@ -37,7 +59,10 @@ function TimerControl(){
 
 
   /**
-   *
+   * Set time limit.
+   * @public
+   * @param {boolean} enable flag indicates if the control should be enabled.
+   * @param {int} value Time in seconds.
    */
   this.setTimeLimit=function(enable,value){
     this.timerEnabled=enable;
@@ -54,7 +79,9 @@ function TimerControl(){
 
 
   /**
-   *
+   * Get time limit.
+   * @public
+   * @return {int} Time in seconds. Or undefined if the control is disabled.
    */
   this.getTimeLimit=function(){
     if(this.timerEnabled){

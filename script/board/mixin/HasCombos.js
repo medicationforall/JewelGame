@@ -164,7 +164,9 @@ function HasCombos(properties){
       fillCount++;
       if(source!=='initial'){
         this.createdJewel();
+        this.jewels++;
         this.jewelsCleared++;
+        this.checkLevelBlocks();
       }
     }
 
@@ -232,7 +234,9 @@ function HasCombos(properties){
     var eScore = parseInt($('.score .value').text());
     var newScore = eScore+score;
     $('.score .value').text(newScore);
+    this.score = newScore;
     this.maximizeScore(score);
+    this.checkLevelBlocks();
 
     if(this.tipType==='score'){
       this.showTip({"score":newScore});

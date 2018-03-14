@@ -9,6 +9,12 @@ function EditorControl(){
   this.liveEdit = new LiveEdit();
   this.node.append(this.liveEdit.node);
 
+  this.downloadControl = new DownloadControl();
+  this.node.append(this.downloadControl.node);
+
+  this.uploadControl = new UploadControl();
+  this.node.append(this.uploadControl.node);
+
   this.nameControl = new NameControl();
   this.node.append(this.nameControl.node);
 
@@ -79,7 +85,7 @@ function EditorControl(){
     if(this.timerControl.getTimeLimit()!==undefined){
       data.timeLimit = this.timerControl.getTimeLimit();
     }
-    
+
     data.endCondition=this.endCondition.getEndCondition();
 
     var startBlocks = this.startBlocks.getStartBlocks();

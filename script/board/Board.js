@@ -30,12 +30,19 @@ function Board(seed,level,properties,options){
 
   this.seed= seed;
   this.rng=new Rng(this.seed);
-  this.startBlockIndex = 0;
   this.tipType='score';
+  this.startBlockIndex = 0;
   this.tipIndex=0;
+  this.levelBlockIndex=0;
 
-  this.shapes=['square','circle','triangle','pentagon','rabbet','star'];
-  this.colors=['red','blue','green','orange','purple', 'yellow','stone','ice','fire','rainbow', 'warp'];
+  this.score=0;
+  this.moves=0;
+  this.jewels=0;
+
+  this.levelBlocks=[];
+  this.shapes=['square', 'circle', 'triangle', 'pentagon', 'rabbet', 'star'];
+  this.colors=['red', 'blue', 'green', 'orange', 'purple', 'yellow', 'stone', 'ice', 'fire', 'rainbow', 'warp'];
+  this.startBlocks=[];
 
   this.sleepTime = 250;
   this.playSpeed=2;
@@ -58,13 +65,22 @@ function Board(seed,level,properties,options){
     this.setEndCondition(properties.endCondition);
     this.setColors(properties.colors);
     this.setShapes(properties.shapes);
+    this.setStartBlocks(properties.startBlocks);
     this.setTipType(properties.tipType);
+    this.setLevelBlocks(properties.levelBlocks);
 
     this.setPlaySpeed(options.playSpeed);
 
     this._buildBoardSpaces();
     this.showTip({"score":0,"move":0});
     this.checkCombos('initial');
+  };
+
+  /**
+   *
+   */
+  this.setStartBlocks=function(blocks){
+    this.startBlocks=blocks;
   };
 
 
@@ -123,6 +139,54 @@ function Board(seed,level,properties,options){
 
 
   /**
+   *
+   */
+  this.setLevelBlocks=function(levelBlocks){
+    if(levelBlocks !== undefined && levelBlocks.length>0){
+      this.levelBlocks = levelBlocks;
+      this.setLevelBlock(levelBlocks[0]);
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.checkLevelBlocks=function(){
+    var next = this.levelBlocks[this.levelBlockIndex+1];
+
+    if(next!==undefined){
+      var trigger = next.trigger;
+      var value = next.value;
+
+      if(this[trigger]>=value){
+        this.levelBlockIndex++;
+        this.setLevelBlock(next);
+      }
+    }
+  };
+
+
+  /**
+   *
+   */
+  this.setLevelBlock=function(levelBlock){
+    if(levelBlock.shapes!==undefined){
+      this.shapes=levelBlock.shapes;
+    }
+
+    if(levelBlock.score!==undefined){
+      this.colors=levelBlock.colors;
+    }
+
+    if(levelBlock.blocks!==undefined && levelBlock.blocks.length>0){
+      this.startBlocks=levelBlock.blocks;
+      this.startBlocksIndex=0;
+    }
+  };
+
+
+  /**
    * Fills the board with Spaces.
    * @private
    */
@@ -151,8 +215,8 @@ function Board(seed,level,properties,options){
    */
   this._buildBoardSpace=function(index){
     var space = null;
-    if(properties.startBlocks && properties.startBlocks[index]){
-      var data = properties.startBlocks[index];
+    if(this.startBlocks && this.startBlocks[index]){
+      var data = this.startBlocks[index];
       space = new Space(data.color,data.shape,index);
       this.startBlockIndex++;
     }else{
@@ -257,8 +321,8 @@ function Board(seed,level,properties,options){
     var data = {};
     data.level = level;
     data.levelName = properties.name;
-    data.score = parseInt($('.score .value').text());
-    data.moves = parseInt($('.moves .value').text());
+    data.score = this.score;
+    data.moves = this.moves;
     data.jewelsCleared = this.jewelsCleared;
     data.win = this.isWin();
     return data;

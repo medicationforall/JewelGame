@@ -23,7 +23,7 @@
  */
 function RemainingJewels(remainingJewels){
   var endConditionTemplate = 'Remaining Jewels:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
+  this.endCondition = $('.'+this.screen+'.menuScreen .endCondition').append(endConditionTemplate);
 
 
   /**

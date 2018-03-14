@@ -80,9 +80,9 @@ function HasMoveTokens(properties){
    *
    */
   this.increaseMoves=function(){
-    var eMoves = parseInt($('.moves .value').text());
+    var eMoves = this.moves;
     var newMoves = eMoves+1;
-    $('.moves .value').text(newMoves);
+    $('.'+this.screen+'.menuScreen .moves .value').text(newMoves);
 
     if(this.tipType==='move'){
       this.showTip({"move":newMoves});

@@ -36,11 +36,11 @@ function LevelManager(){
     this.node.find('.timer .timerBar').css('width','0%');
     this.node.find('.board').remove();
     this.node.find('.tip').empty().removeClass('display');
-    $('.score .value').text(0);
-    $('.level .value').text(0);
-    $('.moves .value').text(0);
-    $('.endCondition').empty();
-    this.board=new Board(this.seed,this.level,this.levelSet.levels[this.level],this.options);
+    $('.game.menuScreen .score .value').text(0);
+    $('.game.menuScreen .level .value').text(0);
+    $('.game.menuScreen .moves .value').text(0);
+    $('.game.menuScreen .endCondition').empty();
+    this.board=new Board('game',this.seed,this.level,this.levelSet.levels[this.level],this.options);
     this.node.append(this.board.node);
 
     if(this.levelSet.levels[this.level].timeLimit){

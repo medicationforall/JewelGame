@@ -1,6 +1,6 @@
 function MinJewels(minJewels){
   var endConditionTemplate = 'Minimum Jewels:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
+  this.endCondition = $('.'+this.screen+'.menuScreen .endCondition').append(endConditionTemplate);
   this.tmpJewels=0;
   this.minJewels=0;
 

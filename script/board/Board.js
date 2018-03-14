@@ -23,7 +23,7 @@
  * @param  {Object} properties Level description object.
  * @returns {Board}
  */
-function Board(seed,level,properties,options){
+function Board(screen,seed,level,properties,options){
   var template='<div class="board"></div>';
   this.node= $(template);
   this.node.data('node',this);
@@ -60,6 +60,7 @@ function Board(seed,level,properties,options){
    * @constructor
    */
   this._constructor=function(){
+    this.screen=screen;
     this.setLevel(level);
 
     this.setEndCondition(properties.endCondition);
@@ -242,20 +243,20 @@ function Board(seed,level,properties,options){
           color='';
         }
 
-        $('.tip').removeClass('red orange yellow green blue purple rainbow stone');
+        $('.'+this.screen+'.screen .tip').removeClass('red orange yellow green blue purple rainbow stone');
         this.unhighlightTokens();
 
         if((prop && score !==undefined && prop.score === score) || (prop && move !==undefined && prop.move === move)){
           if(highlight !== undefined && highlight.length>0){
             this.highlightSpaces(highlight);
           }
-          $('.tip').addClass('display '+color).html(message).animateCss('vanishIn');
+          $('.'+this.screen+' .tip').addClass('display '+color).html(message).animateCss('vanishIn');
           this.tipIndex++;
         }else{
-          $('.tip').removeClass('display');
+          $('.'+this.screen+' .tip').removeClass('display');
         }
       }else{
-        $('.tip').removeClass('display');
+        $('.'+this.screen+' .tip').removeClass('display');
       }
     }
   };

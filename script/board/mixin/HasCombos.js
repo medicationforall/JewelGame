@@ -231,9 +231,9 @@ function HasCombos(properties){
    * @param {int} score to increase by.
    */
   this.updateScore=function(score){
-    var eScore = parseInt($('.score .value').text());
+    var eScore = this.score;
     var newScore = eScore+score;
-    $('.score .value').text(newScore);
+    $('.'+this.screen+'.menuScreen .score .value').text(newScore);
     this.score = newScore;
     this.maximizeScore(score);
     this.checkLevelBlocks();

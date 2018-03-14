@@ -14,7 +14,7 @@ function LevelEditor(){
   this.timer = new Timer();
   this.node.prepend(this.timer.node);
 
-  this.board = new Board(this.seed,0,{
+  this.board = new Board('levelEditor',this.seed,0,{
     "width":3,
     "height":3,
     "colors":['red','orange','yellow','green','blue','purple'],
@@ -34,11 +34,11 @@ function LevelEditor(){
     this.node.find('.board').data('node').killWorkers();
     this.node.find('.timer .timerBar').css('width','0%');
     this.node.find('.board').remove();
-    $('.score .value').text(0);
-    $('.level .value').text(0);
-    $('.moves .value').text(0);
-    $('.endCondition').empty();
-    this.board = new Board(this.seed,0,levelData,this.options);
+    $('.levelEditor.menuScreen .score .value').text(0);
+    $('.levelEditor.menuScreen .level .value').text(0);
+    $('.levelEditor.menuScreen .moves .value').text(0);
+    $('.levelEditor.menuScreen .endCondition').empty();
+    this.board = new Board('levelEditor',this.seed,0,levelData,this.options);
     this.node.append(this.board.node);
 
     if(levelData.timeLimit!==undefined){

@@ -1,6 +1,6 @@
 function MinMoves(minMoves){
   var endConditionTemplate = 'Minimum Moves:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
+  this.endCondition = $('.'+this.screen+'.menuScreen .endCondition').append(endConditionTemplate);
   this.tmpMoves=0;
   this.minMoves=0;
 

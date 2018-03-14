@@ -1,6 +1,6 @@
 function MinScore(minScore){
   var endConditionTemplate = 'Minimum Score:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
+  this.endCondition = $('.'+this.screen+'.menuScreen .endCondition').append(endConditionTemplate);
   this.tmpScore=0;
   this.minScore=0;
 

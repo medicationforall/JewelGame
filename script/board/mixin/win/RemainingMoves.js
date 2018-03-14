@@ -23,7 +23,7 @@
  */
 function RemainingMoves(remainingMoves){
   var endConditionTemplate = 'Remaining Moves:<span class="value">0</span>';
-  this.endCondition = $('.endCondition').append(endConditionTemplate);
+  this.endCondition = $('.'+this.screen+'.menuScreen .endCondition').append(endConditionTemplate);
   this.remainingMoves=0;
 
 

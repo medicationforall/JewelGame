@@ -175,7 +175,7 @@ function Board(seed,level,properties,options){
       this.shapes=levelBlock.shapes;
     }
 
-    if(levelBlock.score!==undefined){
+    if(levelBlock.colors!==undefined){
       this.colors=levelBlock.colors;
     }
 

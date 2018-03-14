@@ -183,9 +183,9 @@ function HasCombos(properties){
    */
   this.fillBoardSpaceData=function(){
     var data = {};
-    if(properties.startBlocks && this.startBlockIndex < properties.startBlocks.length){
-      data.color = properties.startBlocks[this.startBlockIndex].color;
-      data.shape = properties.startBlocks[this.startBlockIndex].shape;
+    if(this.startBlocks && this.startBlockIndex < this.startBlocks.length){
+      data.color = this.startBlocks[this.startBlockIndex].color;
+      data.shape = this.startBlocks[this.startBlockIndex].shape;
       this.startBlockIndex++;
     }else{
       data.color = this._getRandomColor();

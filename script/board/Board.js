@@ -90,7 +90,7 @@ function Board(screen,seed,level,properties,options){
    * @param {int} level
    */
   this.setLevel=function(level){
-    $('.level .value').text(level);
+    $('.'+this.screen+'.menuScreen .level .value').text(level);
   };
 
 

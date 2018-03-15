@@ -48,7 +48,7 @@ function HasCombos(properties){
     if(e.data.score>0){
       if(e.data.source!=='initial'){
         this.updateScore(e.data.score);
-        $('.timer').data('node').increaseTime(e.data.score);
+        $('.'+this.screen+'.screen .timer').data('node').increaseTime(e.data.score);
       }
       this.updateGridPostCombo(e.data.grid);
       $.when(this.sleep(this.sleepTime)).then($.proxy(function() {

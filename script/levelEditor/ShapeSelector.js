@@ -27,7 +27,7 @@ function ShapeSelector(){
     '<option value="triangle">Triangle</option>'+
     '<option value="square">Square</option>'+
     '<option value="pentagon">Pentagon</option>'+
-    '<option vlaue="circle">Circle</option>'+
+    '<option value="circle">Circle</option>'+
     '<option value="rabbet">Rabbet</option>'+
     '<option value="star">Star</option>'+
     '</select>'+

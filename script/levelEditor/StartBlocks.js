@@ -32,7 +32,7 @@ function StartBlocks(){
     '<option value="red" class="red">Red</option>'+
     '<option value="orange" class="orange">Orange</option>'+
     '<option value="yellow" class="yellow">Yellow</option>'+
-    '<option vlaue="green" class="green">Green</option>'+
+    '<option value="green" class="green">Green</option>'+
     '<option value="blue" class="blue">Blue</option>'+
     '<option value="purple" class="purple">Purple</option>'+
     '<option value="rainbow" class="rainbow">Rainbow</option>'+

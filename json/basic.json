@@ -10,7 +10,7 @@
 			},
 			"levelBlocks":[{
 				"trigger":"score",
-				"value":"value",
+				"value":0,
 				"colors": ["red", "green", "blue", "orange", "purple"],
 				"shapes": ["square", "circle", "pentagon", "rabbet"],
 				"blocks": [

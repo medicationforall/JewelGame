@@ -154,16 +154,10 @@ function Board(screen,seed,level,properties,options){
    *
    */
   this.checkLevelBlocks=function(){
-    var next = this.levelBlocks[this.levelBlockIndex+1];
+    var next = this.levelBlocks[this.levelBlockIndex];
 
     if(next!==undefined){
-      var trigger = next.trigger;
-      var value = next.value;
-
-      if(this[trigger]>=value){
-        this.levelBlockIndex++;
-        this.setLevelBlock(next);
-      }
+      this.setLevelBlock(next);
     }
   };
 
@@ -172,17 +166,23 @@ function Board(screen,seed,level,properties,options){
    *
    */
   this.setLevelBlock=function(levelBlock){
-    if(levelBlock.shapes!==undefined){
-      this.shapes=levelBlock.shapes;
-    }
+    var trigger = levelBlock.trigger;
+    var value = levelBlock.value;
 
-    if(levelBlock.colors!==undefined){
-      this.colors=levelBlock.colors;
-    }
+    if(this[trigger]>=value){
+      if(levelBlock.shapes!==undefined){
+        this.shapes=levelBlock.shapes;
+      }
 
-    if(levelBlock.blocks!==undefined && levelBlock.blocks.length>0){
-      this.startBlocks=levelBlock.blocks;
-      this.startBlocksIndex=0;
+      if(levelBlock.colors!==undefined){
+        this.colors=levelBlock.colors;
+      }
+
+      if(levelBlock.blocks!==undefined && levelBlock.blocks.length>0){
+        this.startBlocks=levelBlock.blocks;
+        this.startBlocksIndex=0;
+      }
+      this.levelBlockIndex++;
     }
   };
 

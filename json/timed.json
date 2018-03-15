@@ -5,6 +5,7 @@
     "seed": "10x9",
     "width": 10,
     "height": 9,
+		"timeLimit":30,
     "endCondition": {
       "remainingJewels": 300
     },
@@ -15,6 +16,7 @@
     "seed": "Infinite",
     "width": 9,
     "height": 9,
+		"timeLimit":30,
     "colors": ["red", "green", "blue", "orange", "purple","yellow","rainbow"],
     "shapes": ["square", "circle", "pentagon", "rabbet","star"],
     "endCondition": {

@@ -1,0 +1,123 @@
+﻿{
+	"name": "Fire and Ice",
+	"seed": "fireandice",
+	"width": 5,
+	"height": 7,
+	"colors": ["green", "blue", "purple"],
+	"shapes": ["triangle", "square", "pentagon", "circle", "rabbet"],
+	"endCondition": {
+		"maxScore": 30
+	},
+	"startBlocks": [{
+			"shape": "square",
+			"color": "orange"
+		}, {
+			"shape": "pentagon",
+			"color": "yellow"
+		}, {
+			"shape": "square",
+			"color": "orange"
+		}, {
+			"shape": "triangle",
+			"color": "yellow"
+		}, {
+			"shape": "square",
+			"color": "yellow"
+		}, {
+			"shape": "rabbet",
+			"color": "yellow"
+		}, {
+			"shape": "circle",
+			"color": "red"
+		}, {
+			"shape": "square",
+			"color": "red"
+		}, {
+			"shape": "square",
+			"color": "yellow"
+		}, {
+			"shape": "pentagon",
+			"color": "yellow"
+		}, {
+			"shape": "circle",
+			"color": "red"
+		}, {
+			"shape": "rabbet",
+			"color": "orange"
+		}, {
+			"shape": "triangle",
+			"color": "orange"
+		}, {
+			"shape": "rabbet",
+			"color": "red"
+		}, {
+			"shape": "square",
+			"color": "red"
+		}, {
+			"shape": "circle",
+			"color": "stone"
+		}, {
+			"shape": "rabbet",
+			"color": "stone"
+		}, {
+			"shape": "triangle",
+			"color": "stone"
+		}, {
+			"shape": "circle",
+			"color": "stone"
+		}, {
+			"shape": "triangle",
+			"color": "stone"
+		}, {
+			"shape": "rabbet",
+			"color": "purple"
+		}, {
+			"shape": "square",
+			"color": "green"
+		}, {
+			"shape": "circle",
+			"color": "blue"
+		}, {
+			"shape": "circle",
+			"color": "purple"
+		}, {
+			"shape": "rabbet",
+			"color": "purple"
+		}, {
+			"shape": "triangle",
+			"color": "green"
+		}, {
+			"shape": "circle",
+			"color": "purple"
+		}, {
+			"shape": "square",
+			"color": "purple"
+		}, {
+			"shape": "square",
+			"color": "green"
+		}, {
+			"shape": "rabbet",
+			"color": "blue"
+		}, {
+			"shape": "rabbet",
+			"color": "purple"
+		}, {
+			"shape": "pentagon",
+			"color": "blue"
+		}, {
+			"shape": "circle",
+			"color": "blue"
+		}, {
+			"shape": "circle",
+			"color": "purple"
+		}, {
+			"shape": "pentagon",
+			"color": "green"
+		}
+	],
+  "levelBlocks":[{
+    "trigger":"score",
+    "value":10,
+    "colors":["red","orange","yellow"]
+  }];
+}

@@ -21,6 +21,7 @@ python -m http.server
 ## Libraries
 This Application uses:
 * [jQuery](https://jquery.com/)
+* [jQuery UI](https://jqueryui.com/)
 * [seedrandom.js](https://github.com/davidbau/seedrandom)
 * [Animate.css](https://daneden.github.io/animate.css/)
 * [Store.js](https://github.com/marcuswestin/store.js)

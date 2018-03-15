@@ -215,14 +215,28 @@ function Board(screen,seed,level,properties,options){
    * @returns {Space} The created Space Object.
    */
   this._buildBoardSpace=function(index){
+    var data={};
     var space = null;
     if(this.startBlocks && this.startBlocks[index]){
-      var data = this.startBlocks[index];
-      space = new Space(data.color,data.shape,index);
+      if(this.startBlocks[index].color!=='random'){
+        data.color = this.startBlocks[index].color;
+      }else{
+        data.color = this._getRandomColor();
+      }
+
+      if(this.startBlocks[index].shape!=='random'){
+        data.shape = this.startBlocks[index].shape;
+      }else{
+        data.shape = this._getRandomShape();
+      }
+
       this.startBlockIndex++;
     }else{
-      space = new Space(this._getRandomColor(),this._getRandomShape(),index);
+      data.color = this._getRandomColor();
+      data.shape = this._getRandomShape();
     }
+
+    space = new Space(data.color,data.shape,index);
     return space;
   };
 

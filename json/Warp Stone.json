@@ -1,0 +1,88 @@
+﻿{
+	"name": "Warp Stone",
+	"seed": "warpstone",
+	"width": 5,
+	"height": 5,
+	"colors": ["red", "orange", "yellow", "green", "blue", "purple", "warp", "stone"],
+	"shapes": ["triangle", "pentagon", "circle", "rabbet"],
+	"endCondition": {
+		"maxScore": 30
+	},
+	"startBlocks": [{
+			"shape": "star",
+			"color": "purple"
+		}, {
+			"shape": "circle",
+			"color": "green"
+		}, {
+			"shape": "triangle",
+			"color": "yellow"
+		}, {
+			"shape": "circle",
+			"color": "orange"
+		}, {
+			"shape": "star",
+			"color": "red"
+		}, {
+			"shape": "pentagon",
+			"color": "blue"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "pentagon",
+			"color": "purple"
+		}, {
+			"shape": "circle",
+			"color": "purple"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "pentagon",
+			"color": "warp"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "circle",
+			"color": "purple"
+		}, {
+			"shape": "pentagon",
+			"color": "yellow"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "square",
+			"color": "stone"
+		}, {
+			"shape": "rabbet",
+			"color": "orange"
+		}, {
+			"shape": "star",
+			"color": "orange"
+		}, {
+			"shape": "pentagon",
+			"color": "yellow"
+		}, {
+			"shape": "square",
+			"color": "green"
+		}, {
+			"shape": "triangle",
+			"color": "red"
+		}, {
+			"shape": "star",
+			"color": "purple"
+		}
+	]
+}

@@ -184,8 +184,17 @@ function HasCombos(properties){
   this.fillBoardSpaceData=function(){
     var data = {};
     if(this.startBlocks && this.startBlockIndex < this.startBlocks.length){
-      data.color = this.startBlocks[this.startBlockIndex].color;
-      data.shape = this.startBlocks[this.startBlockIndex].shape;
+      if(this.startBlocks[this.startBlockIndex].color!=='random'){
+        data.color = this.startBlocks[this.startBlockIndex].color;
+      }else{
+        data.color = this._getRandomColor();
+      }
+
+      if(this.startBlocks[this.startBlockIndex].shape!=='random'){
+        data.shape = this.startBlocks[this.startBlockIndex].shape;
+      }else{
+        data.shape = this._getRandomShape();
+      }
       this.startBlockIndex++;
     }else{
       data.color = this._getRandomColor();

@@ -30,6 +30,10 @@ function UserGameData(){
     var currentLevel = data.level;
     if(data.win){
       currentLevel++;
+
+      if(currentLevel === this.levelSet.levels.length){
+        currentLevel = 0;
+      }
     }
     var uData = {};
     uData.currentLevel=currentLevel;

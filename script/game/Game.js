@@ -35,6 +35,7 @@ function Game(){
   LevelManager.call(this);
   UserOptions.call(this);
   UserGameData.call(this);
+  UserLevels.call(this);
   Music.call(this);
 
 
@@ -47,8 +48,9 @@ function Game(){
     var sLevels = this.getLevelsFromJson('stone.json');
     var eLevels = this.getLevelsFromJson('random.json');
     var tLevels = this.getLevelsFromJson('timed.json');
+    var uLevels = this.getUserLevels();
 
-    $.when(bLevels,rLevels,sLevels,eLevels,tLevels).done($.proxy(this._resolvedLevels,this)).fail(function(){
+    $.when(bLevels,rLevels,sLevels,eLevels,tLevels,uLevels).done($.proxy(this._resolvedLevels,this)).fail(function(){
       console.log( "Failed to load level data - error" );
     });
   };
@@ -58,12 +60,13 @@ function Game(){
    * Handle loaded levels.
    * @private
    */
-  this._resolvedLevels=function(bData, rData, sData, eData,tData){
+  this._resolvedLevels=function(bData, rData, sData, eData,tData,uLevels){
     this.addLoadedLevels(bData[0].levels);
     this.addLoadedLevels(rData[0].levels);
     this.addLoadedLevels(sData[0].levels);
     this.addLoadedLevels(eData[0].levels);
     this.addLoadedLevels(tData[0].levels);
+    this.addLoadedLevels(uLevels);
 
     $('.levelSelect').data('node').setLevelSet(this.levelSet);
 

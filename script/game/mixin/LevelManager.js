@@ -24,6 +24,15 @@ function LevelManager(){
     this.levelSet.levels = this.levelSet.levels.concat(levels);
   };
 
+
+  /**
+   *
+   */
+  this.addLevel=function(level){
+    this.levelSet.levels.push(level);
+  };
+
+
   /**
    * Start a level determined by the given level.
    * @param {int} lv level number.

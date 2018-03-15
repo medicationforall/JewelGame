@@ -84,6 +84,17 @@ function LevelSelect(){
 
 
   /**
+   *
+   */
+  this.addCustomLevel=function(level){
+    var index = this.levels.length-1;
+    this.addLevel(index,level);
+    this.levels.push(level);
+    this.unlockLevel(index);
+  };
+
+
+  /**
    * Adds a level to the list of available levels.
    */
   this.addLevel=function(index,level){

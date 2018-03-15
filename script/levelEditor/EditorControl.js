@@ -43,7 +43,32 @@ function EditorControl(){
   this.node.append(this.endCondition.node);
 
   //reset button
-  this.node.append('<a href="" class="restart button" title="Update and Restart the game.">Apply</a>');
+  this.node.append('<a href="" class="restart button" title="Update and Restart the game.">Apply</a><br />');
+  this.node.append('<a href="" class="addLevel button" title="Add Level.">Add Level</a>');
+
+
+  /**
+   *
+   */
+  this.node.find('.addLevel.button').on('click',$.proxy(function(editor,event){
+    event.preventDefault();
+    console.log('add level button');
+    editor.addLevel();
+  },null,this));
+
+
+  /**
+   *
+   */
+  this.addLevel=function(){
+    console.log('add level');
+    var data = this.getData();
+    var game = $('.game.screen').data('node');
+    var levelSelect = $('.levelSelect.screen').data('node');
+    game.addUserLevel(data);
+    game.addLevel(data);
+    levelSelect.addCustomLevel(data);
+  };
 
 
   /**

@@ -451,6 +451,7 @@ h2{
   color:#000;
   resize:horizontal;
   overflow:auto;
+  font-size:15pt;
 }
 
 .editorControl a{

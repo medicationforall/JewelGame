@@ -1,7 +1,7 @@
 function ColorSelector(){
   this.template=  '<div class="control">'+
     'Colors:'+
-    '<select name="colorSelect">'+
+    '<select name="colorSelect" style="margin-left:5px">'+
     '<option value="red">Red</option>'+
     '<option value="orange">Orange</option>'+
     '<option value="yellow">Yellow</option>'+

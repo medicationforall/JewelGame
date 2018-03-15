@@ -23,7 +23,7 @@
 function ShapeSelector(){
   this.template=  '<div class="control">'+
     'Shapes:'+
-    '<select name="shapeSelect">'+
+    '<select name="shapeSelect" style="margin-left:2px">'+
     '<option value="triangle">Triangle</option>'+
     '<option value="square">Square</option>'+
     '<option value="pentagon">Pentagon</option>'+

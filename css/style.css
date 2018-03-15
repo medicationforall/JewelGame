@@ -89,7 +89,7 @@ h2{
   display:none;
   background:#5151a0;
   color:#fff;
-  width:200px;
+  width:206px;
   height:calc(100% - 10px);
   position:absolute;
   padding:5px;
@@ -321,7 +321,6 @@ h2{
 
 /*Level Select*/
 .levelSelect{
-  padding-top:20px;
   /*text-align:center;*/
   font-size:16pt;
 }
@@ -462,6 +461,11 @@ h2{
   margin:5px 5px;
 }
 
+.editorControl .control.inline{
+  display:inline-block;
+  margin:0px;
+}
+
 
 .editorControl .startBlocksList{
   height:150px;
@@ -469,6 +473,7 @@ h2{
   overflow:auto;
   resize:both;
 }
+
 
 .editorControl .startBlocksList .startBlock{
   width:30px;

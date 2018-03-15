@@ -1,5 +1,5 @@
 function DownloadControl(){
-  this.template='<div class="control">'+
+  this.template='<div class="control inline">'+
   '<span class="Download" title="Download">'+
   '<svg class="Icon download" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 32px; width: 32px;"><path d="M0 0h512v512H0z" fill="transparent" fill-opacity="0"></path><g class="" transform="translate(0,0)" style="touch-action: none;">'+
   '<path d="M64 48c-8.726 0-16 7.274-16 16v384c0 8.726 7.274 16 16 16h236.25l-16-16H64V64h63.375v97.53c0 3.924 3.443 7.095 7.72 7.095h169.81c4.277 0 7.72-3.17 7.72-7.094V64h69.22c.428.318.8.548 1.467 1.094 2.05 1.675 4.962 4.264 8.375 7.406 6.827 6.283 15.65 '+

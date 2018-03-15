@@ -51,7 +51,7 @@ h2{
 
 /*Header*/
 .header{
-  height: 70px;
+  height: 60px;
 }
 
 .header, .header a{
@@ -147,7 +147,7 @@ h2{
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 27% 76%, 10% 100%, 11% 76%, 0% 75%);
   transition:opacity 1s;
   position:absolute;
-  top: 3px;
+  top: 0px;
   left: 34px;
   z-index:5;
 }

@@ -43,7 +43,7 @@ The first level "R-4" does not have a seed and it's block placement will always 
   - endCondition (object, required) Specifies how the end level win condition.
     - *maxScore|minScore|remainingMoves|minMoves|remainingJewels|minJewels* (int, required) Key is the wincondition type, the value what the player must achieve.
   - tipType (string *score|move*, optional) What all of tips are triggered by.
-  - tips (array[Tip, optional]) List of tips to be displayed when certain conditions are met.
+  - tips (array[Tip], optional) List of tips to be displayed when certain conditions are met.
     - *score|move* (int, required) Key is the trigger condition, value is when it's triggered.
     - message (string, required) Message to be displayed
     - highlight (array[int], optional) List of cells to be highlighted

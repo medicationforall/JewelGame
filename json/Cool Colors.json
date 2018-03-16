@@ -1,0 +1,11 @@
+﻿{
+	"name": "Cool Colors",
+	"seed": "coolco",
+	"width": 4,
+	"height": 4,
+	"colors": ["stone", "warp", "purple", "blue", "green"],
+	"shapes": ["triangle", "square", "pentagon", "circle", "rabbet"],
+	"endCondition": {
+		"maxScore": 30
+	}
+}

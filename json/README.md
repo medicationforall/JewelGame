@@ -31,12 +31,12 @@ A list of levels.
     - blocks (array[Block], optional) List of block to use instead of random generation.
       - color (string *red|orange|yellow|green|blue|purple|rainbow|stone|warp*, required) Color of the block.
       - shape (string *triangle|square|pentagon|rabbet|start|circle*, required) Shape of the Block.
-      
 
-      
+
+
 ## Level Example
 
-`
+```
 {
   "name": "Stone 8x8",
   "seed": "8x8",
@@ -48,4 +48,4 @@ A list of levels.
     "maxScore": 50
   }
 }
-`
+```

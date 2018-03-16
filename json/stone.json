@@ -317,7 +317,17 @@
 	    "value":20,
 	    "colors":["green","blue","purple"]
 	  }]
-	} ,{
+	}, {
+		"name": "Cool Colors",
+		"seed": "coolco",
+		"width": 4,
+		"height": 4,
+		"colors": ["stone", "warp", "purple", "blue", "green"],
+		"shapes": ["triangle", "square", "pentagon", "circle", "rabbet"],
+		"endCondition": {
+			"maxScore": 30
+		}
+	}, {
     "name": "Stone 8x8",
     "seed": "8x8",
     "width": 8,
@@ -327,7 +337,7 @@
     "endCondition": {
       "maxScore": 50
     }
-  },{
+  }, {
     "name": "9x9",
     "seed": "9x9",
     "width": 9,

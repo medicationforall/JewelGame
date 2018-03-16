@@ -1,12 +1,40 @@
 # LevelSet
-A list of levels.
+Is a listing of levels.
+
+## Basic Example
+This is a very basic levelSet definition with two levels.
+
+```
+{
+  levels:[
+    {
+      "name": "R-4",
+      "width": 4,
+      "height": 4,
+      "colors": ["red", "green", "orange", "yellow", "purple"],
+      "shapes": ["square", "circle", "triangle", "pentagon", "rabbet", "star"],
+      "endCondition": {"remainingJewels": 60}
+    }, {
+    	"name": "Cool Colors",
+    	"seed": "coolco",
+    	"width": 4,
+    	"height": 4,
+    	"colors": ["stone", "warp", "purple", "blue", "green"],
+    	"shapes": ["triangle", "square", "pentagon", "circle", "rabbet"],
+    	"endCondition": {"maxScore": 30}
+    }
+  ]
+}
+```
+The first level "R-4" does not have a seed and it's block placement will always be random everytime the level is played. The second level "Cool Colors" does have a seed and it's block placement will be the same everytime the level is played.
+
 
 ## Properties
 
-- name (string, optional)
-- levels (array[Level], required)
+- name (string, optional) Name of the levelSet.
+- levels (array[Level], required) The list of levels.
   - name (string, required) Name of the level.
-  - seed (string, optional) Seed for block creation.
+  - seed (string, optional) When set makes block creation repeatable.
   - width (int, required) Number of columns.
   - height (int, required) Number of rows.
   - colors (array[string] *red|orange|yellow|green|blue|purple|rainbow|stone|warp*, optional) When creating blocks use these colors.
@@ -31,21 +59,3 @@ A list of levels.
     - blocks (array[Block], optional) List of block to use instead of random generation.
       - color (string *red|orange|yellow|green|blue|purple|rainbow|stone|warp*, required) Color of the block.
       - shape (string *triangle|square|pentagon|rabbet|start|circle*, required) Shape of the Block.
-
-
-
-## Level Example
-
-```
-{
-  "name": "Stone 8x8",
-  "seed": "8x8",
-  "width": 8,
-  "height": 8,
-  "colors": ["red", "green", "blue", "orange", "purple","yellow","stone"],
-  "shapes": ["square", "circle", "pentagon", "rabbet","star"],
-  "endCondition": {
-    "maxScore": 50
-  }
-}
-```

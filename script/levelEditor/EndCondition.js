@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file EndCondition,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Game end condition control.
+ * @class
+ */
 function EndCondition(){
   this.template=  '<div class="control">'+
     'Win Condition:<br />'+
@@ -16,8 +38,9 @@ function EndCondition(){
 
   this.endCondition={"maxScore":30};
 
+
   /**
-   *
+   * Win condition select change.
    */
   this.node.find('select[name="winCondition"]').on('change',$.proxy(function(editor,event){
     var winCondition = $(this).val();
@@ -30,7 +53,7 @@ function EndCondition(){
 
 
   /**
-   *
+   * Win value input change.
    */
   this.node.find('input[name="winValue"]').on('input',$.proxy(function(editor,event){
     var winCondition = editor.node.find('select[name="winCondition"]').val();
@@ -43,7 +66,8 @@ function EndCondition(){
 
 
   /**
-   *
+   * Set the level end condition.
+   * @param {object} endCondition {"maxScore",30}
    */
   this.setEndCondition=function(endCondition){
     this.endCondition=endCondition;
@@ -61,7 +85,8 @@ function EndCondition(){
 
 
   /**
-   *
+   * Get the level end condition data.
+   * @return {object} Example: {"maxScore",30}
    */
   this.getEndCondition=function(){
     return this.endCondition;

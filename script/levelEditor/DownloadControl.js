@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file DownloadControl,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Download level data control.
+ * @class
+ */
 function DownloadControl(){
   this.template='<div class="control inline">'+
   '<span class="Download" title="Download Level Data">'+
@@ -11,7 +33,7 @@ function DownloadControl(){
 
 
   /**
-   *
+   * Download click.
    */
   this.node.find('svg.download').on('click',$.proxy(function(editor,event){
     console.log('clicked download icon');
@@ -20,7 +42,7 @@ function DownloadControl(){
 
 
   /**
-   *
+   * Gather and save the level data.
    */
   this.downloadLevelEditorData=function(){
     console.log('download level editor data');
@@ -37,7 +59,7 @@ function DownloadControl(){
 
 
   /**
-   *
+   * Save the file.
    */
   this.saveFile=function(data){
     this.saveAsFile(JSON.stringify(data),data.name+'.json',"text/plain;charset=utf-8");

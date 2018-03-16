@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file LevelEditor,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Level editor screen.
+ * @class
+ */
 function LevelEditor(){
   this.seed ='jewel-game';
   this.template='<div class="levelEditor screen">'+
@@ -23,8 +45,11 @@ function LevelEditor(){
   },this.options);
   this.node.append(this.board.node);
 
+
   /**
-   *
+   * Update the game board being edited.
+   * @param {object} levelData
+   * @todo split out resetBoard function.
    */
   this.updateBoard=function(levelData){
     if(levelData===undefined){
@@ -60,5 +85,4 @@ function LevelEditor(){
     $('.endLevel').data('node').setEndLevelData(data,'levelEditor');
     $('.screenControl').data('node').displayScreen('endLevel');
   },this));
-
 }

@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file EditorControl,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+/**
+ * EditorControl form contains all of level editing controls.
+ * @class
+ */
 function EditorControl(){
   this.template='<div class="editorControl">'+
   '<h2>Level Editor</h2>'+
@@ -44,11 +66,13 @@ function EditorControl(){
 
   //reset button
   this.node.append('<a href="" class="restart button" title="Update and Restart the game.">Apply</a><br />');
+
+  //add level button
   this.node.append('<a href="" class="addLevel button" title="Add Level.">Add Level</a>');
 
 
   /**
-   *
+   * Add Level click.
    */
   this.node.find('.addLevel.button').on('click',$.proxy(function(editor,event){
     event.preventDefault();
@@ -58,7 +82,7 @@ function EditorControl(){
 
 
   /**
-   *
+   * Add a level.
    */
   this.addLevel=function(){
     console.log('add level');
@@ -72,7 +96,7 @@ function EditorControl(){
 
 
   /**
-   *
+   * Restart the board click.
    */
   this.node.find('.restart.button').on('click',$.proxy(function(event){
     event.preventDefault();
@@ -82,7 +106,7 @@ function EditorControl(){
 
 
   /**
-   *
+   * Update the player game board.
    */
   this.updateBoard=function(force){
     if(force || this.liveEdit.getLiveEdit()){
@@ -92,7 +116,20 @@ function EditorControl(){
 
 
   /**
-   *
+   * Get the level data
+   * @return {object} The level data.
+   * Example output:
+   * {
+   *   "name": "Stone 8x8",
+   *   "seed": "8x8",
+   *   "width": 8,
+   *   "height": 8,
+   *   "colors": ["red", "green", "blue", "orange", "purple","yellow","stone"],
+   *   "shapes": ["square", "circle", "pentagon", "rabbet","star"],
+   *   "endCondition": {
+   *     "maxScore": 50
+   *   }
+   * }
    */
   this.getData=function(){
     var data={};
@@ -124,7 +161,8 @@ function EditorControl(){
 
 
   /**
-   *
+   * Set the level data.
+   * @param {object} data
    */
   this.setData=function(data){
     this.nameControl.setName(data.name);

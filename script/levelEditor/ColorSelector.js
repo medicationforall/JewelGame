@@ -1,3 +1,25 @@
+/**
+ *   Jewel Game source file ColorSelector,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Level Editor color selector.
+ * @class
+ */
 function ColorSelector(){
   this.template=  '<div class="control">'+
     'Colors:'+
@@ -32,15 +54,16 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Make colors sortable.
    */
   this.node.find('.colors.control').sortable({update:$.proxy(function(){
     console.log('update color order');
     this.changeColorOrder();
   },this)});
 
+
   /**
-   *
+   * Double clicking on a color deletes it.
    */
   this.node.find('.colors.control').on('dblclick','.colorSelection',$.proxy(function(editor,event){
     console.log('double clicked colorSelection');
@@ -51,7 +74,7 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Change the color order.
    */
   this.changeColorOrder=function(event,ui){
     console.log('change color order');
@@ -61,7 +84,7 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Update the colors.
    */
   this.updateColors=function(){
       this.colors=[];
@@ -74,7 +97,7 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Add color click.
    */
   this.node.find('.addColor').on('click',$.proxy(function(editor,event){
     event.preventDefault();
@@ -87,7 +110,8 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Set colors.
+   * @param {array} colors ['red','orange','yellow','green','blue','purple']
    */
   this.setColors=function(colors){
     //reset
@@ -101,7 +125,7 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Add a color.
    */
   this.addColor=function(color){
     this.colors.push(color);
@@ -110,11 +134,10 @@ function ColorSelector(){
 
 
   /**
-   *
+   * Get colors.
+   * @return {array} The array of colors.
    */
   this.getColors=function(){
     return this.colors;
   };
-
-
 }

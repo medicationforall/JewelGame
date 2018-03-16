@@ -1,3 +1,20 @@
+/**
+ *   Jewel Game source file UploadControl,
+ *   Copyright (C) 2018  James M Adams
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Lesser General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Lesser General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Lesser General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 function UploadControl(){
   this.template='<div class="control inline">'+
   '<span class="Upload" title="Upload Level Data">'+
@@ -9,14 +26,6 @@ function UploadControl(){
   '</div>';
   this.node=$(this.template);
   this.node.data('node',this);
-
-  /**
-   *
-   */
-  /*this.node.find('svg.upload').on('click',$.proxy(function(editor,event){
-    console.log('clicked upload icon');
-    editor.uploadLevelEditorData();
-  },null,this));*/
 
 
   /**

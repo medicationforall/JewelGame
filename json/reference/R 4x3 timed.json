@@ -1,0 +1,12 @@
+﻿{
+	"name": "R 4x3 timed",
+	"seed": "cool",
+	"width": 5,
+	"height": 4,
+	"colors": ["green", "blue", "purple", "rainbow", "yellow", "orange"],
+	"shapes": ["square", "pentagon", "circle", "rabbet", "star"],
+	"timeLimit": 60,
+	"endCondition": {
+		"minScore": 70
+	}
+}

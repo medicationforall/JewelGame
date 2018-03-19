@@ -1,0 +1,12 @@
+﻿{
+	"name": "R 3x4 warp timed",
+	"seed": "cool",
+	"width": 3,
+	"height": 4,
+	"colors": ["green", "blue", "rainbow", "yellow", "warp"],
+	"shapes": ["square", "pentagon", "circle", "rabbet"],
+	"timeLimit": 60,
+	"endCondition": {
+		"minScore": 100
+	}
+}

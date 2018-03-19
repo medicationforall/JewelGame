@@ -23,5 +23,40 @@
     },
     "colors": ["red", "green", "orange", "purple", "yellow", "rainbow"],
     "shapes": ["square", "circle", "triangle", "pentagon", "star"]
-  }]
+  }, {
+		"name": "R 4x3",
+		"seed": "ra",
+		"width": 4,
+		"height": 3,
+		"colors": ["red", "orange", "yellow", "green", "blue", "purple", "rainbow"],
+		"shapes": ["triangle", "square", "circle", "star"],
+		"endCondition": {
+			"maxScore": 40
+		}
+  }, {
+		"name": "R 4x3 timed",
+		"seed": "cool",
+		"width": 5,
+		"height": 4,
+		"colors": ["green", "blue", "purple", "rainbow", "yellow", "orange"],
+		"shapes": ["square", "pentagon", "circle", "rabbet", "star"],
+		"timeLimit": 60,
+		"endCondition": {
+			"minScore": 70
+		}
+	}, {
+		"name": "R 3x4 warp timed",
+		"seed": "cool",
+		"width": 3,
+		"height": 4,
+		"colors": ["green", "blue", "rainbow", "yellow", "warp"],
+		"shapes": ["square", "pentagon", "circle", "rabbet"],
+		"timeLimit": 60,
+		"endCondition": {
+			"minScore": 100
+		},
+		"tips":[
+			{"score":0,"message":"Warp Stones can be swapped with any other block regardless of proximity!"}
+		]
+	}]
 }

@@ -187,9 +187,6 @@
 				"shape": "star",
 				"color": "purple"
 			}
-		],
-		"tips":[
-			{"score":0,"message":"Warp Stones can be swapped with any other block regardless of proximity!"}
 		]
 	},{
 		"name": "Fire and Ice",

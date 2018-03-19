@@ -213,9 +213,9 @@ body{
 }
 
 /*Warp*/
-.warp ~ .highlight{
+/*.warp ~ .highlight{
   display:none;
-}
+}*/
 
 .warp{
   background: purple url('image/warp/warp2.png') 8px 8px;

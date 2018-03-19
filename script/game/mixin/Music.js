@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Manages music playback and applies user options in regards to volume and mute.
+ * @mixin
+ */
 function Music(){
   musicDataFile = 'music.json';
   this.songList=[];
@@ -24,7 +29,7 @@ function Music(){
   this.musicVolume=100;
 
   /**
-   *
+   * Retreive the list of available songs.
    */
   $.getJSON('json/'+musicDataFile).done($.proxy(function(data){
     this.songList = data.songs;
@@ -32,7 +37,8 @@ function Music(){
 
 
   /**
-   *
+   * Play a song for a particular level.
+   * @param {int} lvNo Level Number.
    */
   this.startMusic=function(lvNo){
     if(this.song){
@@ -51,7 +57,8 @@ function Music(){
 
 
   /**
-   *
+   * From the given lvlNo get that levels data and determine which song to play.
+   * @param {int} lvlNo Level Number.
    */
   this.resolveSongName=function(lvlNo){
     var songName = "";
@@ -72,7 +79,8 @@ function Music(){
 
 
   /**
-   *
+   * From the given songName add it or retrieve it from the songCache.
+   * @return {Howl} The song in a playable object.
    */
   this.resolveSongFile=function(songName){
     console.log('get this song'+songName);
@@ -90,7 +98,8 @@ function Music(){
 
 
   /**
-   *
+   * Set if music is enabled.
+   * @param {boolean} value
    */
   this.setMusicEnabled=function(value){
     console.log('setting music enabled for game');
@@ -107,7 +116,8 @@ function Music(){
 
 
   /**
-   *
+   * Set music volume.
+   * @param {int} value 0-100
    */
   this.setMusicVolume=function(value){
     this.musicVolume=value;

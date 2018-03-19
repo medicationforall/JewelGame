@@ -15,6 +15,10 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+/**
+ * Manages starting and stopping levels.
+ * @mixin
+ */
 function LevelManager(){
   this.level = 0;
 
@@ -27,7 +31,8 @@ function LevelManager(){
   this.node.prepend(this.timer.node);
 
   /**
-   *
+   * Retrieve levels from the server.
+   * @param {string} levelFile The level file name.
    */
   this.getLevelsFromJson=function(levelFile){
     return $.getJSON('json/'+levelFile);
@@ -35,7 +40,7 @@ function LevelManager(){
 
 
   /**
-   *
+   * Add multiple loaded levels.
    */
   this.addLoadedLevels=function(levels){
     this.levelSet.levels = this.levelSet.levels.concat(levels);
@@ -43,7 +48,7 @@ function LevelManager(){
 
 
   /**
-   *
+   * Add a single level.
    */
   this.addLevel=function(level){
     this.levelSet.levels.push(level);

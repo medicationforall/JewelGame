@@ -17,7 +17,8 @@
  */
 
 /**
- * Options screen.
+ * Mixin for level stats of user performance on the LevelSelect screen.
+ * This data is retrieved and stored in the browser cache.
  * @mixin
  */
 function Stats(){

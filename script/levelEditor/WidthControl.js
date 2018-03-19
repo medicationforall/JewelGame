@@ -15,11 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 /**
- * Used for setting board width.
+ * Used for setting board width i.e. the number of block columns.
  * @class
- */ 
+ */
 function WidthControl(){
   this.template= '<div class="control">Width: <input name="width" type="number" min="3" value="3" style="width:50px;margin-left:5px" /></div>';
   this.node=$(this.template);
@@ -57,5 +57,4 @@ function WidthControl(){
   this.getWidth=function(){
     return this.width;
   };
-
 }

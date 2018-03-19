@@ -98,7 +98,7 @@ function Timer(){
 
 
   /**
-   * Resolve the color of the timerBar based on it's width
+   * Resolve the color of the timerBar based on it's width.
    * @param {int} width
    */
   this.resolveColor=function(width){

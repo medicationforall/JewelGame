@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Stores and retreives user game state and play history from the browser cache.
+ * @mixin
+ */
 function UserGameData(){
   this.startingLevel = 0;
   this.levelHistory = [];

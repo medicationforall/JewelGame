@@ -16,11 +16,16 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Web worker that checks for space drops due to combos.
+ */
+
 var data = {};
 var width = 0;
 var height = 0;
 
 /**
+ * Move an array node from one position to another.
  * https://stackoverflow.com/a/5306832
  */
 Array.prototype.move = function (old_index, new_index) {
@@ -36,7 +41,8 @@ Array.prototype.move = function (old_index, new_index) {
 
 
 /**
- *
+ * Check for spaces that need to be dropped in a column.
+ * @return {boolean}
  */
 var checkDropColumns=function(grid){
   var colCount = width;
@@ -63,7 +69,8 @@ var checkDropColumns=function(grid){
 
 
 /**
- *
+ * Check fro spaces that need to be dropped within an array.
+ * @return {boolean}
  */
 var checkArrayDrop=function(column){
   var emptyCount = 0;
@@ -88,7 +95,8 @@ var checkArrayDrop=function(column){
 
 
 /**
- *
+ * Main - when the worker's onMessage is invoked this is called.
+ * @param {event} e
  */
 onmessage = function(e) {
   data = {};

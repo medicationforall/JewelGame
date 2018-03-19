@@ -59,6 +59,12 @@ function Game(){
   /**
    * Handle loaded levels.
    * @private
+   * @param {response} bData Basic block levels.
+   * @param {response} rData Rainbow based levels.
+   * @param {response} sData Stone based levels.
+   * @param {response} eData Random levels (do not have a seed).
+   * @param {response} tData Timed Levels.
+   * @param {array} uLevels User created levels.
    */
   this._resolvedLevels=function(bData, rData, sData, eData,tData,uLevels){
     this.addLoadedLevels(bData[0].levels);

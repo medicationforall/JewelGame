@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Upload icon and file input.
+ * @class
+ */
 function UploadControl(){
   this.template='<div class="control inline">'+
   '<span class="Upload" title="Upload Level Data">'+
@@ -52,7 +57,8 @@ function UploadControl(){
 
 
   /**
-   *
+   * Apply the uploaded level data.
+   * @param {object}
    */
   this.uploadLevelEditorData=function(data){
     console.log('upload level editor data');

@@ -43,7 +43,8 @@ function EndLevel(data){
 
 
   /**
-   *
+   * Set end level status information and buttons.
+   * @todo split up this method.
    */
   this.setEndLevelData=function(data,source){
     this.node.find('.endLevel').text(data.level);
@@ -67,7 +68,7 @@ function EndLevel(data){
 
 
   /**
-   *
+   * Next level button click.
    */
   this.node.on('click','.nextLevelLink',$.proxy(function(event){
     event.preventDefault();
@@ -82,7 +83,7 @@ function EndLevel(data){
 
 
   /**
-   *
+   * Retry level click.
    */
   this.node.on('click','.retryLevelLink',$.proxy(function(event){
     event.preventDefault();

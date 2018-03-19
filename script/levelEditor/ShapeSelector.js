@@ -120,7 +120,7 @@ function ShapeSelector(){
 
 
   /**
-   * Add shape to the array
+   * Add shape to the array.
    * @param {string} shape
    */
   this.addShape=function(shape){
@@ -130,7 +130,8 @@ function ShapeSelector(){
 
 
   /**
-   *
+   * Get the shapes array.
+   * @return {array}
    */
   this.getShapes=function(){
     return this.shapes;

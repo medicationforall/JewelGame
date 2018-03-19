@@ -67,7 +67,6 @@ function LevelEditor(){
     this.node.append(this.board.node);
 
     if(levelData.timeLimit!==undefined){
-      //this.node.find('.timer .timerBar').css('width','100%');
       this.timer.setTimeLimit(levelData.timeLimit);
       this.timer.startTimer();
     }else{

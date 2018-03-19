@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Seed input for the level editor.
+ * @class
+ */
 function SeedControl(){
   this.template='<div class="control">Seed: <input name="seed" style="width:100px;margin-left:9px" /></div>';
   this.node=$(this.template);
@@ -23,7 +28,7 @@ function SeedControl(){
 
 
   /**
-   *
+   * Seed input change.
    */
   this.node.find('input[name="seed"]').on('input',$.proxy(function(editor){
     var value = $(this).val();
@@ -34,7 +39,8 @@ function SeedControl(){
 
 
   /**
-   *
+   * Set the seed.
+   * @param {string} seed
    */
   this.setSeed=function(seed){
     this.seed=seed;
@@ -43,10 +49,10 @@ function SeedControl(){
 
 
   /**
-   *
+   * Get the seed.
+   * @return {string}
    */
   this.getSeed=function(){
     return this.seed;
   };
-
 }

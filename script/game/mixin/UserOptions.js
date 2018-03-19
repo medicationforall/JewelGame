@@ -15,11 +15,16 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Storing and loading user options from the browser cache.
+ * @mixin
+ */
 function UserOptions(){
   this.options=undefined;
 
   /**
-   *
+   * Get stored user options.
    */
   this.getStoredOptions=function(){
     this.options = store.get('options');

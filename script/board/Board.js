@@ -78,7 +78,8 @@ function Board(screen,seed,level,properties,options){
   };
 
   /**
-   *
+   * Set the start blocks.
+   * @param {array}
    */
   this.setStartBlocks=function(blocks){
     this.startBlocks=blocks;
@@ -140,7 +141,8 @@ function Board(screen,seed,level,properties,options){
 
 
   /**
-   *
+   * Set the level blocks.
+   * @param {array} levelBlocks
    */
   this.setLevelBlocks=function(levelBlocks){
     if(levelBlocks !== undefined && levelBlocks.length>0){
@@ -151,7 +153,7 @@ function Board(screen,seed,level,properties,options){
 
 
   /**
-   *
+   * Check if next levelBlock set exists.
    */
   this.checkLevelBlocks=function(){
     var next = this.levelBlocks[this.levelBlockIndex];
@@ -163,7 +165,8 @@ function Board(screen,seed,level,properties,options){
 
 
   /**
-   *
+   * Set the levelBlock if the the trigger conditions have been met.
+   * @param {object} levelBlock
    */
   this.setLevelBlock=function(levelBlock){
     var trigger = levelBlock.trigger;
@@ -242,6 +245,7 @@ function Board(screen,seed,level,properties,options){
 
 
   /**
+   * Show a tip if trigger conditions have been met.
    * @param  {Object} prop locally passed properties to determine if the tip should be shown.
    */
   this.showTip=function(prop){

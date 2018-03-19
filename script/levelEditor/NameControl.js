@@ -15,6 +15,11 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * Level name input for the level editor.
+ * @class
+ */
 function NameControl(){
   this.template='<div class="control">Name: <input name="levelName" style="width:100px;margin-left:3px" /></div>';
   this.node=$(this.template);
@@ -23,7 +28,7 @@ function NameControl(){
 
 
   /**
-   *
+   * Name input change.
    */
   this.node.find('input[name="levelName"]').on('input',$.proxy(function(editor){
     $(this).removeClass('error');
@@ -35,7 +40,8 @@ function NameControl(){
 
 
   /**
-   *
+   * Set the level name.
+   * @param {string} name
    */
   this.setName=function(name){
     this.name=name;
@@ -44,7 +50,8 @@ function NameControl(){
 
 
   /**
-   *
+   * Get the level name.
+   * @return {string}
    */
   this.getName=function(){
     return this.name;
@@ -52,7 +59,7 @@ function NameControl(){
 
 
   /**
-   *
+   * Put the level name input into an error state.
    */
   this.error=function(){
     this.node.find('input[name="levelName"]').addClass('error');

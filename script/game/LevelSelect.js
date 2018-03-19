@@ -34,13 +34,13 @@ function LevelSelect(){
    * Level select accepts a konami code this is the monitor for it.
    * up, up, down, down, left, right, left, right, b, a
    */
-  this.konamiCode=function(cb) {
+  this.konamiCode=function(callback) {
     var input = '';
     var key = '38384040373937396665';
     document.addEventListener('keydown', function (e) {
       input += ("" + e.keyCode);
       if (input === key) {
-        return cb();
+        return callback();
       }
       if (!key.indexOf(input)) return;
       input = ("" + e.keyCode);
@@ -84,7 +84,8 @@ function LevelSelect(){
 
 
   /**
-   *
+   * Add a user created custom level.
+   * @param level Level data.
    */
   this.addCustomLevel=function(level){
     var index = this.levels.length-1;
@@ -96,6 +97,8 @@ function LevelSelect(){
 
   /**
    * Adds a level to the list of available levels.
+   * @param {int} index Level number.
+   * @param {object} level Level Data.
    */
   this.addLevel=function(index,level){
     var template = '<div class="levelSelection locked" data-level="'+index+'">'+
